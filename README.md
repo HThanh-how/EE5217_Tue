@@ -12,7 +12,7 @@
 
 ## 📖 Giới thiệu
 
-Dự án này tập trung vào phương pháp **Design for Test (DFT)** sử dụng kỹ thuật **Scan**. Đây là một trong những phương pháp quan trọng nhất trong thiết kế vi mạch hiện đại để đảm bảo khả năng kiểm tra (testability) của các mạch logic tuần tự phức tạp.
+Chapter này tập trung vào phương pháp **Design for Test (DFT)** sử dụng kỹ thuật **Scan**. Đây là một trong những phương pháp quan trọng nhất trong thiết kế vi mạch hiện đại để đảm bảo khả năng kiểm tra (testability) của các mạch logic tuần tự phức tạp.
 
 ## 🚀 Các khái niệm cốt lõi (Core Concepts)
 
@@ -50,4 +50,4 @@ Quy trình kiểm tra Scan diễn ra qua 3 bước chính:
 - **Giảm chi phí:** Rút ngắn thời gian kiểm tra và chẩn đoán lỗi sau khi sản xuất.
 
 ---
-*Dự án thuộc học phần: Sản xuất, Kiểm tra và Đóng gói vi mạch.*
+*Slide môn học: Sản xuất, Kiểm tra và Đóng gói vi mạch (EE5217_Tue).*
