@@ -1,0 +1,20 @@
+<div style="text-align: left; max-width: 1000px; display: flex; gap: 30px; align-items: center;">
+    <div>
+        <h2 style="color: var(--primary-color);">1. Khái quát về Scan Design & MUX-DFF</h2>
+        <p><b>Động lực:</b> Mạch tuần tự (Sequential) rất khó kiểm thử vì kết quả bị khoá trong các Flip-flops (State
+            lưu lại).</p>
+        <ul>
+            <li><b>Giải pháp:</b> Hoán cải mạch bằng cách thay thế DFF thường thành <b>Scan Flip-Flop (MUX-DFF)</b>.
+            </li>
+            <li>Khi mạch ở <b style="color:red">Normal Mode (SE=0)</b>: Nhận dữ liệu Data In như hoạt động hệ thống.
+            </li>
+            <li>Khi mạch ở <b style="color:green">Test Mode (SE=1)</b>: Toàn bộ Flip-flop nối thành <b>Thanh ghi dịch
+                    (Shift Register)</b> dài để bơm Test Vector vào (Scan In) và đẩy output lưu trữ ra (Scan Out).</li>
+        </ul>
+    </div>
+    <div style="flex-shrink: 0; text-align: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Multiplexer_D_flip_flop.png/400px-Multiplexer_D_flip_flop.png"
+            alt="MUX-DFF" style="width: 350px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <p style="font-size: 1rem; color: #666; font-style: italic;">Cấu trúc MUX-DFF với chân Scan Enable (SE)</p>
+    </div>
+</div>

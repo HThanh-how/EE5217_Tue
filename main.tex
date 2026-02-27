@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    tabsize=2,
+    language=Verilog,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black}
+}
+
+\begin{document}
+
+% ============ TRANG BÌA ============
+\begin{titlepage}
+    \centering
+    \vspace*{1in}
+    
+    {\Large \textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA HÀ NỘI}}\par
+    \vspace{1.5cm}
+    
+    {\Large \textbf{BÁO CÁO MÔN HỌC}}\par
+    \vspace{0.5cm}
+    {\Huge \textbf{MÃ MÔN: EE5217}}\par
+    \vspace{2cm}
+    
+    {\Large Tên Đề Tài:}\par
+    \vspace{0.5cm}
+    {\Large \textbf{Nghiên cứu và Triển khai Dự án Học phần}}\par
+    \vspace{2cm}
+    
+    \begin{flushleft}
+        \textbf{Nhóm thực hiện:} Nhóm 7\\
+        \textbf{Thành viên:}\\
+        1. Nguyễn Văn A - 2020xxxx\\
+        2. Trần Thị B - 2020yyyy
+    \end{flushleft}
+    
+    \vfill
+    {\large Hà Nội, \today}\par
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ============ NỘI DUNG CHƯƠNG ============
+\input{chapters/01_gioithieu.tex}
+\input{chapters/02_scan_design.tex}
+
+\end{document}

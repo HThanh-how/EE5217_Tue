@@ -1,0 +1,103 @@
+:root {
+  --primary-color: #bb0000; /* Bách Khoa Red */
+  --text-color: #333;
+  --bg-color: #f9f9f9;
+  --font-main: 'Be Vietnam Pro', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden; /* Hide scrollbars for presentation */
+}
+
+/* Container cho toàn bộ các slides */
+#slides_wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Lớp chung cho mỗi slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 0;
+  background-color: white;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Kiểu chữ tiêu đề Slide */
+.slide h1 {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.slide h2 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+}
+.slide p, .slide ul {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-align: left;
+  max-width: 800px;
+}
+.slide ul {
+  margin-top: 1rem;
+}
+
+/* Nút điều khiển */
+#controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #990000;
+}
+
+/* Bộ đếm slide */
+#counter {
+  position: fixed;
+  bottom: 25px;
+  left: 20px;
+  z-index: 100;
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: 0.5;
+}

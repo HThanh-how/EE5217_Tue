@@ -1,0 +1,16 @@
+<div style="text-align: left; max-width: 900px;">
+    <h2 style="color: var(--primary-color);">2. Kiểm thử Quét Toàn cục (Full Scan)</h2>
+    <p>Ví dụ: Mạch <b>Adding Machine</b> có $24$ Flip-flops.</p>
+    <ul>
+        <li><b>Kết nối:</b> Toàn bộ 24 Flip-flops được xâu chuỗi thành 1 đường duy nhất (1 Scan Chain dài 24 bits).</li>
+        <li><b>Quy trình 3 bước (Shift - Capture - Shift):</b>
+            <ol>
+                <li>Dịch 24 bit vào chuỗi (Tốn 24 chu kỳ/cycles).</li>
+                <li>Chuyển chế độ sang Normal (Capture kết quả logic thực tế trong 1 chu kỳ).</li>
+                <li>Dịch 24 bit kết quả ra ngoài để đối chiếu (Tốn 24 chu kỳ).</li>
+            </ol>
+        </li>
+        <li><b>Nhược điểm lớn:</b> "Test Time" (Thời gian test) quá lâu do chuỗi quét dài. (Công thức số chu kỳ: $Cycles
+            \approx V \times L$ với $V$ là số Test Vector, $L$ là độ dài chuỗi).</li>
+    </ul>
+</div>
