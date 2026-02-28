@@ -126,7 +126,7 @@ function prevSlide() {
 function togglePresentation() {
     const slides = document.querySelectorAll('.slide-container');
     isPresenting = !isPresenting;
-    document.body.classList.toggle('presentation-mode');
+    document.body.classList.toggle('presentation-mode', isPresenting);
 
     if (isPresenting) {
         document.documentElement.requestFullscreen().catch(e => { });
@@ -139,7 +139,10 @@ function togglePresentation() {
             btnIcon.classList.add('fa-compress'); // Or fa-stop
         }
     } else {
-        document.exitFullscreen().catch(e => { });
+        if (document.fullscreenElement) {
+            document.exitFullscreen().catch(e => { });
+        }
+        document.body.style.setProperty('--scale', 1);
         slides.forEach(s => s.classList.remove('active'));
         // Change icon back to Play
         const btnIcon = document.querySelector('#controls button:nth-child(2) i');
@@ -148,16 +151,23 @@ function togglePresentation() {
             btnIcon.classList.add('fa-play');
         }
         // Sync scroll to current slide
-        slides[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => slides[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
     }
 }
+
+// Đảm bảo đồng bộ với trạng thái phím ESC (khi trình duyệt tự động tắt Fullscreen)
+document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement && isPresenting) {
+        togglePresentation();
+    }
+});
 
 // Keyboard nav
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
     if (e.key === 'f' || e.key === 'F' || e.key === 'p' || e.key === 'P') togglePresentation();
-    if (e.key === 'Escape' && isPresenting) togglePresentation();
+    // Phím Escape đã được xử lý bởi fullscreenchange
 });
 
 // Mouse nav

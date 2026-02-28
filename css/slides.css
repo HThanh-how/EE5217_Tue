@@ -82,9 +82,9 @@ body.presentation-mode .slide {
   top: 50%;
   left: 50%;
   width: 1440px;
-  height: 900px;
+  height: max-content;
+  min-height: 900px;
   max-width: none;
-  min-height: auto;
   border-radius: 0;
   box-shadow: none;
   opacity: 0;
