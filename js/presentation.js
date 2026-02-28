@@ -19,22 +19,32 @@ const slidesList = [
 const wrapper = document.getElementById('slides_wrapper');
 let currentSlide = 0;
 let isPresenting = false;
+let scaleObserver = null; // Biến lưu trữ ResizeObserver
 
-// Auto-Scale Logic
-function handleResize() {
-    if (!isPresenting) {
-        document.body.style.setProperty('--scale', 1);
-        return;
+// Khởi tạo ResizeObserver để theo dõi Tự động Kích thước
+function initResizeObserver() {
+    if (!scaleObserver) {
+        scaleObserver = new ResizeObserver((entries) => {
+            if (!isPresenting) return;
+            // Chỉ tính toán khi có sự thay đổi thực sự trong khối lượng thẻ DOM
+            for (let entry of entries) {
+                if (entry.target.classList.contains('active')) {
+                    recalculateScale(entry.target);
+                    break;
+                }
+            }
+        });
     }
+}
 
-    // Mặc định kích thước chuẩn mới là 1440x900 để chứa được nhiều nội dung hơn
+// Hàm tính toán cốt lõi (Tách biệt khỏi sự kiện UI)
+function recalculateScale(activeSlide) {
     let baseWidth = 1440;
     let baseHeight = 900;
 
-    // Kiểm tra xem slide hiện tại có bị tràn chiều cao hay không (nội dung quá dài)
-    const activeSlide = document.querySelector('.slide-container.active');
+    // Lấy kích thước thật của Slide bao gồm padding/margin
     if (activeSlide && activeSlide.scrollHeight > baseHeight) {
-        baseHeight = activeSlide.scrollHeight + 40; // Cộng thêm đệm an toàn
+        baseHeight = activeSlide.scrollHeight + 40; // Safely buffer
     }
 
     const sx = window.innerWidth / baseWidth;
@@ -43,7 +53,24 @@ function handleResize() {
     document.body.style.setProperty('--scale', scale);
 }
 
-window.addEventListener('resize', handleResize);
+// Dừng theo dõi nội dung cũ và cắm vào nội dung mới
+function observeActiveSlide() {
+    initResizeObserver();
+    scaleObserver.disconnect(); // Gỡ các theo dõi cũ
+    const activeSlide = document.querySelector('.slide-container.active');
+    if (activeSlide) {
+        scaleObserver.observe(activeSlide);
+        // Chạy ép một lần đầu tiên để cover Layout tĩnh
+        recalculateScale(activeSlide);
+    }
+}
+
+window.addEventListener('resize', () => {
+    if (isPresenting) {
+        const activeSlide = document.querySelector('.slide-container.active');
+        recalculateScale(activeSlide);
+    }
+});
 
 
 // Load all slides
@@ -71,6 +98,12 @@ async function loadSlides() {
 
         document.getElementById('loading').style.display = 'none';
         updateCounter();
+
+        // Gọi MathJax render lại toàn bộ trang sau khi đã nạp xong HTML
+        if (window.MathJax) {
+            MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+        }
+
         return Promise.resolve(); // Return success
 
     } catch (error) {
@@ -101,8 +134,8 @@ function updateView() {
         slides.forEach((s, i) => {
             s.classList.toggle('active', i === currentSlide);
         });
-        // Gọi lại thuật toán tính Scale ngay sau khi chuyển slide để tránh bị cắt nội dung
-        setTimeout(() => handleResize(), 50);
+        // Gắn móc theo dõi thẻ active MỚI nhất (Rootfix)
+        observeActiveSlide();
     } else {
         slides[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -130,8 +163,7 @@ function togglePresentation() {
 
     if (isPresenting) {
         document.documentElement.requestFullscreen().catch(e => { });
-        handleResize(); // Force recalc scale
-        updateView();
+        updateView(); // Update DOM active states first, which triggers handleResize via timeout
         // Change icon to Stop/Compress
         const btnIcon = document.querySelector('#controls button:nth-child(2) i');
         if (btnIcon) {
