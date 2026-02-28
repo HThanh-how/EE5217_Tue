@@ -1,7 +1,6 @@
 const slidesList = [
     'sections/00_cover.html',
     'sections/01_01_intro.html',
-    'sections/01_02_intro.html',
     'sections/02_01_making_testable.html',
     'sections/02_02_huffman.html',
     'sections/03_01_insertion.html',
