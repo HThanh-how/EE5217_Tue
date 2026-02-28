@@ -3,6 +3,9 @@
 % Packages
 \usepackage{geometry}
 \usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Consolas}
 \usepackage[vietnamese]{babel}
 \usepackage{graphicx}
 \usepackage{float}
@@ -25,16 +28,7 @@
 % Define colors
 \definecolor{bkblue}{RGB}{0,102,153}
 
-% Formatting 
-\setmainfont{TeX Gyre Termes}[
-  Extension = .otf,
-  UprightFont = *tru,
-  BoldFont = *trb,
-  ItalicFont = *tri,
-  BoldItalicFont = *tz
-]
-\setsansfont{TeX Gyre Heros}
-\setmonofont{TeX Gyre Cursor}
+% Removed XeTeX font settings
 
 \lstset{
     basicstyle=\ttfamily\small,
