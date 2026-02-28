@@ -1,0 +1,351 @@
+1. Fig. 6.1  Two-phase random, deterministic test generation6 Deterministic Test Generation Algorithms
+2. Fig. 6.1 shows a for loop for fault-
+3. Fig. 6.2  A simple case of test generation6.1 Deterministic Test Generation Methods
+4. Fig.  5.20), the second phase targets the last 20–40% faults that have not 
+5. Fig. 6.1) check t to see which undetected faults, in addition to the fault that was 
+6. Fig. 6.2 begins with setting all inputs to X and propagat-
+7. Fig. 6.2, l
+8. Fig. 6.3  AND function D 
+9. Fig. 6.4  D Algebra for basic logical functions6.1 Deterministic Test Generation Methods
+10. Fig. 6.5  Single sensitized path6 Deterministic Test Generation Algorithms
+11. Fig.  6.2, activating l7:SA0  requires 
+12. Fig.  6.2, there were several places that we had to make a choice between 
+13. Fig.  6.5. This fault is represented 
+14. Fig. 6.6  Circuit with reconvergent fanout, trying single sensitized path6.1 Deterministic Test Generation Methods
+15. Fig.  6.5 used a single sensitized path to propagate a D value to the circuit primary 
+16. Fig.  6.6. Along this path, D and D values are shown. Propagation of D to the 
+17. Fig. 6.7  XOR with reconvergent fanout, trying multiple paths6 Deterministic Test Generation Algorithms
+18. Fig.  6.8 as a primitive that will be described in cubical form. The Karnaugh 
+19. Fig. 6.8  A D-Algorithm primitive
+20. Fig. 6.9  AND–OR logic 
+21. Fig. 6.10  Extracting prime cubes6.1 Deterministic Test Generation Methods
+22. Fig. 6.8. Input combinations for which a primitive output is 1 are called 1-point 
+23. Fig. 6.8.
+24. Fig. 6.8). Prime cubes of a logical function are its prime 
+25. Fig. 6.8, XX11 and 11X1 are prime cubes of the primitive structure shown. Extracting 
+26. Fig. 6.8 by use of Karnough maps is shown in Fig. 6.10.
+27. Fig. 6.11  Prime cubes for AND–OR logic
+28. Fig. 6.12  Primitive AND and OR cubes6 Deterministic Test Generation Algorithms
+29. Fig. 6.8 and its prime cubes. Figure 6.12 shows prime 
+30. Fig. 6.12, 0-point primitive cubes of 
+31. Fig. 6.11. In Fig. 6.13, we are showing how intersection of primitive cubes is used to form propagation 
+32. Fig. 6.13  Forming propaga-
+33. Fig. 6.14  Basic gates primitive and propagation cubes6.1 Deterministic Test Generation Methods
+34. Fig.  6.15) are used in multi-
+35. Fig. 6.15  Obtaining multiple 
+36. Fig. 6.13) provide options in setting inputs of the primitive to justify the required output. 
+37. Fig. 6.11 as part of a circuit for which test is 
+38. Fig. 6.16, suppose that it is required to have a 1 on the output of this 
+39. Fig. 6.11, these conditions narrow down our choice of a primitive cube to only 
+40. Fig. 6.16) to be justified by their inputs.
+41. Fig. 6.13, two propagation D-cubes exist for propagating 
+42. Fig. 6.16 through the c input of a similar gate to its output. The new diagram is shown in Fig. 6.17.
+43. Fig. 6.13, we can choose 0XDD or X0DD. In either case, D propagates to the 
+44. Fig. 6.16  Justification using primitive cubes
+45. Fig. 6.17  Propagation using propagation D-cubes6.1 Deterministic Test Generation Methods
+46. Fig. 6.18 is the justification loop. This loop starts with several gates in the 
+47. Fig. 6.18, we use the same example circuit that used several 
+48. Fig. 6.18  D-Algorithm6 Deterministic Test Generation Algorithms
+49. Fig. 6.19 to indicate steps 
+50. Fig. 6.19  D-Algorithm example
+51. Fig. 6.20  Steps taken in D-Algorithm6.1 Deterministic Test Generation Methods
+52. Fig.  6.14. This propagation cube sets l3 to 1 and l12 to D. The D on l12 puts G6 that now has 
+53. Fig.  6.14, the PD for this gate that we need is D0D, which sets l6 to 0 
+54. Fig.  6.14 (OR gate, 
+55. Fig.  6.15, its input values are propagated to its output. This 
+56. Fig. 6.21  Simplified D-Algorithm example6 Deterministic Test Generation Algorithms
+57. Fig.  6.14 is selected. Since 
+58. Fig.  6.20.
+59. Fig.  6.21, we are to generate a test for l8:SA1 . To activate this fault, l8 must become 0, requiring 
+60. Fig. 6.22  Trying line combinations vs. input combinations6.1 Deterministic Test Generation Methods
+61. Fig.  6.22.
+62. Fig.  6.22. Test for l8:SA0  in 
+63. Fig. 6.22 begins with l1 = l4 = 1 for generating a D on l8. This combination sets a = b = 1 and through 
+64. Fig. 6.23  Basic PODEM 
+65. Fig. 6.24  Circuit initialized for PODEM6 Deterministic Test Generation Algorithms
+66. Fig. 6.25 shows input selection decision three and value assignments as PODEM 
+67. Fig. 6.24. Bold numbers on the left of the 
+68. Fig. 6.25  PODEM decisions and steps for fault in Fig. 6.246.1 Deterministic Test Generation Methods
+69. Fig. 6.25 sets input f to 0. This assignment changes l13 and l15 from 
+70. Fig. 6.23 
+71. Fig. 6.26  A more intelligent PODEM
+72. Fig. 6.27  Backtrace procedure6 Deterministic Test Generation Algorithms
+73. Fig. 6.23 are:
+74. Fig. 6.27. An objective is set by setting a line to 0 or 1. The 
+75. Fig. 6.29  PODEM example, making better choices
+76. Fig. 6.28  Backtarce heuristics6.1 Deterministic Test Generation Methods
+77. Fig. 6.28). If the required gate input 
+78. Fig. 6.29 to show how procedures of Figs. 6.26 and 6.27 are used for a 
+79. Fig. 6.30 in which a decision diagram and corresponding line values of circuit of Fig. 6.29 are 
+80. Fig. 6.30. Going forward from l8, from the site of fault, there are two X-paths: one through gates 
+81. Fig. 6.28b, which says that the hardest goal to achieve must 
+82. Fig. 6.30, setting f to 0 
+83. Fig. 6.30  PODEM input selections6 Deterministic Test Generation Algorithms
+84. Fig. 6.30 (Step 2), achieves this.
+85. Fig. 6.29. After step 2, we decided to set our objective to l
+86. Fig. 6.31  Critical path tracing TG6.1 Deterministic Test Generation Methods
+87. Fig. 6.32 to execute one pass of the above recursive procedure. In this pass, by 
+88. Fig. 6.32  CPT example6 Deterministic Test Generation Algorithms
+89. Fig. 6.32. This assignment makes inputs c and d equal to 1.
+90. Fig. 6.34  Mealy 1011 detectorQ
+91. Fig. 6.33  Time frame expansion (each slice)6.2 Sequential Circuit Test Generation
+92. Fig. 6.33, the time frame expansion sequential circuit TG method‎ [14] unrolls a 
+93. Fig. 6.34. The SA0 fault to be detected is shown in this 
+94. Fig. 6.35. Initially, three time frames are 
+95. Fig. 6.35  Time frame expansion6 Deterministic Test Generation Algorithms
+96. Fig.  6.34, we start in the reset state, and in four consecutive clocks, 
+97. Fig. 6.36  Merge operator
+98. Fig. 6.37  Compatible test vectors
+99. Fig. 6.39  Reordering before compaction1:2:3:4:5:6:7:111110110
+100. Fig. 6.38  Compaction by adjacent compatibility6 Deterministic Test Generation Algorithms
+101. Fig. 6.38 and 6.39).
+102. Fig. 6.40  Concurrent testing
+103. Fig. 6.41  Test subsets for 
+104. Fig.  6.42, after merging, the new test set includes all test vectors 
+105. Fig.  6.42 show compatible 
+106. Fig. 6.42  Examples of test set contiguous compacting
+107. Fig. 6.43  Merging with stretching6 Deterministic Test Generation Algorithms
+108. Fig.  6.42 show Test1 , and gray areas show Test2 . Merged vectors are both 
+109. Fig.  6.43, test vectors with disjoint compatible sections can 
+110. Fig. 6.36 apply to this method of 
+111. Fig. 6.36) in the 
+112. Fig. 6.44 reduces the number of test vectors applied to a faulty circuit 
+113. Fig. 6.44 goes through all circuit faults and forms the detectedBy array. 
+114. Fig. 6.44.
+115. Fig. 6.44  Vector elimination procedure6.3 Test Data Compaction
+116. Fig. 6.45, clk signal is applied 
+117. Fig. 6.44, reduced 
+118. Fig. 6.45 implements the upper part of the procedure of Fig. 6.44, and 
+119. Fig. 6.44. 
+120. Fig. 6.46 is generating the detectedBy array. This array is 
+121. Fig. 6.44 for the 
+122. Fig. 6.45  Residue-5 test compaction testbench6 Deterministic Test Generation Algorithms
+123. Fig. 6.47 that we refer to as the Test loop checks to see if the injected fault 
+124. Fig. 6.47 calculates the fault coverage, 
+125. Fig. 6.46  Creating list of faults and tests that detect them6.3 Test Data Compaction
+126. Fig. 6.45 was able to reduce the test set to 
+127. Fig. 6.47  Omission and reevaluating6 Deterministic Test Generation Algorithms
+128. Fig. 6.48  Compaction results of Residue-5 circuitReferences
+129. Fig. 7.1  Huffman model for test7 Design for Test by Means of Scan
+130. Fig. 7.1, a sequential circuit is modeled by a combinational circuit having feedback through delay 
+131. Fig. 7.2  Unfolded circuit model7.2 Testabability Insertion
+132. Fig.  7.1. As 
+133. Fig.  7.2, by unfolding a sequential circuit, its registers are separated and ignored. Register 
+134. Fig.  7.2 is considered. Fault collapsing, test generation, 
+135. Fig. 7.3  Basic testability techniques (observability, controllability)7 Design for Test by Means of Scan
+136. Fig. 
+7.3. Such techniques include 0 or 1 insertion and will be discussed in the next sub section.
+137. Fig. 7.4  Adding controllability7.2 Testability Insertion
+138. Fig. 7.5  Put circuit into any desired state7 Design for Test by Means of Scan
+139. Fig. 7.4c should be used. 
+140. Fig. 7.4 require two pins. In all cases shown, in addition to the gates used and the required input 
+141. Fig. 7.4d) has the 
+142. Fig. 7.3 becomes easier by use of multiplexers at its flip-flop inputs. Figure 7.5 
+143. Fig. 7.6, an n-to-1 multiplexer can be used to multiplex n test 
+144. Fig. 7.6  Multiplexing 
+145. Fig. 7.7  Demultiplexer/decoder, reduce pins for control7.2 Testability Insertion
+146. Fig. 7.6 can be used for each group. In this case, the select 
+147. Fig. 7.8  Sharing 1-insertion hardware
+148. Fig. 7.9  Sharing test data insertion hardware7 Design for Test by Means of Scan
+149. Fig.  7.4d), a demultiplexer helps reducing input pin require-
+150. Fig.  7.9, when NbarT  is 0, the multiplexers between logic parts (shaded areas) 
+151. Fig. 7.10  Simultaneous control of bits of buses
+152. Fig. 7.11  Selection input 
+153. Fig.  7.9 for parallel buses. This figure shows 
+154. Fig.  7.6 and demultiplexing control points of Fig.  7.7 
+155. Fig. 7.12  Shift-register for simultaneous control7 Design for Test by Means of Scan
+156. Fig.  7.10).
+157. Fig.  7.9.
+158. Fig. 7.13  Using a shift-register for simultaneous collection of line values7.2 Testability Insertion
+159. Fig.  7.12).
+160. Fig.  7.14.
+161. Fig.  7.14 is 0. This causes no 
+162. Fig. 7.14  Isolated Serial Scan7 Design for Test by Means of Scan
+163. Fig.  7.14. Together, the shift-
+164. Fig.  7.16 manage to implement the operation discussed in the above 
+165. Fig.  7.15 performs right shifting when its TestMode  input is 1 and 
+166. Fig. 7.14, and using the DFT hardware that has been placed in the CUT, tests this circuit. 
+167. Fig. 7.15  Isolated Serial Scan shift-register
+168. Fig. 7.16  Isolated Serial Scan virtual tester
+169. Fig. 7.17  Scan insertion
+170. Fig. 7.18  Testable Huffman model feedback register7 Design for Test by Means of Scan
+171. Fig.  7.1. As 
+172. Fig.  7.2) and applying our testing to the 
+173. Fig.  7.1, and by inserting a shift-register in its register structures, makes 
+174. Fig.  7.2.
+175. Fig.  7.1. The register part of the 
+176. Fig.  7.17 performs parallel loading.
+177. Fig.  7.17. The general operation of this register 
+178. Fig.  7.15. Only 
+179. Fig. 7.18 works in normal mode by loading ns (next state) into ps 
+180. Fig. 7.17 only involves testing the combina-
+181. Fig. 7.18 assumes a simple flip-flop structure and a multiplexer for selection 
+182. Fig. 7.1).
+183. Fig. 7.20. This is also a transparent 
+184. Fig. 7.19  Basic latch
+185. Fig. 7.20  D-latch
+186. Fig. 7.21  CMOS latches
+187. Fig. 7.22  D-type flip-flop7 Design for Test by Means of Scan
+188. Fig. 7.22), CMOS uses two nonoverlapping clock phases. Figure 7.22 
+189. Fig. 7.23  Multiplexed scan element7.3 Full Scan DFT Technique
+190. Fig. 7.23 provides a close correspondence with the Verilog description of 
+191. Fig. 7.18. This flip-flop can be used as a scan element for the feedback register in Fig.  7.17. 
+192. Fig. 7.17. As before, the hatched areas in this diagram represent the combinational part of 
+193. Fig. 7.23, including the multiplexer, is shown in 
+194. Fig. 7.25. For modeling multi-bit feedback registers, we can use a Verilog code similar to the scan 
+195. Fig. 7.18, or we can individually cascade flip-flops of Fig. 7.25 to form the right size 
+196. Fig. 7.18 may be 
+197. Fig. 7.17, with each normal mode clock, the ps output of the feedback register, that is 
+198. Fig. 7.24  Scan register with multiplexed flip-flops
+199. Fig. 7.25  Multiplexed scan element Verilog code7 Design for Test by Means of Scan
+200. Fig.  7.24). Therefore, the test mode clocking can be faster than the 
+201. Fig. 7.26  Scan flip-flop with dual clocking
+202. Fig. 7.27  Dual clock scan flip-flop Verilog code7.3 Full Scan DFT Technique
+203. Fig. 7.26 uses dual clocks: one for normal and one for the test mode. The OR 
+204. Fig. 7.27, our Verilog model does not represent the timing details of the actual circuit.
+205. Fig. 7.28 can be used. The figure 
+206. Fig. 7.19, and the other latch (master), combines its 
+207. Fig. 7.28 easier, we use the AND–NOR logic of Fig. 7.19 instead of its NAND equiva-
+208. Fig. 7.29 shows the operation of the two-port flip-flop of Fig. 7.28. For 
+209. Fig. 7.29  Two-port flip-flop timing
+210. Fig. 7.28  Two-port three-clock flip-flop7 Design for Test by Means of Scan
+211. Fig.  7.28 that is based on two latches. The master 
+212. Fig.  7.20.
+213. Fig.  7.17 implemented with the flip-flop of Fig.  7.30. 
+214. Fig. 7.24, the overall operation remains the same. For normal operation, ClockA  and ClockB  are 
+215. Fig. 7.30  Two-port flip-flop 
+216. Fig. 7.31  LSSD Design7.3 Full Scan DFT Technique
+217. Fig.  7.30. This code is based on description of two latches. The master latch uses two 
+218. Fig. 7.32  Dual port flip-flop Verilog code7 Design for Test by Means of Scan
+219. Fig. 7.28 or Fig. 7.30 avoids the multiplexer delay of the 
+220. Fig. 7.33). The coding style is 
+221. Fig. 7.1. The register part specifies an asynchronous resetting 
+222. Fig. 7.33  residue5 partial Verilog code7.3 Full Scan DFT Technique
+223. Fig. 7.33. The result is shown 
+224. Fig. 7.34  Postsynthesis residue5 netlist7 Design for Test by Means of Scan
+225. Fig. 7.34. This netlist uses primitives that are compatible with our utility PLI functions for fault 
+226. Fig. 7.1. An example for logic feedback through 
+227. Fig. 7.33.
+228. Fig. 7.34 is a sequential circuit, and test generation methods and programs 
+229. Fig. 7.2.
+230. Fig. 7.35  Unfolded residu5 netlist7.3 Full Scan DFT Technique
+231. Fig. 7.35 represents a combinational circuit and uses our standard primitives. Chapter 
+232. Fig. 5.27 and is not repeated here. The testbench we used generates the collapsed fault list before test generation.
+233. Fig. 5.30). That testbench generated 7 test vectors applied over 45 clock cycles (effectively, 45 tests), and resulted in only 82.4% fault coverage. The unfolding of this circuit enabled us to achieve a 100% coverage.7.3.3.5  Scan Insertion
+234. Fig. 7.1 becomes 
+235. Fig. 7.36. The netlist corresponding to this figure will be shown next.
+236. Fig. 7.34 is modified to include the necessary scan 
+237. Fig. 7.36 for the feedback flip-flop. Note: The block diagram notation for 
+238. Fig. 7.36 shows two flip-flop D inputs marked by 1,2D and 1,3D. The notation specifies that both D inputs are controlled by the clock signal number 1. The upper input requires mode 2 to be active and the lower input needs mode 3. Modes 2 and 3 are determined by a 1 or a 0 on the lower-left input of the flip-flop. We will use this notation in flip-flops of this chapter.
+239. Fig. 7.38 takes advantage of shift features of the flip-flop of Fig. 7.37. This 
+240. Fig. 7.38). The Si input connects to flip-flop 0 (INS_1), 
+241. Fig. 7.39. The main task of the virtual tester is to read predetermined test data from an 
+242. Fig. 7.37  Flip-flop with scan facilitiesFig. 7.36  residue5  with scan chain
+243. Fig. 7.38  Scan-inserted circuit under test
+244. Fig. 7.39  Virtual tester for residue5
+245. Fig. 7.40  Virtual tester for full scan Residue-57.3 Full Scan DFT Technique
+246. Fig. 7.34.
+247. Fig. 7.39, the parallel data read from the external test file have two parts: one is 
+248. Fig. 7.40 implements the test environment shown in the block diagram 
+249. Fig. 7.39. This testbench reads external data files and through control of clocking of the flip-flops 
+250. Fig. 7.41  Fault injection in Residue-57 Design for Test by Means of Scan
+251. Fig. 7.40 is a generic tester module, at the top of which parameters specifying the 
+252. Fig. 7.41 resets 
+253. Fig. 7.40. This while 
+254. Fig. 7.43. The input part has a part that applies directly to the circuit’s primary 
+255. Fig. 7.42  Test application and response collection
+256. Fig. 7.43  Arrangement of stimulus and response in line
+257. Fig. 7.42 reads stimuli and response data, applies it to the CUT, compares the outputs, 
+258. Fig. 7.43. Variable names storing various parts of line data are indicated in this figure.
+259. Fig. 7.42, before cur_expected_st (current expected state) is overwritten with new 
+260. Fig. 7.40.)
+261. Fig. 7.42 takes the pseudo PI part of line and shifts it into the circuit’s state 
+262. Fig. 7.42, the collected pseudo output and the primary output of 
+263. Fig. 7.44 
+264. Fig. 7.44  Huffman model with multiple vector inputs, outputs, and states
+265. Fig.  7.44. The problem with full scan is the long chain of flip-flops that test data 
+266. Fig.  7.44. The new set of 
+267. Fig. 7.45  Full scan DFT technique
+268. Fig. 7.46  Shadow register
+269. Fig. 7.44. For presenting our example partial scan method, 
+270. Fig. 7.47. The circuit primary inputs split and 
+271. Fig. 7.47, it is only necessary to put feedback register 
+272. Fig. 7.47. Applicability of this 
+273. Fig. 7.47 
+274. Fig. 7.48.
+275. Fig. 7.47  Partial scan, starting with Huffman model
+276. Fig. 7.48  Partial scan datapath
+277. Fig.  7.48, 
+278. Fig. 7.49  Partial scan  
+279. Fig. 7.50  Test vector arrangement
+280. Fig.  7.47 or Fig.  7.48 is 
+281. Fig.  7.47 is done by a circuit model 
+282. Fig. 7.49.
+283. Fig.  7.50.  Values for PI1, PI2, and PPI1  inputs are followed by output values 
+284. Fig.  7.50) to our partial scan design 
+285. Fig.  7.47 or Fig.  7.48), and collection of outputs. Although Figs.  7.47 and 7.48 are equivalent, the 
+286. Fig.  7.48.
+287. Fig. 7.48 has proper test data), the PI1 
+288. Fig. 7.48) has proper PI1 and ps2 test inputs. Clocking the circuit at this time will load ns1 in 
+289. Fig. 7.51  Multiple parallel scan chains
+290. Fig.  7.51 consist of that for PI1, PI2, PPI1 , and PPI2 , and test 
+291. Fig. 7.44 
+292. Fig. 7.44 (Huffman model). In this section, we show how these methods apply to an actual RT-level 
+293. Fig. 7.44. In the example that we present in this 
+294. Fig. 2.30, the Adding Machine has two 8-bit registers for AC and IR, and it has a 6-bit 
+295. Fig. 7.52. The serial input is the 
+296. Fig. 7.52  Full scan Adding Machine
+297. Fig.  7.53. This loop also shifts out 24 output bits. The 
+298. Fig.  7.53 compares concatenation of the serially collected output and 14 
+299. Fig.  7.44, the circuit is still structured as such, and the multiple scan method of 
+300. Fig. 7.53  Full scan Adding Machine virtual tester7.5 RT Level Scan Design
+301. Fig. 7.55  Inserting three scan chainsFig. 7.54  Multiple parallel scans for Adding Machine
+302. Fig.  7.55 show the three scan chains. All 
+303. Fig. 7.56  Test program for multiple parallel scans7.5 RT Level Scan Design
+304. Fig. 7.56.  This figure only shows instantiation of the three-scan-chain circuit and the procedure 
+305. Fig. 7.55, includes NbarT as well as serial inputs and outputs of the three scan 
+306. Fig. 7.56. All but the repeat loop of 
+307. Fig. 7.53. The repeat loop here takes every 8 bits of line that 
+308. Fig. 8.2, BS-1149.1 adds several pins to the normal inputs and outputs of a core for 
+309. Fig. 8.1  General structure of 
+310. Fig. 8.2  Details of boundary scan standard
+311. Fig. 8.3, instruction 
+312. Fig. 8.3  Instruction register cell structure
+313. Fig. 8.4  Instruction register Verilog code
+314. Fig. 8.5. The bypass register can be loaded with a 0 through its Din input. BS-1149.1 uses this feature 
+315. Fig. 8.4.
+316. Fig. 8.3. Core logic id that is stored in this register can be shifted out serially that becomes 
+317. Fig. 8.5  Bypass register cell structure
+318. Fig. 8.6  Bypass register Verilog description
+319. Fig. 8.8. V erilog code corresponding to a boundary scan cell 
+320. Fig. 8.9.
+321. Fig. 8.7  Boundary scan register cell
+322. Fig. 8.8  Using a BS cell in bidirectional ports
+323. Fig. 8.10. States of the controller will be discussed below [2].
+324. Fig. 8.10, the first state of the controller is the reset state. 
+325. Fig. 8.9  BS cell Verilog code
+326. Fig. 8.3). This will load “01” in the least sig-
+327. Fig. 8.10  TAP controller
+328. Fig. 8.11  TAP controller Verilog codemodule TAPController (TMS, TCLK, RstBar, sel, Enable, ShiftIR,
+329. Fig. 8.7). In this case ShiftDR signal is set to 1, and shifting occurs 
+330. Fig. 8.11  (continued)   always @(negedg e TCLK) begin
+331. Fig. 8.3), and on its rising edge, the bit 
+332. Fig. 8.12) and remains there 
+333. Fig. 8.13). This takes place because in the Capture_DR state, while the 
+334. Fig. 8.13), in which ShiftBR  is set to 1, while in this state, the sampled values will be shifted 
+335. Fig. 8.14. 
+336. Fig. 8.12  Bypass  instruction execution
+337. Fig. 8.13  Sample  instruction execution
+338. Fig. 8.14  Preload  instruction execution
+339. Fig. 8.14, in the Update_DR state of the controller, UpdateBR clocks the update flip-flops of the 
+340. Fig. 8.15, when the Extest instruction is active, interconnections between outputs of 
+341. Fig. 8.15). In this state, 
+342. Fig. 8.16. As shown, 
+343. Fig. 8.17. The output cells of the left chip are receiving new test data, 
+344. Fig. 8.15 starts again.
+345. Fig. 8.14) of the scan cells that are on the inputs of the 
+346. Fig. 
+8.18, data shifted in the capture  flip-flops will be applied to the inputs of the core logic in the 
+347. Fig. 8.18 shows the output scan flip-flops during the execution of 
+348. Fig. 8.17 for Extest , except that all the inputs and output cells being shifted 
+349. Fig. 8.15  Output cells updating test data in Extest

@@ -1,14 +1,20 @@
 \subsection{Chèn Tính Kiểm Thử (Testability Insertion)}
 Chỉ cần thêm một bộ dẫn tín hiệu, hay một chân input/output, ta đã biến mạch trở nên dễ kiểm thử hơn. Mục này sẽ đề cập đến các lựa chọn cấu trúc phần cứng giúp kiểm thử mạch qua việc điều khiển và quan sát các node.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/mux_dff.png}
+    \caption{\textit{Kỹ thuật kiểm thử cơ bản: khả năng quan sát và điều khiển (Basic testability techniques)}}
+\end{figure}
+
 \subsubsection{Cải thiện Khả năng Quan sát (Improving Observability)}
 Cải thiện khả năng quan sát giúp hiệu ứng lỗi dễ dàng truyền ra ngoài qua các chân đầu ra sơ cấp thay vì bị kẹt trong mạch. Theo tính toán quan sát (như SCOAP), các đường tín hiệu có độ quan sát thấp nên được nối ra chân ngoài hoặc đưa qua các kỹ thuật như kéo đầu ra flip-flop trạng thái ra thẳng chân output chính.
 Trong thiết kế ở mức RTL, các đường cờ điều khiển từ controller sang datapath là những vị trí lý tưởng để quan sát. Trạng thái của multiplexer select, register load, count tín hiệu, v.v. cũng rất phù hợp.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/mux_dff.png}
-    \caption{\textit{Kỹ thuật cải thiện khả năng quan sát và điều khiển cơ bản.}}
+    \includegraphics[width=0.7\textwidth]{images/fig7_4.png}
+    \caption{\textit{Cách thêm khả năng điều khiển (Adding controllability)}}
 \end{figure}
 
 \subsubsection{Cải thiện Khả năng Điều khiển (Improving Controllability)}
@@ -20,14 +26,75 @@ Trong thiết kế ở mức RTL, các đường cờ điều khiển từ contr
     \item \textbf{Test Data Multiplexing (Chèn dữ liệu kiểm thử):} Dùng bộ dồn kênh (MUX) điều khiển bởi tín hiệu \texttt{NbarT}. Khi $\texttt{NbarT} = 0$, mạch ở chế độ thường. Khi $\texttt{NbarT} = 1$, tín hiệu kiểm thử từ input ngoài sẽ được đưa thẳng vào ngõ vào của khối logic cần kiểm tra.
 \end{itemize}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_5.png}
+    \caption{\textit{Đặt mạch vào trạng thái mong muốn (Put circuit into any desired state)}}
+\end{figure}
+
 \subsubsection{Chia sẻ Chân Quan sát và Chân Điều khiển}
 Việc thêm quá nhiều chân đầu ra hoặc đầu vào sơ cấp là không thực tế. Do đó, mạch sử dụng Multiplexer để dồn nhiều node quan sát vào một chân output duy nhất (cần $\log_2 n$ chân chọn select). Tương tự, một bộ Demultiplexer có thể được dùng để luân phiên điều khiển nhiều đường dây khác nhau (Test point) chỉ với một cổng đầu vào, tiết kiệm $n$ chân kiểm thử.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_6.png}
+    \caption{\textit{Kết nối nhiều điểm qua Multiplexer (Multiplexing)}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_7.png}
+    \caption{\textit{Dùng Demultiplexer/decoder để giảm số chân (reduce pins for control)}}
+\end{figure}
+
 Để tiết kiệm chân select của MUX/DEMUX hơn nữa, một bộ đếm (Counter) có thể được tích hợp trong chip. Chỉ cần cấp xung nhịp cho Counter, nó sẽ tự đếm vòng và chọn các node tương ứng, đổi lấy thời gian kiểm thử dài hơn nhưng không tốn diện tích chân chip.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_8.png}
+    \caption{\textit{Chia sẻ phần cứng chèn trị 1 (Sharing 1-insertion hardware)}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_9.png}
+    \caption{\textit{Chia sẻ phần cứng nạp dữ liệu kiểm thử (Sharing test data insertion hardware)}}
+\end{figure}
+
 \subsubsection{Điều khiển và Quan sát Đồng thời (Simultaneous Control and Observation)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_10.png}
+    \caption{\textit{Điều khiển đồng thời các bit của Bus (Simultaneous control of bits of buses)}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_12.png}
+    \caption{\textit{Sử dụng Shift-register để điều khiển đồng thời (Shift-register for simultaneous control)}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_13.png}
+    \caption{\textit{Sử dụng thanh ghi dịch để thu thập đồng thời (Using a shift-register for simultaneous collection)}}
+\end{figure}
+
 Để điều khiển các tín hiệu đồng thời với số chân hạn chế, kỹ thuật thanh ghi dịch (Shift Register) được áp dụng để tải nối tiếp dữ liệu sau đó xuất song song vào các điểm kiểm thử. Tương tự đối với thu thập đầu ra: thu song song và dịch nối tiếp ra ngoài.
 \paragraph{Isolated Serial Scan} kết hợp hai thao tác trên vào chung một thanh ghi dịch. Thanh ghi này cô lập khỏi luồng điều khiển chính qua tín hiệu phân vùng \texttt{NbarT}, vừa dịch dữ liệu kiểm thử vào, vừa nhận phản hồi và dịch ra trong suốt một số chu kỳ kiểm thử.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_14.png}
+    \caption{\textit{Quét nối tiếp cô lập (Isolated Serial Scan)}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_15.png}
+    \caption{\textit{Thanh ghi dịch cho Isolated Serial Scan}}
+\end{figure}
 
 \begin{lstlisting}[language=Verilog, caption={Mã giả Verilog cho hệ thống Isolated Serial Scan (Shift-register)}]
 module shiftreg #(parameter size = 4) (
@@ -48,3 +115,9 @@ module shiftreg #(parameter size = 4) (
     assign SerialTestDataOut = parout[0]; 
 endmodule
 \end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_16.png}
+    \caption{\textit{Thiết bị thử nghiệm ảo cho Isolated Serial Scan (Virtual tester)}}
+\end{figure}

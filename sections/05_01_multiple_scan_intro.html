@@ -1,0 +1,17 @@
+<div class="slide">
+    <h1 style="color: var(--primary-color);">Chương 5: Quét Đa Luồng</h1>
+    <h2>Giải Hạn Chế Của Chuỗi Dài</h2>
+    <div style="display:flex; gap: 20px; align-items:center;">
+        <div style="flex: 1;">
+            <ul>
+                <li>1 chuỗi Scan với hàng triệu Flip-Flop mất quá lâu cho việc Shift tín hiệu.</li>
+                <li>Công thức: Thời gian Test Time ~ $O(N_{FF})$.</li>
+                <li><b>Multiple Scans:</b> Chia cắt chuỗi lớn thành $k$ luồng song song chạy cùng lúc. $N_{FF}$ giảm mạnh, $T_{Test}$ giảm cực sâu.</li>
+                <li>Chi Phí: Tốn IO Pins phụ.</li>
+            </ul>
+        </div>
+        <div style="flex: 1; text-align: center;">
+            <img src="images/fig7_51.png" style="max-height:300px; border-radius:8px;">
+        </div>
+    </div>
+</div>

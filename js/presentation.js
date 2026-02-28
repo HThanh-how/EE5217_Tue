@@ -1,11 +1,19 @@
 const slidesList = [
     'sections/00_cover.html',
-    'sections/01_intro.html',
-    'sections/02_scan_intro.html',
-    'sections/03_full_scan.html',
-    'sections/04_multiple_scan.html',
-    'sections/05_rtl_scan.html',
-    'sections/06_summary.html'
+    'sections/01_01_intro.html',
+    'sections/02_01_making_testable.html',
+    'sections/02_02_huffman.html',
+    'sections/03_01_insertion.html',
+    'sections/03_02_muxdemux.html',
+    'sections/03_03_isolated_scan.html',
+    'sections/04_01_fullscan_intro.html',
+    'sections/04_02_ff_structures.html',
+    'sections/04_03_residue5.html',
+    'sections/04_04_virtual_tester.html',
+    'sections/05_01_multiple_scan_intro.html',
+    'sections/05_02_adding_machine.html',
+    'sections/06_01_rtl_scan.html',
+    'sections/07_01_summary.html'
 ];
 
 const wrapper = document.getElementById('slides_wrapper');

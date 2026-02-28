@@ -16,10 +16,15 @@ Bản báo cáo này được nhóm biên soạn với những mục tiêu cốt
 \end{itemize}
 
 \subsection{Bố cục của báo cáo}
-Tránh việc dàn trải nội dung, cấu trúc của báo cáo được nhóm thiết kế cô đọng thành 2 chương chính nối tiếp nhau, mang tính kế thừa về mặt kỹ thuật và tập trung thẳng vào phân tích chi tiết:
+Tránh việc dàn trải nội dung, cấu trúc của báo cáo được nhóm thiết kế cô đọng thành 7 chương chính nối tiếp nhau, mang tính kế thừa về mặt kỹ thuật và tập trung thẳng vào phân tích chi tiết:
 \begin{itemize}
     \item \textbf{Chương 1: Giới thiệu chung.} Cung cấp thông tin nền, bức tranh tổng quan quan trọng về lĩnh vực DFT, chỉ ra nguyên do khách quan thúc đẩy sự ra đời của Scan Design và tóm lược các mục tiêu cốt lõi của bài báo cáo trong môn học EE5217.
-    \item \textbf{Chương 2: Thiết kế Khả kiểm bằng Phương pháp Quét (Design for Test by Means of Scan).} Đây là "linh hồn" của toàn bộ báo cáo, đảm nhiệm quá trình giảng giải sâu sắc và tịnh tiến. Chương 2 đi từ phân tích kỹ thuật vạch luồng Quét toàn bộ (Full Scan) kết hợp máy trạng thái Adding Machine, tối ưu hoá tiết diện và thời gian bằng Quét đa luồng (Multiple Parallel Scans), nới rộng cho thiết kế cấp thanh ghi RTL (RTL Scan Strategy). Hàng loạt điểm phân tích bổ sung được đưa vào nhằm làm sáng tỏ những thách thức trong quá trình định tuyến xung clock và tối ưu chi phí (Overhead) trên IC.
+    \item \textbf{Chương 2: Làm cho mạch có thể kiểm thử (Making Circuits Testable).} Phân tích về khả năng quan sát (observability) và điều khiển (controllability).
+    \item \textbf{Chương 3: Chèn tính kiểm thử (Testability Insertion).} Khảo sát các kỹ thuật phần cứng (0-insertion, 1-insertion) và phương pháp thu nhận nối tiếp/song song.
+    \item \textbf{Chương 4: Kỹ thuật Full Scan DFT.} Đi sâu vào cấu trúc quét toàn bộ, định tuyến xung nhịp và kết hợp máy trạng thái RTL nâng cao.
+    \item \textbf{Chương 5: Quét đa luồng (Multiple Scan).} Giải pháp tối ưu hoá thời gian kiểm thử với nhiều chuỗi quét song song trên máy Adding Machine.
+    \item \textbf{Chương 6: Thiết kế Scan góc độ RTL.} Chiến lược phân vùng quét trực tiếp từ mức chuyển giao thanh ghi (Partial/Independent Scans).
+    \item \textbf{Chương 7: Tổng kết.} Tóm lược lại quy trình chèn DFT trên thực tiễn.
 \end{itemize}
 
 \vspace{1.5cm}

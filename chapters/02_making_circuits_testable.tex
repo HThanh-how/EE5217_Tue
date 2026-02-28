@@ -14,8 +14,20 @@ Kỹ thuật DFT thay đổi cấu trúc của mạch tuần tự sao cho các k
 \paragraph{Mô hình Huffman cho Mạch Tuần tự}
 Như đã trình bày, mạch tuần tự được mô hình hóa bằng một khối tổ hợp cùng với phản hồi thông qua các phần tử trễ (đối với mạch đồng bộ, đó là các flip-flop có xung nhịp). Đầu vào và đầu ra sơ cấp của mạch chỉ kết nối vào phần tổ hợp. Tín hiệu đồng hồ (clock), set, reset chỉ tác động vào flip-flop phản hồi. Mô hình này tách biệt hoàn toàn các thanh ghi (registers) và phần mạch tổ hợp (buses, khối logic, toán học, ...).
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_1.png}
+    \caption{\textit{Mô hình Huffman cho kiểm thử (Huffman model for test)}}
+\end{figure}
+
 \paragraph{Mô hình Mạch Trải phẳng (Unfolding Sequential Model)}
 Mô hình trải phẳng (Unfolded circuit model) phân tách bạch các thanh ghi (phần tuần tự) và phần tổ hợp. Các đầu ra của thanh ghi trở thành "đầu vào giả" (pseudo inputs - PPI) cho mạch tổ hợp, và đầu vào của thanh ghi trở thành "đầu ra giả" (pseudo outputs - PPO). Do đa phần các cổng logic của mạch nằm ở phần tổ hợp, nên việc kiểm thử phần này và tính luôn các cổng vào ra tĩnh của thanh ghi sẽ bao quát được đa số lỗi của thiết kế.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig7_2.png}
+    \caption{\textit{Mô hình mạch trải phẳng (Unfolded circuit model)}}
+\end{figure}
 
 Kết quả kiểm thử trên mô hình trải phẳng sẽ được sử dụng bởi các thiết bị kiểm thử tự động (ATE) để kiểm tra mạch thực tế. Đoạn mã Verilog mô phỏng môi trường kiểm thử này được gọi là một "virtual tester" (thiết bị kiểm thử ảo).
 
