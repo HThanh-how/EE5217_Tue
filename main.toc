@@ -13,22 +13,22 @@
 \contentsline {subsection}{\numberline {1.5}Chèn Tính Kiểm Thử (Testability Insertion)}{8}{subsection.1.5}%
 \contentsline {subsubsection}{\numberline {1.5.1}Cải thiện Khả năng Quan sát (Improving Observability)}{8}{subsubsection.1.5.1}%
 \contentsline {subsubsection}{\numberline {1.5.2}Cải thiện Khả năng Điều khiển (Improving Controllability)}{9}{subsubsection.1.5.2}%
-\contentsline {subsubsection}{\numberline {1.5.3}Chia sẻ Chân Quan sát và Chân Điều khiển}{10}{subsubsection.1.5.3}%
-\contentsline {subsubsection}{\numberline {1.5.4}Điều khiển và Quan sát Đồng thời (Simultaneous Control and Observation)}{14}{subsubsection.1.5.4}%
-\contentsline {paragraph}{Isolated Serial Scan}{16}{figure.caption.12}%
-\contentsline {subsection}{\numberline {1.6}Kỹ thuật Full Scan DFT (Full Scan DFT Technique)}{19}{subsection.1.6}%
-\contentsline {subsubsection}{\numberline {1.6.1}Chèn Full Scan (Full Scan Insertion)}{20}{subsubsection.1.6.1}%
-\contentsline {paragraph}{Thanh ghi Scan}{21}{figure.caption.18}%
-\contentsline {paragraph}{Quy trình kiểm thử}{22}{lstnumber.2.16}%
-\contentsline {subsubsection}{\numberline {1.6.2}Cấu trúc Flip-flop (Flip-flop Structures)}{22}{subsubsection.1.6.2}%
-\contentsline {paragraph}{Dữ liệu kiểm thử dồn kênh (Multiplexed Test Data)}{24}{figure.caption.22}%
-\contentsline {paragraph}{Hệ thống xung nhịp kép (Dual Clocking)}{26}{lstnumber.3.9}%
-\contentsline {paragraph}{Flip-flop Hai Cổng (Two-port Flip-flops)}{27}{lstnumber.4.10}%
-\contentsline {subsubsection}{\numberline {1.6.3}Thiết kế và Kiểm thử Full Scan (Full Scan Design and Test)}{29}{subsubsection.1.6.3}%
-\contentsline {subsection}{\numberline {1.7}Quét đa luồng (Multiple Scan)}{34}{subsection.1.7}%
-\contentsline {subsubsection}{\numberline {1.7.1}Mạng Cấp số cộng (Full Scan on Adding Machine)}{35}{subsubsection.1.7.1}%
-\contentsline {subsubsection}{\numberline {1.7.2}Trình kiểm thử ảo cho luồng đa quét (Virtual Tester for Multiple Scans)}{35}{subsubsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.8}Thiết kế Scan góc độ RTL (RT Level Scan Design)}{37}{subsection.1.8}%
-\contentsline {paragraph}{Quét mức bộ phận (Partial Scan):}{37}{subsection.1.8}%
-\contentsline {paragraph}{Quét Cục bộ Độc lập (Multiple Independent Scans):}{37}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Tóm lược (Summary)}{38}{subsection.1.9}%
+\contentsline {subsubsection}{\numberline {1.5.3}Chia sẻ Chân Quan sát và Chân Điều khiển}{9}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Điều khiển và Quan sát Đồng thời (Simultaneous Control and Observation)}{11}{subsubsection.1.5.4}%
+\contentsline {paragraph}{Isolated Serial Scan}{12}{figure.caption.12}%
+\contentsline {subsection}{\numberline {1.6}Kỹ thuật Full Scan DFT (Full Scan DFT Technique)}{15}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Chèn Full Scan (Full Scan Insertion)}{15}{subsubsection.1.6.1}%
+\contentsline {paragraph}{Thanh ghi Scan}{16}{figure.caption.18}%
+\contentsline {paragraph}{Quy trình kiểm thử}{16}{lstnumber.2.16}%
+\contentsline {subsubsection}{\numberline {1.6.2}Cấu trúc Flip-flop (Flip-flop Structures)}{17}{subsubsection.1.6.2}%
+\contentsline {paragraph}{Dữ liệu kiểm thử dồn kênh (Multiplexed Test Data)}{18}{figure.caption.22}%
+\contentsline {paragraph}{Hệ thống xung nhịp kép (Dual Clocking)}{20}{lstnumber.3.9}%
+\contentsline {paragraph}{Flip-flop Hai Cổng (Two-port Flip-flops)}{21}{lstnumber.4.10}%
+\contentsline {subsubsection}{\numberline {1.6.3}Thiết kế và Kiểm thử Full Scan (Full Scan Design and Test)}{22}{subsubsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.7}Quét đa luồng (Multiple Scan)}{25}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Mạng Cấp số cộng (Full Scan on Adding Machine)}{26}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}Trình kiểm thử ảo cho luồng đa quét (Virtual Tester for Multiple Scans)}{26}{subsubsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.8}Thiết kế Scan góc độ RTL (RT Level Scan Design)}{28}{subsection.1.8}%
+\contentsline {paragraph}{Quét mức bộ phận (Partial Scan):}{28}{subsection.1.8}%
+\contentsline {paragraph}{Quét Cục bộ Độc lập (Multiple Independent Scans):}{28}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Tóm lược (Summary)}{29}{subsection.1.9}%

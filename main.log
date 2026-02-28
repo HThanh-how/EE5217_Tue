@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.10.24)  28 FEB 2026 11:24
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.10.24)  28 FEB 2026 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,10 +979,6 @@ Package hyperref Info: Link coloring OFF on input line 88.
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 \c@lstlisting=\count331
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -1019,6 +1015,7 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 148.
+
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
 (Font)              size <5> substituted on input line 148.
@@ -1081,113 +1078,106 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available
 
  [2] (chapters/01_gioithieu.tex [3]) [4]
 (chapters/02_making_circuits_testable.tex
-File: images/fig7_1.png Graphic file (type bmp)
-<images/fig7_1.png>
+File: images/HuffmanCircuitModel.png Graphic file (type bmp)
+<images/HuffmanCircuitModel.png>
  [5]
-File: images/fig7_2.png Graphic file (type bmp)
-<images/fig7_2.png>
+File: images/UnfoldedCircuitModel.png Graphic file (type bmp)
+<images/UnfoldedCircuitModel.png>
  [6]) [7]
 (chapters/03_testability_insertion.tex
 File: images/mux_dff.png Graphic file (type bmp)
 <images/mux_dff.png>
-File: images/fig7_4.png Graphic file (type bmp)
-<images/fig7_4.png>
+File: images/AddingControllability.png Graphic file (type bmp)
+<images/AddingControllability.png>
  [8]
-File: images/fig7_5.png Graphic file (type bmp)
-<images/fig7_5.png>
+File: images/PutCircuitToDesiredState.png Graphic file (type bmp)
+<images/PutCircuitToDesiredState.png>
  [9]
-File: images/fig7_6.png Graphic file (type bmp)
-<images/fig7_6.png>
+File: images/MultiplexingObservation.png Graphic file (type bmp)
+<images/MultiplexingObservation.png>
+File: images/DemultiplexerControl.png Graphic file (type bmp)
+<images/DemultiplexerControl.png>
+File: images/DemultiplexerControlAlternative.png Graphic file (type bmp)
+<images/DemultiplexerControlAlternative.png>
+File: images/MultiplexersBetweenLogicParts.png Graphic file (type bmp)
+<images/MultiplexersBetweenLogicParts.png>
  [10]
-File: images/fig7_7.png Graphic file (type bmp)
-<images/fig7_7.png>
+File: images/SimultaneousControlBitsOfBuses.png Graphic file (type bmp)
+<images/SimultaneousControlBitsOfBuses.png>
+File: images/ShiftRegisterSimultaneousControl.png Graphic file (type bmp)
+<images/ShiftRegisterSimultaneousControl.png>
+File: images/ShiftRegisterSimultaneousCollection.png Graphic file (type bmp)
+<images/ShiftRegisterSimultaneousCollection.png>
  [11]
-File: images/fig7_8.png Graphic file (type bmp)
-<images/fig7_8.png>
-File: images/fig7_9.png Graphic file (type bmp)
-<images/fig7_9.png>
+File: images/IsolatedSerialScan.png Graphic file (type bmp)
+<images/IsolatedSerialScan.png>
+File: images/IsolatedSerialScanShiftRegister.png Graphic file (type bmp)
+<images/IsolatedSerialScanShiftRegister.png>
  [12]
-File: images/fig7_10.png Graphic file (type bmp)
-<images/fig7_10.png>
- [13]
-File: images/fig7_12.png Graphic file (type bmp)
-<images/fig7_12.png>
- [14]
-File: images/fig7_13.png Graphic file (type bmp)
-<images/fig7_13.png>
-
-[15]
-File: images/fig7_14.png Graphic file (type bmp)
-<images/fig7_14.png>
- [16]
-File: images/fig7_15.png Graphic file (type bmp)
-<images/fig7_15.png>
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 99.
+ [13]
+File: images/IsolatedSerialScanVirtualTester.png Graphic file (type bmp)
+<images/IsolatedSerialScanVirtualTester.png>
+) [14]
+(chapters/04_full_scan_dft.tex
+File: images/FullScanDftTechnique.png Graphic file (type bmp)
+<images/FullScanDftTechnique.png>
+File: images/ScanInsertion.png Graphic file (type bmp)
+<images/ScanInsertion.png>
+File: images/TestableHuffmanModelFeedbackRegister.png Graphic file (type bmp)
+<images/TestableHuffmanModelFeedbackRegister.png>
+ [15] [16]
+File: images/BasicLatch.png Graphic file (type bmp)
+<images/BasicLatch.png>
+File: images/DLatch.png Graphic file (type bmp)
+<images/DLatch.png>
+File: images/CmosLatches.png Graphic file (type bmp)
+<images/CmosLatches.png>
  [17]
-File: images/fig7_16.png Graphic file (type bmp)
-<images/fig7_16.png>
-) [18] (chapters/04_full_scan_dft.tex
-File: images/fig7_45.png Graphic file (type bmp)
-<images/fig7_45.png>
-File: images/fig7_17.png Graphic file (type bmp)
-<images/fig7_17.png>
+File: images/DTypeFlipFlop.png Graphic file (type bmp)
+<images/DTypeFlipFlop.png>
+File: images/MultiplexedScanElement.png Graphic file (type bmp)
+<images/MultiplexedScanElement.png>
+ [18]
+File: images/ScanRegisterMultiplexedFlipFlops.png Graphic file (type bmp)
+<images/ScanRegisterMultiplexedFlipFlops.png>
  [19]
-File: images/fig7_18.png Graphic file (type bmp)
-<images/fig7_18.png>
- [20] [21]
-File: images/fig7_19.png Graphic file (type bmp)
-<images/fig7_19.png>
-File: images/fig7_20.png Graphic file (type bmp)
-<images/fig7_20.png>
+File: images/ScanFlipFlopDualClocking.png Graphic file (type bmp)
+<images/ScanFlipFlopDualClocking.png>
+ [20]
+File: images/TwoPortThreeClockFlipFlop.png Graphic file (type bmp)
+<images/TwoPortThreeClockFlipFlop.png>
+File: images/TwoPortFlipFlopTiming.png Graphic file (type bmp)
+<images/TwoPortFlipFlopTiming.png>
+File: images/LssdDesign.png Graphic file (type bmp)
+<images/LssdDesign.png>
+ [21]
+File: images/PostsynthesisResidue5Netlist.png Graphic file (type bmp)
+<images/PostsynthesisResidue5Netlist.png>
+File: images/UnfoldedResidue5Netlist.png Graphic file (type bmp)
+<images/UnfoldedResidue5Netlist.png>
  [22]
-File: images/fig7_21.png Graphic file (type bmp)
-<images/fig7_21.png>
-File: images/fig7_22.png Graphic file (type bmp)
-<images/fig7_22.png>
-
-[23]
-File: images/fig7_23.png Graphic file (type bmp)
-<images/fig7_23.png>
- [24]
-File: images/fig7_24.png Graphic file (type bmp)
-<images/fig7_24.png>
+File: images/Residue5ScanChain.png Graphic file (type bmp)
+<images/Residue5ScanChain.png>
+File: images/VirtualTesterFullScanResidue5.png Graphic file (type bmp)
+<images/VirtualTesterFullScanResidue5.png>
+ [23]
+File: images/TestApplicationResponseCollection.png Graphic file (type bmp)
+<images/TestApplicationResponseCollection.png>
+)
+[24] (chapters/05_multiple_scan.tex
+File: images/MultipleParallelScanChains.png Graphic file (type bmp)
+<images/MultipleParallelScanChains.png>
  [25]
-File: images/fig7_26.png Graphic file (type bmp)
-<images/fig7_26.png>
- [26]
-File: images/fig7_28.png Graphic file (type bmp)
-<images/fig7_28.png>
- [27]
-File: images/fig7_29.png Graphic file (type bmp)
-<images/fig7_29.png>
-File: images/fig7_31.png Graphic file (type bmp)
-<images/fig7_31.png>
- [28] [29]
-File: images/fig7_34.png Graphic file (type bmp)
-<images/fig7_34.png>
-File: images/fig7_35.png Graphic file (type bmp)
-<images/fig7_35.png>
- [30]
-File: images/fig7_36.png Graphic file (type bmp)
-<images/fig7_36.png>
-File: images/fig7_40.png Graphic file (type bmp)
-<images/fig7_40.png>
- [31] [32]
-File: images/fig7_42.png Graphic file (type bmp)
-<images/fig7_42.png>
-) [33]
-(chapters/05_multiple_scan.tex
-File: images/fig7_51.png Graphic file (type bmp)
-<images/fig7_51.png>
- [34]
 File: images/scan_chain.png Graphic file (type bmp)
 <images/scan_chain.png>
- [35]
-File: images/fig7_53.png Graphic file (type bmp)
-<images/fig7_53.png>
-) [36] (chapters/06_rtl_scan_design.tex) [37] (chapters/07_summary.tex) [38] (m
-ain.aux)
+ [26]
+File: images/FullScanAddingMachineVirtualTester.png Graphic file (type bmp)
+<images/FullScanAddingMachineVirtualTester.png>
+) [27]
+(chapters/06_rtl_scan_design.tex) [28] (chapters/07_summary.tex) [29] (main.aux
+)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1201,12 +1191,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 99BEB1294529612DA0EDC1FC577E2304;6997.
  ) 
 Here is how much of TeX's memory you used:
- 27569 strings out of 409617
- 547990 string characters out of 5778275
- 2051191 words of memory out of 5000000
- 49174 multiletter control sequences out of 15000+600000
+ 27567 strings out of 409617
+ 553047 string characters out of 5778275
+ 2018191 words of memory out of 5000000
+ 49172 multiletter control sequences out of 15000+600000
  563569 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,12n,93p,700b,1800s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,93p,700b,1979s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (39 pages).
+Output written on main.pdf (30 pages).
