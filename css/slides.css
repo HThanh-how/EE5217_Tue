@@ -103,6 +103,14 @@ body.presentation-mode .slide.active {
   z-index: 10;
 }
 
+/* Giới hạn triệt để kích thước ảnh để không phá layout gây tràn hình */
+.slide img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  height: auto;
+}
+
 /* Kiểu chữ tiêu đề Slide */
 .slide h1 {
   font-size: 3.5rem;
