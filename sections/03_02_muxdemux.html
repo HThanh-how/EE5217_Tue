@@ -1,13 +1,14 @@
 <div class="slide slide-container">
-    <h1 style="border-bottom: 3px solid var(--primary-color); padding-bottom: 15px; display: inline-block;">3. Tối ưu
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">3.
+        Tối ưu
         Test Point bằng Mux/DeMux</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
-            style="flex: 1; text-align: left; background: #fdfdfd; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #800080;">
-            <h2 style="color: #800080; margin-bottom: 15px;"><i class="fa-solid fa-code-branch"></i> Kỹ thuật
+            style="flex: 1; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #00d2ff;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-code-branch"></i> Kỹ thuật
                 DeMultiplexed Control</h2>
-            <ul style="font-size: 1.3rem; color: #444; margin-left: 20px; line-height: 1.6;">
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
                 <li style="margin-bottom: 15px;">Dùng bộ giả kênh (<b>DeMUX</b>) để điều khiển một số lượng lớn các điểm
                     điều khiển (Control Points) thông qua một số lượng nhỏ các chân kiểm thử I/O.</li>
                 <li style="margin-bottom: 15px;">Thay vì dùng $n$ chân cho $n$ điểm (Mô hình OR gate đơn thuần), DeMUX
@@ -18,17 +19,21 @@
         </div>
 
         <div
-            style="flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 10px;">
-            <div style="background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+            style="flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <div
+                style="background: #fff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                 <img src="images/DemultiplexerControl.png" alt="Demultiplexer Control"
-                    style="max-height: 250px; width: auto; border-radius: 5px;">
-                <p style="margin-top: 5px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.7. Dùng DeMUX để
+                    style="max-height: 200px; width: auto; border-radius: 8px;">
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.7. Dùng DeMUX
+                    để
                     điều khiển N điểm (cần N bit địa chỉ).</p>
             </div>
-            <div style="background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+            <div
+                style="background: #fff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                 <img src="images/DemultiplexerControlAlternative.png" alt="Alternative Demultiplexer Control"
-                    style="max-height: 250px; width: auto; border-radius: 5px;">
-                <p style="margin-top: 5px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.8. Phiên bản tối
+                    style="max-height: 200px; width: auto; border-radius: 8px;">
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.8. Phiên bản
+                    tối
                     ưu DeMUX (Cần N bit địa chỉ và 1 bit data).</p>
             </div>
         </div>

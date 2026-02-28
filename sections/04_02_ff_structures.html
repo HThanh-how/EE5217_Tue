@@ -1,13 +1,15 @@
 <div class="slide slide-container">
-    <h1 style="border-bottom: 3px solid var(--primary-color); padding-bottom: 15px; display: inline-block;">6. Kiến trúc
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">6.
+        Kiến trúc
         Scan Flip-Flop hiện đại</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
-            style="flex: 1; text-align: left; background: #fdfdfd; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #005ce6;">
-            <h2 style="color: #005ce6; margin-bottom: 15px;"><i class="fa-solid fa-microchip"></i> MUX-DFF và Chuẩn LSSD
+            style="flex: 1; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-microchip"></i> MUX-DFF và
+                Chuẩn LSSD
             </h2>
-            <ul style="font-size: 1.25rem; color: #444; margin-left: 20px; line-height: 1.5;">
+            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
                 <li style="margin-bottom: 12px;"><b>Muxed-DFF</b>: D-Flip-Flop thông thường được dán thêm một bộ Mux 2:1
                     ở
                     ngõ vào $D$. Chân $TE$ (Test Enable) sẽ chọn tín hiệu $D$ (Normal Mode) hoặc $TI$ (Test In Mode).
@@ -22,17 +24,19 @@
         </div>
 
         <div
-            style="flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 15px;">
-            <div style="background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+            style="flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <div
+                style="background: #fff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                 <img src="images/MultiplexedScanElement.png" alt="Mux-DFF"
-                    style="max-height: 200px; width: auto; border-radius: 5px;">
-                <p style="margin-top: 5px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.23. Cấu trúc
+                    style="max-height: 200px; width: auto; border-radius: 8px;">
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.23. Cấu trúc
                     Mux-DFF kinh điển (Scan Element).</p>
             </div>
-            <div style="background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+            <div
+                style="background: #fff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                 <img src="images/LssdDesign.png" alt="LSSD Design"
-                    style="max-height: 200px; width: auto; border-radius: 5px;">
-                <p style="margin-top: 5px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.31. Cấu trúc
+                    style="max-height: 200px; width: auto; border-radius: 8px;">
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.31. Cấu trúc
                     LSSD an toàn nhưng tốn phần cứng (2 chốt Latches).</p>
             </div>
         </div>
