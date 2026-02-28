@@ -26,8 +26,19 @@ function handleResize() {
         document.body.style.setProperty('--scale', 1);
         return;
     }
-    const sx = window.innerWidth / 1280;
-    const sy = window.innerHeight / 720;
+
+    // Mặc định kích thước chuẩn mới là 1440x900 để chứa được nhiều nội dung hơn
+    let baseWidth = 1440;
+    let baseHeight = 900;
+
+    // Kiểm tra xem slide hiện tại có bị tràn chiều cao hay không (nội dung quá dài)
+    const activeSlide = document.querySelector('.slide-container.active');
+    if (activeSlide && activeSlide.scrollHeight > baseHeight) {
+        baseHeight = activeSlide.scrollHeight + 40; // Cộng thêm đệm an toàn
+    }
+
+    const sx = window.innerWidth / baseWidth;
+    const sy = window.innerHeight / baseHeight;
     const scale = Math.min(sx, sy);
     document.body.style.setProperty('--scale', scale);
 }
@@ -90,6 +101,8 @@ function updateView() {
         slides.forEach((s, i) => {
             s.classList.toggle('active', i === currentSlide);
         });
+        // Gọi lại thuật toán tính Scale ngay sau khi chuyển slide để tránh bị cắt nội dung
+        setTimeout(() => handleResize(), 50);
     } else {
         slides[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
