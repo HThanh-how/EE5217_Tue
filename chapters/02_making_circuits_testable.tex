@@ -33,3 +33,13 @@ Kết quả kiểm thử trên mô hình trải phẳng sẽ được sử dụn
 
 \subsubsection{Tính kiểm thử của Mạch Tổ Hợp (Testability of Combinational Circuits)}
 Các mạch tổ hợp cũng hưởng lợi từ DFT. Bằng cách chèn thêm phần cứng, số lượng vector kiểm thử có thể giảm xuống hoặc độ phủ lỗi được tăng lên.
+
+\paragraph{Mô hình lỗi logic (Logic Fault Models)}
+Để làm rõ tại sao cần nâng cao tính kiểm thử và áp dụng các kỹ thuật như SCAN (Quét) sau này, ta cần định nghĩa các mô hình lỗi cơ bản có thể xảy ra trong quá trình sản xuất vi mạch:
+\begin{itemize}
+    \item \textbf{Lỗi kẹt (Stuck-at Faults):} Đây là loại lỗi phổ biến nhất. Một đường tín hiệu/node logic bị "kẹt" cố định ở mức logic 0 (Stuck-at-0) hoặc mức logic 1 (Stuck-at-1), bất kể giá trị kích thích đầu vào thay đổi ra sao.
+    \item \textbf{Lỗi trễ (Transition/Delay Faults):} Lỗi không phải về mức logic tĩnh mà là về mặt thời gian. Khối logic chuyển đổi trạng thái quá chậm khi đi từ 0 lên 1 (Slow-to-Rise) hoặc từ 1 xuống 0 (Slow-to-Fall), không đáp ứng được yêu cầu về chu kỳ xung nhịp.
+    \item \textbf{Lỗi chập (Bridging Faults):} Xảy ra khi hai hoặc nhiều đường dây tín hiệu vốn độc lập lại vô tình bị ngắn mạch (shorted) với nhau do sai sót trong quá trình gia công vật lý.
+\end{itemize}
+
+Trong mạch tuần tự, các trạng thái lưu trữ nội bộ (ẩn trong Flip-flops) khiến việc thiết lập trạng thái và quan sát đầu ra để phát hiện các lỗi trên trở nên vô cùng khó khăn. Đó là lý do căn bản thúc đẩy sự ra đời của kỹ thuật SCAN Design (Thiết kế Quét).

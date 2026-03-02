@@ -8,10 +8,14 @@
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-code-branch"></i> Kỹ thuật
                 DeMultiplexed Control</h2>
             <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 15px;">Dùng bộ giả kênh (<b>DeMUX</b>) để điều khiển một số lượng lớn các điểm
-                    điều khiển (Control Points) thông qua một số lượng nhỏ các chân kiểm thử I/O.</li>
-                <li style="margin-bottom: 15px;">Thay vì dùng $n$ chân cho $n$ điểm (Mô hình OR gate đơn thuần), DeMUX
-                    cho phép chia sẻ các chân kiểm thử 1 cách chọn lọc.</li>
+                <li style="margin-bottom: 12px;"><b>Vấn đề Cổng I/O khan hiếm:</b> Trên các IC SoC mật độ cao, việc cung
+                    cấp 1 chân vật lý (Package Pin) cho mỗi Điểm điều khiển (Control Point) là bất khả thi. Chi phí đóng
+                    gói (Packaging cost) sẽ cực lớn.</li>
+                <li style="margin-bottom: 12px;"><b>Giải pháp chia sẻ chọn lọc:</b> Dùng bộ giả kênh (<b>DeMUX</b> -
+                    Demultiplexer) để tái sử dụng một số lượng nhỏ các chân kiểm thử I/O cho việc điều khiển phân rẽ
+                    diện rộng hàng trăm điểm kiểm thử trong nhân chip (Core Logic).</li>
+                <li style="margin-bottom: 12px;">Hiệu quả: Để can thiệp vào $2^N$ điểm logic độc lập, kỹ sư chỉ cần cung
+                    cấp $N$ bit địa chỉ (Address bits) lấy từ thiết bị Test.</li>
             </ul>
         </div>
 
@@ -36,11 +40,16 @@
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-code-branch"></i> Phiên bản tối
-                ưu</h2>
+                ưu Data Line</h2>
             <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 15px;">Bằng cách thay đổi mode <b>T</b> (Test/Normal) và dùng các mã điều
-                    khiển chọn kênh, ta có thể bơm giá trị ảo vào logic nội bộ từ ngoài biên.</li>
-                <li style="margin-bottom: 15px;">Phiên bản Tối ưu DeMUX giúp chia sẻ linh hoạt Data Line.</li>
+                <li style="margin-bottom: 12px;"><b>Nâng cấp Linh hoạt:</b> Phiên bản DeMUX ở phần 1 vẫn còn sự cứng
+                    nhắc trong việc bơm giá trị. Mạch DeMUX nâng cao bổ sung thêm chân <b>Data</b> kết hợp Mode chọn
+                    luồng <b>T (Test/Normal)</b>.</li>
+                <li style="margin-bottom: 12px;"><b>Phương thức vận hành:</b> Khi $T=1$, chip chuyển sang chế độ Test.
+                    Bộ phân kênh sử dụng tín hiệu chọn $Control$ nhằm dẫn hướng Data line duy nhất tiêm thẳng một giá
+                    trị mong muốn (0 hoặc 1) đến tận điểm lỗi sâu bên trong netlist logic.</li>
+                <li style="margin-bottom: 12px;">Nhờ thiết kế thông minh này, các chân chức năng thông thường
+                    (Functional Pins) có thể được tận dụng để dẫn tín hiệu Address/Data trong kỳ Test.</li>
             </ul>
         </div>
 
@@ -50,8 +59,8 @@
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/DemultiplexerControlAlternative.png" alt="Alternative Demultiplexer Control"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.8. Phiên bản
-                    tối ưu DeMUX (Cần N bit địa chỉ và 1 bit data).</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.8. Cấu trúc
+                    liên kết DeMUX kết hợp Data và Test Mode.</p>
             </div>
         </div>
     </div>

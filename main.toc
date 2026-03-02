@@ -4,31 +4,40 @@
 \contentsline {subsection}{\numberline {1.1}Đặt vấn đề}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Mục tiêu của Đề tài}{3}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Bố cục của báo cáo}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Làm cho Mạch Có Thể Kiểm Thử (Making Circuits Testable)}{5}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Sự đánh đổi (Tradeoffs)}{5}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Kiểm thử Mạch Tuần tự (Testing Sequential Circuits)}{5}{subsubsection.1.4.2}%
-\contentsline {paragraph}{Mô hình Huffman cho Mạch Tuần tự}{5}{subsubsection.1.4.2}%
-\contentsline {paragraph}{Mô hình Mạch Trải phẳng (Unfolding Sequential Model)}{6}{figure.caption.1}%
-\contentsline {subsubsection}{\numberline {1.4.3}Tính kiểm thử của Mạch Tổ Hợp (Testability of Combinational Circuits)}{7}{subsubsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.5}Chèn Tính Kiểm Thử (Testability Insertion)}{8}{subsection.1.5}%
-\contentsline {subsubsection}{\numberline {1.5.1}Cải thiện Khả năng Quan sát (Improving Observability)}{8}{subsubsection.1.5.1}%
-\contentsline {subsubsection}{\numberline {1.5.2}Cải thiện Khả năng Điều khiển (Improving Controllability)}{9}{subsubsection.1.5.2}%
-\contentsline {subsubsection}{\numberline {1.5.3}Chia sẻ Chân Quan sát và Chân Điều khiển}{9}{subsubsection.1.5.3}%
-\contentsline {subsubsection}{\numberline {1.5.4}Điều khiển và Quan sát Đồng thời (Simultaneous Control and Observation)}{11}{subsubsection.1.5.4}%
-\contentsline {paragraph}{Isolated Serial Scan}{12}{figure.caption.12}%
-\contentsline {subsection}{\numberline {1.6}Kỹ thuật Full Scan DFT (Full Scan DFT Technique)}{15}{subsection.1.6}%
-\contentsline {subsubsection}{\numberline {1.6.1}Chèn Full Scan (Full Scan Insertion)}{15}{subsubsection.1.6.1}%
-\contentsline {paragraph}{Thanh ghi Scan}{16}{figure.caption.18}%
-\contentsline {paragraph}{Quy trình kiểm thử}{16}{lstnumber.2.16}%
-\contentsline {subsubsection}{\numberline {1.6.2}Cấu trúc Flip-flop (Flip-flop Structures)}{17}{subsubsection.1.6.2}%
-\contentsline {paragraph}{Dữ liệu kiểm thử dồn kênh (Multiplexed Test Data)}{18}{figure.caption.22}%
-\contentsline {paragraph}{Hệ thống xung nhịp kép (Dual Clocking)}{20}{lstnumber.3.9}%
-\contentsline {paragraph}{Flip-flop Hai Cổng (Two-port Flip-flops)}{21}{lstnumber.4.10}%
-\contentsline {subsubsection}{\numberline {1.6.3}Thiết kế và Kiểm thử Full Scan (Full Scan Design and Test)}{22}{subsubsection.1.6.3}%
-\contentsline {subsection}{\numberline {1.7}Quét đa luồng (Multiple Scan)}{25}{subsection.1.7}%
-\contentsline {subsubsection}{\numberline {1.7.1}Mạng Cấp số cộng (Full Scan on Adding Machine)}{26}{subsubsection.1.7.1}%
-\contentsline {subsubsection}{\numberline {1.7.2}Trình kiểm thử ảo cho luồng đa quét (Virtual Tester for Multiple Scans)}{26}{subsubsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.8}Thiết kế Scan góc độ RTL (RT Level Scan Design)}{28}{subsection.1.8}%
-\contentsline {paragraph}{Quét mức bộ phận (Partial Scan):}{28}{subsection.1.8}%
-\contentsline {paragraph}{Quét Cục bộ Độc lập (Multiple Independent Scans):}{28}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Tóm lược (Summary)}{29}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.4}Làm cho Mạch Có Thể Kiểm Thử (Making Circuits Testable)}{6}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Sự đánh đổi (Tradeoffs)}{6}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Kiểm thử Mạch Tuần tự (Testing Sequential Circuits)}{6}{subsubsection.1.4.2}%
+\contentsline {paragraph}{Mô hình Huffman cho Mạch Tuần tự}{6}{subsubsection.1.4.2}%
+\contentsline {paragraph}{Mô hình Mạch Trải phẳng (Unfolding Sequential Model)}{7}{figure.caption.1}%
+\contentsline {subsubsection}{\numberline {1.4.3}Tính kiểm thử của Mạch Tổ Hợp (Testability of Combinational Circuits)}{8}{subsubsection.1.4.3}%
+\contentsline {paragraph}{Mô hình lỗi logic (Logic Fault Models)}{8}{subsubsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.5}Chèn Tính Kiểm Thử (Testability Insertion)}{10}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Cải thiện Khả năng Quan sát (Improving Observability)}{10}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Cải thiện Khả năng Điều khiển (Improving Controllability)}{11}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Chia sẻ Chân Quan sát và Chân Điều khiển}{11}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Điều khiển và Quan sát Đồng thời (Simultaneous Control and Observation)}{13}{subsubsection.1.5.4}%
+\contentsline {paragraph}{Isolated Serial Scan}{14}{figure.caption.12}%
+\contentsline {subsubsection}{\numberline {1.5.5}Khái niệm cơ bản về Thiết kế Quét (Basic concept of SCAN design)}{16}{subsubsection.1.5.5}%
+\contentsline {paragraph}{Công cụ tự động hóa (SCAN Tools)}{16}{subsubsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.6}Kỹ thuật Full Scan DFT (Full Scan DFT Technique)}{18}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Chèn Full Scan (Full Scan Insertion)}{18}{subsubsection.1.6.1}%
+\contentsline {paragraph}{Thanh ghi Scan}{19}{figure.caption.18}%
+\contentsline {paragraph}{Quy trình kiểm thử}{19}{lstnumber.2.16}%
+\contentsline {subsubsection}{\numberline {1.6.2}Cấu trúc Flip-flop (Flip-flop Structures)}{20}{subsubsection.1.6.2}%
+\contentsline {paragraph}{Dữ liệu kiểm thử dồn kênh (Multiplexed Test Data)}{21}{figure.caption.22}%
+\contentsline {paragraph}{Hệ thống xung nhịp kép (Dual Clocking)}{23}{lstnumber.3.9}%
+\contentsline {paragraph}{Flip-flop Hai Cổng (Two-port Flip-flops)}{24}{lstnumber.4.10}%
+\contentsline {subsubsection}{\numberline {1.6.3}Thiết kế và Kiểm thử Full Scan (Full Scan Design and Test)}{25}{subsubsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.7}Quét đa luồng (Multiple Scan)}{28}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Thiết kế Quét Toàn bộ (Full Scan Design)}{28}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}Thiết kế Quét qua Thanh ghi Bóng (Shadow Register DFT)}{28}{subsubsection.1.7.2}%
+\contentsline {subsubsection}{\numberline {1.7.3}Phương pháp Quét Cục bộ (Partial Scan Methods)}{29}{subsubsection.1.7.3}%
+\contentsline {subsubsection}{\numberline {1.7.4}Thiết kế Quét Đa luồng (Multiple Scan Design)}{29}{subsubsection.1.7.4}%
+\contentsline {subsubsection}{\numberline {1.7.5}Các Thiết Kế Quét Khác (Other Scan Designs)}{31}{subsubsection.1.7.5}%
+\contentsline {subsection}{\numberline {1.8}Thiết kế Scan góc độ RTL (RT Level Scan Design)}{32}{subsection.1.8}%
+\contentsline {subsubsection}{\numberline {1.8.1}Quét Toàn phần cho Thiết kế RTL (RTL Design Full Scan)}{32}{subsubsection.1.8.1}%
+\contentsline {subsubsection}{\numberline {1.8.2}Quét Đa luồng cho Thiết kế RTL (RTL Design Multiple Scan)}{32}{subsubsection.1.8.2}%
+\contentsline {subsubsection}{\numberline {1.8.3}Các thiết kế Quét Phân vùng cho RTL (Scan Designs for RTL)}{32}{subsubsection.1.8.3}%
+\contentsline {subsubsection}{\numberline {1.8.4}Kiểm thử Dòng Rò (IDDQ Test)}{32}{subsubsection.1.8.4}%
+\contentsline {subsection}{\numberline {1.9}Tóm lược (Summary)}{34}{subsection.1.9}%
+\contentsline {section}{TÀI LIỆU THAM KHẢO}{35}{Item.15}%

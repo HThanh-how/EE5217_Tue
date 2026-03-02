@@ -1,8 +1,18 @@
 \subsection{Thiết kế Scan góc độ RTL (RT Level Scan Design)}
-Thiết kế kiến trúc quét bằng phương pháp quét toàn phần sau sơ đồ tổng hợp cổng logic (Gate-level Full Scan) là cách tiếp cận đi từ dưới lên (Bottom-up). Nhược điểm là đôi khi Tool không hiểu được vai trò của từng block mạch, dẫn đến chèn mù quáng và cồng kềnh. Góc tiếp cận quét thiết kế ngay từ tầng chuyển giao thanh ghi (Registers-Transfer Level - RTL) sẽ đem lại tối ưu hóa cấp độ kiến trúc.
+Thiết kế kiến trúc quét sau sơ đồ cổng logic (Gate-level) là cách tiếp cận Bottom-up. Điểm mù là Tool không hiểu được vai trò khái quát của từng khối mạch chức năng (FSM, Datapath...), dẫn đến chèn mù quáng và cồng kềnh. Việc chèn kiểm thử từ cấp độ chuyển giao thanh ghi (RTL - Top-Down) đem lại tối ưu hóa diện tích cực trị.
 
-\paragraph{Quét mức bộ phận (Partial Scan):}
-Ở quy mô RTL, lập trình viên có thể chỉ định phần khối chức năng nào cần có scan chain (có thể là Data Path) và bỏ qua bộ điều khiển (Control Path). Việc lựa chọn dựa trên phân tích cấu trúc tổng tải RTL sẽ tiết kiệm logic so với quét 100\%. 
+\subsubsection{Quét Toàn phần cho Thiết kế RTL (RTL Design Full Scan)}
+Cũng giống như Gate-level phân mảnh các thanh ghi phản hồi bằng Unfolding, phương pháp này ép mọi đối tượng phần cứng (Register Files, Program Counters, ALUs) trong cấu trúc RTL vào một chuỗi nối mạch Full Scan duy nhất.
 
-\paragraph{Quét Cục bộ Độc lập (Multiple Independent Scans):}
-Các mô-đun riêng lẻ (Datapath, Controller, Register File) được liên kết thành các chuỗi vòng độc lập (isolated scans). Khi kiểm thử Datapath, ta có thể tái sử dụng Controller hoặc thanh ghi không ở trạng thái scan để cung cấp dữ liệu ổn định, tránh xung đột về tài nguyên. 
+\subsubsection{Quét Đa luồng cho Thiết kế RTL (RTL Design Multiple Scan)}
+Ở quy mô RTL, lập trình viên có thể chỉ định phần khối chức năng nào cần có scan chain riêng biệt. Các mô-đun riêng lẻ (Datapath, Controller, Register File) được liên kết thành các chuỗi quét đa luồng (Multiple Scans). Khi kiểm thử cấu trúc Datapath chẳng hạn, ta có thể tái sử dụng Controller hoặc thanh ghi không ở trạng thái scan để cung cấp dữ liệu nền ổn định, tránh xung đột về tài nguyên hay nhiễu giao thức kiểm thử. 
+
+\subsubsection{Các thiết kế Quét Phân vùng cho RTL (Scan Designs for RTL)}
+Quy hoạch quét trên RTL cho phép loại trừ (hoặc bỏ qua) các mảng cấu thành kém quan trọng để tập trung cho Data Path tốn tài nguyên nhất (thay vì chèn quét bừa bãi). Việc áp dụng quy trình Partial Scan chọn lọc tinh hoa này giúp tiết kiệm Logic Mux-DFF tới $10-15\%$ so với quét toán tính Full Scan ở tầng Gate-level.
+
+\subsubsection{Kiểm thử Dòng Rò (IDDQ Test)}
+Kiểm thử IDDQ là một phương pháp kiểm thử quan trọng, thường được áp dụng phân tích ngay từ mức RTL hoặc Gate-level để phát hiện lỗi dựa trên mức dòng điện rò. Khái niệm \textbf{IDDQ} xuất phát từ thuật ngữ dòng điện \textbf{IDD} (cấp nguồn) và trạng thái \textbf{Q}uiescent (tức thời ổn định).
+
+Mạch CMOS thông thường ở trạng thái ổn định chỉ tiêu thụ lượng dòng tĩnh cực kỳ nhỏ (cỡ nano-Ampe). Tuy nhiên, nếu bị lỗi gia công vật lý như chập/ngắn mạch rò bên trong (Gate oxide breakdown, Bridging faults), đường dẫn điện sẽ nối trút từ VDD xuống GND tạo thành dòng rò lớn khiến ngưỡng tiêu thụ vọt lên mức mili-Ampe.
+
+Kiểm thử IDDQ có những đặc quyền phát hiện sâu sắc mà vector kiểm thử logic 1/0 đôi khi bỏ sót, đồng thời cung cấp độ phủ quan sát (Observability) cực tốt vì dòng điện tổn hao phản ánh trên toàn vi mạch. Tuy nhiên, thách thức lớn ở các tiến trình công nghệ sâu (Deep Sub-Micron) là dòng rò tự nhiên cũng tăng cao, buộc IDDQ phải kết hợp cùng các tham số lọc tinh vi để nhận định.

@@ -3,16 +3,21 @@
         Môi trường Giả lập: Virtual Tester (Phần 1)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Cơ chế Máy Tester
-                (ATE)
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Cơ chế Máy Thiết
+                Bị Kiểm Thử (ATE)
             </h2>
             <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 15px;"><b>Mục tiêu</b>: Máy ATE (Automated Test Equipment) bơm chuỗi vector
-                    mẫu (Test Vector) vào mạch và so sánh ngõ ra với giá trị Vàng (Golden Response).</li>
-                <li style="margin-bottom: 15px;">Hệ thống bao gồm các chân kết nối trực tiếp với <b>Primary
-                        Inputs/Outputs</b> và các chân <b>Test In/Test Out</b>.</li>
+                <li style="margin-bottom: 12px;"><b>Hệ thống Test Tự động:</b> Máy ATE (Automated Test Equipment) bơm
+                    các chuỗi nhị phân (Test Vector) vào mạch và so sánh ngõ ra với giá trị Vàng lý thuyết (Golden
+                    Response).</li>
+                <li style="margin-bottom: 12px;"><b>Phương pháp Liên kết:</b> Tester không thể móc mỏ hàn vào từng sợi
+                    dây li ti bên trong IC bé tí. Các đầu kim Probe Card của ATE chỉ chạm được vào <b>Bề mặt Vỏ Gói</b>
+                    qua các chân Pin I/O chuẩn. Các chân này vừa tải tín hiệu Functional, vừa đóng vai trò Test In /
+                    Test Out.</li>
+                <li style="margin-bottom: 12px;"><b>Điều Quản Clock:</b> Máy ATE còn đóng vai trò phát các xung Nhịp
+                    (Clock Signal) kiểm thử để đẩy (Shift) tín hiệu trôi tuột vào đường ruột Scan Chain.</li>
             </ul>
         </div>
 
@@ -22,8 +27,8 @@
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/VirtualTesterFullScanResidue5.png" alt="Virtual Tester"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.40. Giao thức
-                    ATE bơm dữ liệu vào Scan Chain mạch Residue-5.</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.40. Sơ đồ ATE
+                    vờn dữ liệu vào đường rãnh Scan Chain (Residue-5).</p>
             </div>
         </div>
     </div>
@@ -34,18 +39,20 @@
         Môi trường Giả lập: Virtual Tester (Phần 2)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Thu Thập Phản Hồi
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Chu Kỳ Vòng Kín
+                Thu Thập
             </h2>
             <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 15px;"><b>Qui trình Test (Test Application)</b>:
+                <li style="margin-bottom: 12px;"><b>Thủ tục Áp dụng Vector (4 Pha):</b>
                     <ol style="margin-top:10px; font-size: 1.15rem; color: #555;">
-                        <li>Bơm Dữ Liệu (Shift-In) trạng thái nội bộ.</li>
-                        <li>Đẩy Dữ Liệu ngõ vào (Primary Inputs).</li>
-                        <li>Nhấp 1 nhịp Clock (Capture) để lấy mạch phản hồi vào các FF.</li>
-                        <li><b>Trích Dữ Liệu ra (Shift-Out)</b>: Song song đó, ca trích này ghi đè trùng vào kì nạp
-                            Vector mới tiếp theo.</li>
+                        <li><b>Shift-In:</b> Dồn Dữ Liệu vào nội tạng Flip-flop bằng xung Clock mồi (TE=1).</li>
+                        <li><b>Apply:</b> Đẩy Dữ Liệu ngõ vào Primary Inputs và chờ hệ thống tĩnh mịch (TE=0).</li>
+                        <li><b>Capture:</b> Giật nhấp đúng 1 Nhịp Clock (Functional Clock) để trói chốt lại Kết quả Mạch
+                            Tổ Hợp vừa tính vào các rãnh FF.</li>
+                        <li><b>Shift-Out & Overlap:</b> Bóp còi đẩy kết quả đó trôi ra ngoài. Cùng lúc, tiết kiệm Cycle
+                            bằng cách nạp luôn mẫu Vector số $k+1$ mới vào đèlấp lên chỗ trống!</li>
                     </ol>
                 </li>
             </ul>
@@ -57,8 +64,8 @@
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/TestApplicationResponseCollection.png" alt="Test Application Collection"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.42. Qui trình
-                    Nhấp Clock Capture kết quả (Response Collection). Quá trình shift Out trùng luôn lên shift In.</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.42. Hình ảnh
+                    Trôi Dịch Song Song (Shift Out cũ bị đè lên bởi Shift In mới).</p>
             </div>
         </div>
     </div>

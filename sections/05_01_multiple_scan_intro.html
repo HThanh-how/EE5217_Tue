@@ -6,13 +6,17 @@
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-tachometer-alt"></i> Giải quyết
-                Bottleneck</h2>
-            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
-                <li style="margin-bottom: 15px;"><b>Vấn đề nghiêm trọng</b>: Đối với VLSI khổng lồ có hàng chục vạn
-                    Flip-Flops. Nối thành 1 chuỗi Full Scan duy nhất sẽ khiến thời gian Shift In/Out tốn vài chục ngàn
-                    nhịp Clock cho <i>mỗi mẫu test</i>.</li>
-                <li style="margin-bottom: 15px;"><b>Giải pháp Multiple Scan</b>: Cắt nhỏ chuỗi Shift Register khổng lồ
-                    thành nhiều chuỗi ngắn song song (Multiple Chains).</li>
+                Khủng hoảng Băng thông Di chuyển</h2>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Bài toán Vút Quãng Đường Dài:</b> VLSI Chip tỷ lệ thuận với Hàng
+                    triệu cổng. Giả sử Chip chứa $100,000$ Flip-flops. Một vòng quét Full Scan Single Chain tốn
+                    $100,000$ chu kì nhịp Clock để đẩy đầy $1$ Test Vector vào trong ống. Nếu cần $1,000$ Patterns, máy
+                    ATE chịu thua vì tốn hàng chục giây cho mỗi con IC Test đắt đỏ.</li>
+                <li style="margin-bottom: 12px;"><b>Phương án "Chia nhỏ Đại đội": Multiple Scan Chains.</b> Thay vì xếp
+                    hàng rồng rắn 1 file duy nhất, ta mạnh tay cắt cái Xích $100,000$ mắt kia thành $100$ Dây xích ngắn
+                    (Chains) song song dài chỉ $1000$ mắt.</li>
+                <li style="margin-bottom: 12px;">Thời gian chèn dịch (Shift-In/Out Test Time) sẽ ngay lập tức được
+                    <b>chia tốc giảm đi $100$ lần</b> vì cả 100 làn đường có thể nạp đẩy ống song song đồng thời!</li>
             </ul>
         </div>
 
@@ -22,8 +26,8 @@
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/MultipleParallelScanChains.png" alt="Multiple Parallel Scan Chains"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.51. Kiến trúc
-                    Nhiều Chuỗi Quét Song Song (Multiple Parallel Scan Chains).</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.51. Vi mạch với
+                    cấu trúc nhiều tuyến đường Quét song hành cắt dọc Lõi Core.</p>
             </div>
         </div>
     </div>
@@ -37,14 +41,17 @@
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-expand-arrows-alt"></i> Phân
-                Mảnh Dữ Liệu</h2>
-            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
-                <li style="margin-bottom: 15px;"><b>Phân bổ Test Vector</b>: Mẫu thử nghiệm (Test Vector) đơn khối bị
-                    phân mảnh rải đều nạp đồng thời cho các chuỗi nhỏ tương ứng.</li>
-                <li style="margin-bottom: 15px;"><b>Đánh đổi (Trade-off)</b>: Giảm thời gian kiểm thử (Test Time) đi
-                    nhiều lần tỷ lệ thuận với số lượng chuỗi, nhưng bù lại sẽ tiêu hao thêm chân phần cứng tín hiệu
-                    $T_{in}$ và $T_{out}$ tương ứng cho mỗi chuỗi trên bề mặt IC.
-                </li>
+                Mảnh Dữ Liệu Vector Băm</h2>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Chia Khối Test Vector:</b> ATE sinh ra 1 File Text khổng lồ (Test
+                    Pattern dài ngoằng). Bây giờ Mẫu dữ liệu đơn phương bị lưỡi dao chẻ thành các dải $Part_1, Part_2,
+                    Part_N$. Các máy bơm ATE sẽ tọng chúng nhúm nhó vào miệng các nhánh nhỏ tương ứng.</li>
+                <li style="margin-bottom: 12px;"><b>Bất lợi Về Thiết Bị Khổng Lồ Mới Nảy Sinh (Trade-off Nặng Nề):</b>
+                    Không có kẹo Ngọt 100%. Việc cắt dây xích giảm thời gian bao nhiêu lần thì Thiết kế Vật Lý (Physical
+                    Layout) ở rìa viền Chip sẽ phải cõng thêm Bấy Nhiêu chân Pin tiếp xúc phần cứng $T_{in\_1},
+                    T_{out\_1} \dots T_{in\_M}, T_{out\_M}$ thật sự. </li>
+                <li style="margin-bottom: 12px;">Điều này lại dội ngược Bài toán Giới hạn Package Pins và Máy Móc ATE
+                    cần hàng trăm Kim Test Channel để ghim cùng lúc.</li>
             </ul>
         </div>
 
@@ -54,8 +61,8 @@
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/TestVectorArrangement.png" alt="Test Vector Arrangement for Multiple Chains"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.50. Sự sắp xếp
-                    Vector thử nghiệm bị phân mảnh cho các chuỗi song song.</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.50. Cơ học Băm
+                    nhỏ Data Vector nạp rải thảm vào Chuỗi.</p>
             </div>
         </div>
     </div>

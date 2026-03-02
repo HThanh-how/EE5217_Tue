@@ -3,16 +3,21 @@
         Kiến trúc Scan Flip-Flop (Phần 1)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-microchip"></i> MUX-DFF
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-microchip"></i> Tiêu Chuẩn
+                MUX-DFF
             </h2>
-            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
-                <li style="margin-bottom: 12px;"><b>Muxed-DFF</b>: D-Flip-Flop thông thường được dán thêm một bộ Mux 2:1
-                    ở ngõ vào $D$. Chân $TE$ (Test Enable) sẽ chọn tín hiệu $D$ (Normal Mode) hoặc $TI$ (Test In Mode).
-                    Đây là nền tảng của mọi mạch Full Scan.</li>
-                <li style="margin-bottom: 12px;"><b>Nhược điểm Mux-DFF</b>: Mux làm tăng trễ truyền qua (Delay overhead)
-                    đường dữ liệu Normal, vi phạm quy tắc thời gian (Setup time).</li>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Thành phần Muxed-DFF:</b> Một D-Flip-Flop thông thường được dán thêm
+                    bộ Mux 2:1 ngay tại ngõ vào $D$. Chân tín hiệu <b>$TE$ (Test Enable)</b> là chốt điều khiển
+                    (Selector) cho Mux này.</li>
+                <li style="margin-bottom: 12px;"><b>Nguyên lý Hoạt động:</b> $TE = 0$: Mạch hoạt động Logic thường
+                    (Normal Mode), D-FF lấy tín hiệu từ chân $D$. $TE = 1$: Mạch bị phong tỏa thành chuỗi thanh ghi dịch
+                    (Shift Register Mode), D-FF lấy tín hiệu chuỗi từ chân $TI$ (Test In).</li>
+                <li style="margin-bottom: 12px;"><b>Cái giá phải trả (Cost/Trade-off):</b> Tốc độ xử lý của mạch bị giảm
+                    (Delay/Performance overhead) do tín hiệu Normal Functional $D$ phải đi xuyên qua trễ 1 cổng Mux
+                    trước khi kịp chốt vào FF. Ngoài ra việc chèn thêm dòng điện làm tăng năng lượng tiêu hao.</li>
             </ul>
         </div>
 
@@ -23,7 +28,7 @@
                 <img src="images/MultiplexedScanElement.png" alt="Mux-DFF"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
                 <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.23. Cấu trúc
-                    Mux-DFF kinh điển (Scan Element).</p>
+                    chuyển đổi phần cứng Scan bằng Mux.</p>
             </div>
         </div>
     </div>
@@ -34,16 +39,22 @@
         Kiến trúc Scan Flip-Flop (Phần 2)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-microchip"></i> Chuẩn LSSD
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-microchip"></i> Thiết Kế IBM:
+                LSSD
             </h2>
-            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
-                <li style="margin-bottom: 12px;"><b>Chuẩn LSSD (Level Sensitive Scan Design) của IBM</b>: Giải quyết
-                    triệt để vấn đề thời gian bằng cách dùng 2 Clock độc lập không chồng lấn (Non-overlapping Clocks).
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Level Sensitive Scan Design (LSSD):</b> Do tập đoàn IBM phát triển.
+                    Khác với thiết kế kích ứng sườn (Edge-triggered) thông thường, LSSD dùng bộ chốt nhạy mức
+                    (Level-sensitive Latches).</li>
+                <li style="margin-bottom: 12px;"><b>Giải pháp Clock Phân Lập:</b> Để khắc phục triệt để lỗi đua (Race
+                    condition) trên đường trễ Clock (Clock skew), LSSD bắt buộc dùng tới 2 đồng hồ <b>A Clocks</b> và
+                    <b>B Clocks</b> hoàn toàn không bao giờ bật đồng thời (Non-overlapping).
                 </li>
-                <li style="margin-bottom: 12px;">LSSD rất an toàn và đảm bảo timing 100% nhưng phải trả giá bằng diện
-                    tích chip cao hơn.</li>
+                <li style="margin-bottom: 12px;"><b>Đánh đổi Vàng:</b> Giải pháp LSSD đạt tiêu chuẩn cực kỳ an toàn, có
+                    khả năng 100% Timing Passed theo Design Rule Checker (DRC), nhưng Area Overhead rất cao (nhiều
+                    Latch) và việc quản lý Clock Domain phức tạp hơn.</li>
             </ul>
         </div>
 
@@ -53,8 +64,8 @@
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/LssdDesign.png" alt="LSSD Design"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.31. Cấu trúc
-                    LSSD an toàn nhưng tốn phần cứng (2 chốt Latches).</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.31.
+                    Master/Slave Latch an toàn tuyệt đối chống Clock Skew.</p>
             </div>
         </div>
     </div>

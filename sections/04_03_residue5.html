@@ -3,15 +3,21 @@
         Case Study: Hệ Đếm Residue-5 (Phần 1)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-sync"></i> Netlist Cơ Bản
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #00d2ff;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-sync"></i> Netlist Cơ Bản Sau
+                Tổng Hợp (Postsynthesis)
             </h2>
-            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
-                <li style="margin-bottom: 15px;"><b>Residue-5 Counter</b>: Một mạch đếm tuần tự trạng thái hữu hạn (FSM)
-                    có 3 Flip-Flops để tạo ra 5 trạng thái đếm $0, 1, 2, 3, 4, 0\dots$</li>
-                <li style="margin-bottom: 15px;"><b>Biến đổi Netlist</b>: Mạch gốc chứa Flip-Flop thường. Để áp dụng
-                    Full Scan, toàn bộ $D\text{-}FF$ được thay thế bằng cell thư viện $SD\text{-}FF$ (Scan D-FF).</li>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Chức năng Residue-5 Counter:</b> Mạch tạo Bộ Đếm modulo 5 có nhiệm
+                    vụ quay vòng đếm các chuỗi số nguyên $0, 1, 2, 3, 4, 0\dots$ dựa trên sườn lên Clock. Đây là 1 máy
+                    FSM kinh điển.</li>
+                <li style="margin-bottom: 12px;"><b>Tài nguyên ban đầu:</b> Để encode 5 trạng thái trạng thái, netlist
+                    mạch tạo ra $3$ khối thanh ghi $D\text{-}FF$ thường (tạo ra log2(5) cell) cùng với ma trận Logic Tổ
+                    Hợp NOR/NAND xen kẽ phía trước.</li>
+                <li style="margin-bottom: 12px;"><b>Process Dán Mác Scan (Scan Stitching):</b> Trình tổng hợp Synthesis
+                    Tool (như Design Compiler) sẽ tiến hành thao tác "nhổ và trồng lại", thay $3$ Cell $D\text{-}FF$ gốc
+                    thành $3$ Cell Thư Viện chuẩn `SD-FF` chuyên biệt có chân Mux sẵn để phục vụ DFT.</li>
             </ul>
         </div>
 
@@ -22,7 +28,7 @@
                 <img src="images/PostsynthesisResidue5Netlist.png" alt="Postsynthesis Residue-5 Netlist"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
                 <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.34. Netlist
-                    tổng hợp mạch Residue-5 (Sau khi thêm phần cứng Scan).</p>
+                    tổng hợp mạch Residue-5 (Sau khi thêm phần cứng Scan Cells).</p>
             </div>
         </div>
     </div>
@@ -33,16 +39,20 @@
         Case Study: Hệ Đếm Residue-5 (Phần 2)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-sync"></i> Scan Chain Khổng Lồ
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #00d2ff;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-link"></i> Hình Thuần Scan
+                Chain Khổng Lồ
             </h2>
-            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
-                <li style="margin-bottom: 15px;"><b>Nối chuỗi Scan Chain</b>: $Q$ của FF trước được nối cắm vào $TI$ của
-                    FF sau.</li>
-                <li style="margin-bottom: 15px;">Chân $TE$ (Scan Enable) điều khiển toàn bộ khối hoạt động đồng bộ.</li>
-                <li style="margin-bottom: 15px;">Đầu vào là $T_{in}$ (Test Data In) và đầu ra là $T_{out}$ (Test Data
-                    Out). Thiết kế này tiêm dữ liệu trực tiếp bỏ qua cổng kết nối Primary In.</li>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Toán học Shift Register:</b> Khi chân $TE$ (Test/Scan Enable) bằng
+                    1, các dây Logic chằng chịt rẽ nhánh bị cô lập hoàn toàn. Chip tạm thời biến thành 1 Thanh ghi dịch
+                    Serial duy nhất. Tín hiệu đầu ra $Q$ của FF-0 được nhét thẳng lỗ $TI$ của FF-1.</li>
+                <li style="margin-bottom: 12px;"><b>Đường Mạch Riêng Biệt:</b> Một "Con Đường Tơ Lụa" ảo được thiết lập
+                    từ Primary Pin có tên $T_{in}$ (Test Data In) đi trơn tuột qua hàng loạt Flip-Flop nội bộ và lọt ra
+                    rãnh tín hiệu gốc ở $T_{out}$ (Test Data Out).</li>
+                <li style="margin-bottom: 12px;">Thiết kế này chính là con đường Độc đạo để kỹ sư đút một mẫu Pattern
+                    10101 thẳng vào cuống lõi Chip bỏ qua mọi rào cản cổng Logic thông thường (Controllability).</li>
             </ul>
         </div>
 
@@ -53,7 +63,7 @@
                 <img src="images/Residue5ScanChain.png" alt="Residue 5 Scan Chain"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
                 <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.36. Ba phần tử
-                    SFF được nối tạo thành chuỗi Shift Register khổng lồ.</p>
+                    SFF được nối thành chuỗi Shift Register khổng lồ.</p>
             </div>
         </div>
     </div>

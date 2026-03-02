@@ -1,36 +1,28 @@
 <div class="slide slide-container">
-    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">11.
-        Quét Cục
-        Bộ Từ Mức RTL (Partial Scan)</h1>
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">6.
+        Thiết Kế Scan Góc Độ RTL</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
+            style="flex: 1; min-width: 0; max-width: 100%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-code"></i> Tối ưu chi phí từ
                 cấp độ
-                Hệ thống</h2>
+                Hệ thống Top-Down</h2>
             <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
-                <li style="margin-bottom: 15px;"><b>Nhược điểm Full Scan</b>: Thay thế 100% Flip-flop tiêu tốn lên đến
-                    20% diện tích Silicon và làm chậm mạch đáng kể.</li>
-                <li style="margin-bottom: 15px;"><b>Giải pháp Partial Scan</b>: Chỉ biến các Flip-Flop nào <i>thực sự
-                        cần thiết</i> thành Scan-FF. Các FF còn lại giữ nguyên.</li>
-                <li style="margin-bottom: 15px;"><b>Chiến thuật chọn lọc RTL</b>: Nhắm vào việc phá vỡ các vòng lặp phản
-                    hồi (Feedback loops) và giảm "độ sâu tuần tự" (Sequential depth).</li>
-                <li style="margin-bottom: 15px;">Giảm chi phí Area Overhead nhưng bộ ATPG sẽ phải vận dụng toán học phức
-                    tạp hơn để tính toán Test Vector.</li>
+                <li style="margin-bottom: 15px;"><b>Thiết kế Scan Toàn phần RTL (RTL Design Full Scan)</b>:
+                    Ép đồng loạt mọi đối tượng phần cứng mức cao (như Register Files, Counters, Bus) vào một chuỗi quét
+                    duy nhất, tương tự cách làm ở mức Gate-level. Tuy dễ thực hiện nhưng rất tốn diện tích chèn MUX.
+                </li>
+                <li style="margin-bottom: 15px;"><b>Thiết kế Quét Đa luồng RTL (RTL Design Multiple Scan)</b>:
+                    Hệ thống RTL có phân cấp rõ ràng (Controller vs Datapath). Lập trình viên có thể chỉ định từng block
+                    chức năng thành các chuỗi quét đa luồng riêng rẽ. Nó giúp tận dụng nền ổn định của Controller làm bệ
+                    phóng khi đang test Datapath.</li>
+                <li style="margin-bottom: 15px;"><b>Quét Phân vùng / Cục bộ RTL (Scan Designs for RTL | Partial
+                        Scan)</b>:
+                    Nhờ có luồng dữ liệu RTL trực quan, kỹ sư có thể nhắm vào việc phá vỡ các vòng lặp phản hồi
+                    (Feedback loops) và bỏ qua việc chèn Scan vào các vùng ít nghiêm trọng. Chiến thuật chọn lọc tinh
+                    hoa này giúp tiết kiệm Logic Mux-DFF tới 10-15% so với chèn mù quáng ở Gate-level.</li>
             </ul>
-        </div>
-
-        <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center;">
-            <div class="text-block-shadow"
-                style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
-                <img src="images/PartialScanDatapath.png" alt="Partial Scan Datapath"
-                    style="max-height: 350px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 15px; font-style: italic; color: #666; font-size: 1.05rem;">Hình 7.48. Mạch đường
-                    truyền dữ liệu (Data path) áp dụng Scan cục bộ ở mức RTL. Tiết kiệm diện tích so với thay toàn bộ
-                    FF.</p>
-            </div>
         </div>
     </div>
 </div>

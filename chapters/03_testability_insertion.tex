@@ -121,3 +121,15 @@ endmodule
     \includegraphics[width=0.7\textwidth]{images/IsolatedSerialScanVirtualTester.png}
     \caption{\textit{Thiết bị thử nghiệm ảo cho Isolated Serial Scan (Virtual tester)}}
 \end{figure}
+
+\subsubsection{Khái niệm cơ bản về Thiết kế Quét (Basic concept of SCAN design)}
+Như đã nhận thấy ở phần quét nối tiếp cô lập, ý tưởng cốt lõi của Thiết kế Quét (SCAN Design) là thay thế tất cả (hoặc một phần) các bộ nhớ Flip-Flop nội tại trong chip bằng các Scan Flip-Flop (SFF) và kết nối chúng thành các thanh ghi dịch nối tiếp (Shift Register) hay còn gọi là chuỗi quét (Scan Chain). 
+
+Mạch sẽ hoạt động qua hai chế độ song song được khai thác:
+\begin{itemize}
+    \item \textbf{Chế độ thường (Normal Mode):} Các Flip-Flop đóng vai trò thu thập tín hiệu logic từ mạch và lưu trạng thái bình thường phục vụ chức năng hệ thống.
+    \item \textbf{Chế độ quét (Shift/Scan Mode):} Các Flip-Flop tạm thời gạt bỏ luồng dữ liệu thông thường để liên kết thành dây chuyền dịch. Việc này cho phép thiết bị kiểm thử bên ngoài (ATE) trực tiếp dịch (Shift) chuỗi dữ liệu đầu vào (Controllability) hoặc đẩy toàn bộ trạng thái hiện hữu đang được chụp trích ra ngoài nhằm phân tích (Observability).
+\end{itemize}
+
+\paragraph{Công cụ tự động hóa (SCAN Tools)}
+Quá trình nâng cấp từ hệ thống thường sang hệ thống thiết kế SCAN (ví dụ như thay loại Flip-Flop, định tuyến xung nhịp Scan Clock hay kết nối chân tín hiệu Scan Enable) được thực hiện hoàn toàn tự động bởi các phần mềm phân tích hiện đại. Các công cụ EDA (Electronic Design Automation) phổ biến như Synopsys DFT Compiler hay Mentor Tessent cho phép kỹ sư cấu hình luật vận hành, tự động đánh giá và tối ưu hóa diện tích/hiệu suất (Overhead Rules) mà không cần cấu trúc mạch thủ công phức tạp.
