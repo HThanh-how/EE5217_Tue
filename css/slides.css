@@ -30,10 +30,8 @@ body {
 
 body.presentation-mode {
   background-color: #ffffff;
-  /* Chuyển Background Circuit Board ra Body để Scale tràn viền Vô cực */
-  background-image: radial-gradient(#e2e8f0 2px, transparent 2px), radial-gradient(#e2e8f0 2px, #ffffff 2px);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
+  /* Removal of radial-gradient patterns for a clean white background */
+  background-image: none;
   overflow: hidden;
   /* Hide scrollbars for presentation */
 }
@@ -70,14 +68,23 @@ body.presentation-mode #slides_wrapper {
   box-sizing: border-box;
   text-align: center;
   background-color: #ffffff;
-  /* Circuit board styling background */
-  background-image: radial-gradient(#e2e8f0 2px, transparent 2px), radial-gradient(#e2e8f0 2px, #ffffff 2px);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  /* Simplified white background */
+  background-image: none;
+  box-shadow: 0 15px 45px rgba(0, 82, 204, 0.1); /* Subtle blue shadow */
   border-radius: 16px;
   opacity: 1;
   /* Always visible in overview mode */
+}
+
+/* Custom class for text blocks with light blue shadow as requested */
+.text-block-shadow {
+  box-shadow: 0 10px 30px rgba(0, 82, 204, 0.15) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-block-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 82, 204, 0.2) !important;
 }
 
 body.presentation-mode .slide {
@@ -90,8 +97,8 @@ body.presentation-mode .slide {
   max-width: none;
   border-radius: 0;
   box-shadow: none;
-  background: transparent;
-  /* Trở nên trong suốt để hòa vào pattern vô cực của body */
+  background: #ffffff;
+  /* Ensure slide is white */
   background-image: none;
   opacity: 0;
   visibility: hidden;
