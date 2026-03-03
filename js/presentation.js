@@ -123,12 +123,11 @@ async function loadSlides() {
     } catch (error) {
         console.error(error);
         document.getElementById('loading').innerHTML = `
-            <div style="text-align: center; color: #ff6b6b;">
-                <h1>Lỗi tải trang!</h1>
-                <p>Trình duyệt chặn tải file trực tiếp (CORS Policy).</p>
-                <div style="background: #333; padding: 20px; border-radius: 8px; margin-top: 20px;">
-                    <h3>Cách khắc phục:</h3>
-                    <p>Hãy chạy file <code>start_presentation.bat</code> trong thư mục.</p>
+            <div style="text-align: center; color: #ff6b6b; padding: 20px;">
+                <h1>Lỗi tải dữ liệu Slide!</h1>
+                <p>Chi tiết lỗi:</p>
+                <div style="background: #333; padding: 20px; border-radius: 8px; margin-top: 20px; word-break: break-word;">
+                    <code>${error.message}</code>
                 </div>
             </div>
         `;
