@@ -98,9 +98,11 @@
             </style>
 
             <div class="text-block-shadow"
-                style="background: white; padding: 25px; border-radius: 16px; border: 2px dashed #fca5a5; position: relative; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); padding: 25px; border-radius: 16px; border: 1px solid #fecaca; box-shadow: inset 0 0 20px rgba(239, 68, 68, 0.05); position: relative; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
 
-                <h3 style="color: #b91c1c; margin-bottom: 20px; font-size: 1.2rem; text-transform: uppercase;">Physical
+                <h3
+                    style="color: #b91c1c; margin-bottom: 20px; font-size: 1.2rem; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-microchip"></i> Physical
                     Overhead</h3>
 
                 <div style="display: flex; justify-content: space-around; align-items: center; width: 100%; flex: 1;">
@@ -131,23 +133,31 @@
                     <div
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px;">
                         <span
-                            style="font-weight: bold; color: #be185d; background: #fce7f3; padding: 5px 10px; border-radius: 8px;">+
+                            style="font-weight: bold; color: #be185d; background: #fce7f3; padding: 5px 12px; border-radius: 8px; box-shadow: 0 4px 10px rgba(219, 39, 119, 0.15); border: 1px solid #fbcfe8;">+
                             MUX Delay</span>
-                        <div style="width: 150px; height: 60px; position: relative;">
+                        <div
+                            style="width: 150px; height: 60px; position: relative; background: #f1f5f9; border-radius: 8px; border: 1px solid #e2e8f0; overflow: hidden;">
+                            <!-- Grid Overlay Background -->
+                            <div
+                                style="position: absolute; inset: 0; background-image: linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px); background-size: 10px 10px; opacity: 0.5;">
+                            </div>
+
                             <!-- Original wave -->
-                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0;">
-                                <path d="M 0 50 L 50 50 L 50 10 L 100 10 L 100 50 L 150 50" fill="none" stroke="#cbd5e1"
-                                    stroke-width="4" stroke-dasharray="5 5" />
+                            <svg width="100%" height="100%"
+                                style="position: absolute; top:0; left:0; filter: drop-shadow(0 2px 2px rgba(148, 163, 184, 0.5));">
+                                <path d="M 0 50 L 50 50 L 50 10 L 100 10 L 100 50 L 150 50" fill="none" stroke="#94a3b8"
+                                    stroke-width="3" stroke-dasharray="5 5" />
                             </svg>
                             <!-- Delayed wave -->
-                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0;">
+                            <svg width="100%" height="100%"
+                                style="position: absolute; top:0; left:0; filter: drop-shadow(0 0 5px rgba(219, 39, 119, 0.6));">
                                 <path d="M 0 50 L 70 50 L 70 10 L 120 10 L 120 50 L 150 50" fill="none" stroke="#db2777"
                                     stroke-width="4"
                                     style="stroke-dasharray: 200; animation: delay-bump 2s infinite linear;" />
                             </svg>
                         </div>
                         <span
-                            style="font-weight: bold; color: #475569; background: #e2e8f0; padding: 5px 10px; border-radius: 8px;">+
+                            style="font-weight: bold; color: #334155; background: #e2e8f0; padding: 5px 12px; border-radius: 8px; box-shadow: 0 4px 10px rgba(100, 116, 139, 0.15); border: 1px solid #cbd5e1;">+
                             Shift Time</span>
                     </div>
                 </div>
@@ -229,30 +239,36 @@
             </style>
 
             <div class="text-block-shadow"
-                style="background: white; padding: 25px; border-radius: 16px; border: 2px solid #bbf7d0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%; overflow: hidden;">
+                style="background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%); padding: 25px; border-radius: 16px; border: 1px solid #bbf7d0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%; overflow: hidden; box-shadow: inset 0 0 20px rgba(34, 197, 94, 0.05);">
 
                 <!-- Radar Scanner Background -->
-                <div style="position: absolute; top: 10px; right: 20px; z-index: 2;">
+                <div style="position: absolute; top: 15px; right: 20px; z-index: 5;">
                     <span
-                        style="background: #22c55e; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-family: monospace; font-size: 1.2rem; box-shadow: 0 4px 6px rgba(34,197,94,0.3); border: 2px solid #16a34a;">>
+                        style="background: linear-gradient(90deg, #22c55e, #16a34a); color: white; padding: 8px 18px; border-radius: 20px; font-weight: bold; font-family: monospace; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(34,197,94,0.4); border: 1px solid #15803d; letter-spacing: 1px;">>
                         99% COVERED</span>
                 </div>
 
                 <div
-                    style="position: relative; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #f8fafc; border: 1px inset #e2e8f0;">
+                    style="position: relative; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #0f172a; border: 2px solid #334155; overflow: hidden; box-shadow: inset 0 0 30px rgba(0,0,0,0.8);">
+
+                    <!-- High-tech Grid in Radar -->
+                    <div
+                        style="position: absolute; inset: 0; background-image: linear-gradient(rgba(51, 65, 85, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(51, 65, 85, 0.5) 1px, transparent 1px); background-size: 20px 20px; opacity: 0.3;">
+                    </div>
 
                     <!-- Radar Ping -->
                     <div
-                        style="position: absolute; border: 2px solid #4ade80; border-radius: 50%; animation: scan-radar-2 2s infinite linear; z-index: 1;">
+                        style="position: absolute; border: 2px solid rgba(74, 222, 128, 0.8); border-radius: 50%; box-shadow: 0 0 20px rgba(74, 222, 128, 0.4), inset 0 0 20px rgba(74, 222, 128, 0.2); animation: scan-radar-2 3s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1); z-index: 1;">
                     </div>
                     <div
-                        style="position: absolute; border: 2px solid #4ade80; border-radius: 50%; animation: scan-radar-2 2s infinite linear; animation-delay: 1s; z-index: 1;">
+                        style="position: absolute; border: 2px solid rgba(74, 222, 128, 0.8); border-radius: 50%; box-shadow: 0 0 20px rgba(74, 222, 128, 0.4), inset 0 0 20px rgba(74, 222, 128, 0.2); animation: scan-radar-2 3s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1); animation-delay: 1.5s; z-index: 1;">
                     </div>
 
                     <!-- Central Chip Lock -->
                     <div
-                        style="width: 80px; height: 80px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; z-index: 3; position: relative; animation: target-lock 2s infinite; border: 3px dashed transparent;">
-                        <i class="fa-solid fa-microchip" style="font-size: 3.5rem; color: #15803d;"></i>
+                        style="width: 80px; height: 80px; background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(4px); border-radius: 12px; display: flex; align-items: center; justify-content: center; z-index: 3; position: relative; animation: target-lock 2s infinite; border: 2px solid #4ade80; box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);">
+                        <i class="fa-solid fa-microchip"
+                            style="font-size: 3.5rem; color: #4ade80; filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.8));"></i>
                     </div>
 
                     <!-- Fast ATPG Generator -->

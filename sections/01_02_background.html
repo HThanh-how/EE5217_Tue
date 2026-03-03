@@ -21,43 +21,92 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes grow-chart {
+                @keyframes grow-chart-1 {
                     0% {
-                        height: 10%;
-                        opacity: 0.5;
+                        height: 0%;
+                        opacity: 0;
                     }
 
-                    50% {
-                        height: 100%;
+                    20%,
+                    100% {
+                        height: 20%;
+                        opacity: 0.8;
+                        filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.4));
+                    }
+                }
+
+                @keyframes grow-chart-2 {
+                    0% {
+                        height: 0%;
+                        opacity: 0;
+                    }
+
+                    20% {
+                        height: 0%;
+                        opacity: 0;
+                    }
+
+                    40%,
+                    100% {
+                        height: 40%;
+                        opacity: 0.9;
+                        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+                    }
+                }
+
+                @keyframes grow-chart-3 {
+                    0% {
+                        height: 0%;
+                        opacity: 0;
+                    }
+
+                    40% {
+                        height: 0%;
+                        opacity: 0;
+                    }
+
+                    60%,
+                    100% {
+                        height: 75%;
                         opacity: 1;
-                        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+                        filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.8));
+                    }
+                }
+
+                @keyframes grow-chart-4 {
+                    0% {
+                        height: 0%;
+                        opacity: 0;
                     }
 
+                    60% {
+                        height: 0%;
+                        opacity: 0;
+                    }
+
+                    80%,
                     100% {
                         height: 100%;
                         opacity: 1;
-                        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+                        filter: drop-shadow(0 0 15px rgba(220, 38, 38, 0.9));
+                        background: linear-gradient(to top, #f87171, #b91c1c);
                     }
                 }
 
                 .anim-bar-1 {
-                    animation: grow-chart 3s infinite;
-                    animation-delay: 0s;
+                    animation: grow-chart-1 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
                 }
 
                 .anim-bar-2 {
-                    animation: grow-chart 3s infinite;
-                    animation-delay: 0.5s;
+                    animation: grow-chart-2 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
                 }
 
                 .anim-bar-3 {
-                    animation: grow-chart 3s infinite;
-                    animation-delay: 1s;
+                    animation: grow-chart-3 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
                 }
 
                 .anim-bar-4 {
-                    animation: grow-chart 3s infinite;
-                    animation-delay: 1.5s;
+                    animation: grow-chart-4 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
                 }
             </style>
 
@@ -74,7 +123,7 @@
                         class="anim-bar-2"></div>
                     <div style="width: 40px; background: linear-gradient(to top, #fca5a5, #ef4444); border-radius: 4px 4px 0 0;"
                         class="anim-bar-3"></div>
-                    <div style="width: 40px; background: linear-gradient(to top, #fca5a5, #dc2626); border-radius: 4px 4px 0 0;"
+                    <div style="width: 40px; background: linear-gradient(to top, #fca5a5, #ef4444); border-radius: 4px 4px 0 0;"
                         class="anim-bar-4"></div>
                 </div>
                 <div

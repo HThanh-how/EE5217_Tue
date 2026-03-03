@@ -74,18 +74,20 @@
             </style>
 
             <div class="text-block-shadow"
-                style="background: #1e293b; padding: 25px; border-radius: 12px; border: 2px solid #334155; display: flex; flex-direction: column; align-items: stretch; justify-content: space-around; height: 100%; gap: 20px;">
+                style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); padding: 25px; border-radius: 12px; border: 1px solid #334155; box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 10px 30px rgba(15, 23, 42, 0.4); display: flex; flex-direction: column; align-items: stretch; justify-content: space-around; height: 100%; gap: 20px;">
 
                 <!-- Stuck-at Fault -->
                 <div
-                    style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px;">
+                    style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px; border: 1px solid #334155;">
                     <span
                         style="color: #f87171; font-weight: bold; font-family: monospace; font-size: 0.85rem; position: absolute; top: -12px; left: 15px; background: #1e293b; padding: 0 5px; border-radius: 4px;">[1]
                         STUCK-AT FAULT</span>
                     <div style="height: 30px; display: flex; align-items: center; position: relative; margin-top: 5px;">
                         <div
-                            style="width: 100%; height: 4px; background: #334155; border-radius: 2px; position: relative; overflow: hidden;">
-                            <div style="height: 100%; animation: signal-stuck 2s infinite;"></div>
+                            style="width: 100%; height: 4px; background: #334155; border-radius: 2px; position: relative; overflow: hidden; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);">
+                            <div
+                                style="height: 100%; animation: signal-stuck 2s infinite; box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);">
+                            </div>
                         </div>
                         <i class="fa-solid fa-thumbtack"
                             style="position: absolute; left: 45%; top: -15px; color: #ef4444; font-size: 1.2rem; transform: rotate(45deg);"></i>
@@ -96,27 +98,29 @@
 
                 <!-- Bridging Fault -->
                 <div
-                    style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px;">
+                    style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px; border: 1px solid #334155;">
                     <span
                         style="color: #facc15; font-weight: bold; font-family: monospace; font-size: 0.85rem; position: absolute; top: -12px; left: 15px; background: #1e293b; padding: 0 5px; border-radius: 4px;">[2]
                         BRIDGING FAULT</span>
                     <div style="height: 40px; position: relative; margin-top: 5px;">
-                        <div style="position: absolute; top: 10px; width: 100%; height: 4px; background: #22c55e;">
+                        <div
+                            style="position: absolute; top: 10px; width: 100%; height: 4px; background: #22c55e; box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);">
                         </div>
-                        <div style="position: absolute; top: 30px; width: 100%; height: 4px; background: #3b82f6;">
+                        <div
+                            style="position: absolute; top: 30px; width: 100%; height: 4px; background: #3b82f6; box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);">
                         </div>
                         <!-- Short circuit connection -->
                         <div
-                            style="position: absolute; left: 50%; top: 10px; width: 4px; height: 24px; background: #eab308; box-shadow: 0 0 8px #facc15;">
+                            style="position: absolute; left: 50%; top: 10px; width: 4px; height: 24px; background: #eab308; box-shadow: 0 0 12px #facc15;">
                         </div>
                         <i class="fa-solid fa-bolt"
-                            style="position: absolute; left: calc(50% - 6px); top: 12px; color: #fef08a; animation: sparks 0.5s infinite;"></i>
+                            style="position: absolute; left: calc(50% - 6px); top: 12px; font-size: 1.1rem; color: #fef08a; animation: sparks 0.5s infinite; filter: drop-shadow(0 0 8px #facc15);"></i>
                     </div>
                 </div>
 
                 <!-- Delay Fault -->
                 <div
-                    style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px;">
+                    style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px; border: 1px solid #334155;">
                     <span
                         style="color: #c084fc; font-weight: bold; font-family: monospace; font-size: 0.85rem; position: absolute; top: -12px; left: 15px; background: #1e293b; padding: 0 5px; border-radius: 4px;">[3]
                         DELAY FAULT</span>
@@ -124,14 +128,15 @@
                         <svg width="100%" height="40" style="position: absolute;">
                             <!-- Expected Clock -->
                             <path d="M 0 30 L 40 30 L 40 10 L 80 10 L 80 30 L 120 30" fill="none" stroke="#475569"
-                                stroke-width="2" stroke-dasharray="4 4" />
+                                stroke-width="2" stroke-dasharray="4 4"
+                                style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));" />
                             <!-- Actual Sluggish Clock -->
                             <path d="M 0 30 L 55 30 L 70 10 L 110 10 L 130 30" fill="none" stroke="#c084fc"
                                 stroke-width="3"
-                                style="stroke-dasharray: 200; animation: delay-wave 2s infinite linear;" />
+                                style="stroke-dasharray: 200; animation: delay-wave 2s infinite linear; filter: drop-shadow(0 0 5px #c084fc);" />
                         </svg>
                         <span
-                            style="position: absolute; right: 10px; color: #c084fc; font-weight: bold; font-size: 0.8rem; font-family: monospace;">>
+                            style="position: absolute; right: 10px; color: #d8b4fe; font-weight: bold; font-size: 0.8rem; font-family: monospace; text-shadow: 0 0 8px rgba(192, 132, 252, 0.8);">>
                             t_setup violation</span>
                     </div>
                 </div>
