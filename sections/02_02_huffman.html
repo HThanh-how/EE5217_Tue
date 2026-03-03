@@ -1,7 +1,7 @@
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
-        Kiểm Thử Mạch Tuần Tự (Phần 1)</h1>
-    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;">Mô hình Huffman</h2>
+        Kiểm Thử Mạch Tuần Tự</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;">Mô hình Huffman (1/2)</h2>
 
     <div style="display:flex; gap: 40px; align-items:center; width: 100%;">
         <div
@@ -13,9 +13,6 @@
                 <li style="margin-bottom: 12px;"><b>Sự phức tạp cốt lõi do Ẩn Số:</b> Trạng thái bên trong Flip-Flop bị
                     giấu kín, không thể quan sát (unobservable) hay điều khiển (uncontrollable) trực tiếp từ các chân
                     biên mạch (Primary I/O).</li>
-                <li style="margin-bottom: 12px;"><b>Thuật toán sinh Test:</b> Giải quyết bằng cách xem các dữ liệu nạp
-                    vào Flip-flop như các Ngõ ra giả (Pseudo-Primary Outputs) và chân dữ liệu đọc ra từ Flip-flop là Ngõ
-                    vào giả (Pseudo-Primary Inputs). Việc này yêu cầu khung thời gian (Time Frames).</li>
             </ul>
         </div>
         <div
@@ -33,9 +30,33 @@
 
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
-        Kiểm Thử Mạch Tuần Tự (Phần 2)</h1>
-    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;">Mô hình Unfolding (Trải phẳng theo thời
-        gian)</h2>
+        Kiểm Thử Mạch Tuần Tự</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;">Mô hình Huffman (2/2)</h2>
+
+    <div style="display:flex; gap: 40px; align-items:center; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Thuật toán sinh Test:</b> Giải quyết bằng cách xem các dữ liệu nạp
+                    vào Flip-flop như các Ngõ ra giả (Pseudo-Primary Outputs) và chân dữ liệu đọc ra từ Flip-flop là Ngõ
+                    vào giả (Pseudo-Primary Inputs). Việc này yêu cầu khung thời gian (Time Frames).</li>
+            </ul>
+        </div>
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; gap: 20px;">
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <img src="images/HuffmanCircuitModel.png"
+                    style="border-radius:8px; max-height: 480px; max-width: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        Kiểm Thử Mạch Tuần Tự</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;">Mô hình Unfolding (1/2)</h2>
 
     <div style="display:flex; gap: 40px; align-items:center; width: 100%;">
         <div
@@ -47,6 +68,30 @@
                 <li style="margin-bottom: 12px;"><b>Trạng thái giả định (Pseudo-States):</b> Để ATPG sinh mẫu mạch tổ
                     hợp chuẩn, nó coi State Outputs của chu kỳ trước (Time Frame $k-1$) sẽ là ngõ vào ảo cho chu kỳ hiện
                     tại (Time Frame $k$).</li>
+            </ul>
+        </div>
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; gap: 20px;">
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <img src="images/UnfoldedCircuitModel.png"
+                    style="border-radius:8px; max-height: 480px; max-width: 100%;">
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.2. Hình ảnh
+                    Mạch tuần tự bị bẻ gãy và trải phẳng theo trục thời gian.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        Kiểm Thử Mạch Tuần Tự</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;">Mô hình Unfolding (2/2)</h2>
+
+    <div style="display:flex; gap: 40px; align-items:center; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
                 <li style="margin-bottom: 12px;"><b>Sự bùng nổ của Backtracking:</b> Nếu một vector thất bại ở chu kỳ
                     cuối, thuật toán phải dò lại (backtrack) xuyên qua hàng chục chu kỳ trước. Với mạch tuần tự lớn,
                     ATPG gần như bất lực (vượt quá Time Limit).</li>
@@ -58,8 +103,6 @@
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/UnfoldedCircuitModel.png"
                     style="border-radius:8px; max-height: 480px; max-width: 100%;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.2. Hình ảnh
-                    Mạch tuần tự bị bẻ gãy và trải phẳng theo trục thời gian.</p>
             </div>
         </div>
     </div>

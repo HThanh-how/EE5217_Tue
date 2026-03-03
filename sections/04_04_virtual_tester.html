@@ -1,12 +1,12 @@
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">8.
-        Môi trường Giả lập: Virtual Tester (Phần 1)</h1>
+        Môi trường Giả lập: Virtual Tester</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Cơ chế Máy Thiết
-                Bị Kiểm Thử (ATE)
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Cơ Chế Máy ATE
+                (1/2)
             </h2>
             <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
                 <li style="margin-bottom: 12px;"><b>Hệ thống Test Tự động:</b> Máy ATE (Automated Test Equipment) bơm
@@ -16,8 +16,6 @@
                     dây li ti bên trong IC bé tí. Các đầu kim Probe Card của ATE chỉ chạm được vào <b>Bề mặt Vỏ Gói</b>
                     qua các chân Pin I/O chuẩn. Các chân này vừa tải tín hiệu Functional, vừa đóng vai trò Test In /
                     Test Out.</li>
-                <li style="margin-bottom: 12px;"><b>Điều Quản Clock:</b> Máy ATE còn đóng vai trò phát các xung Nhịp
-                    (Clock Signal) kiểm thử để đẩy (Shift) tín hiệu trôi tuột vào đường ruột Scan Chain.</li>
             </ul>
         </div>
 
@@ -36,23 +34,82 @@
 
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">8.
-        Môi trường Giả lập: Virtual Tester (Phần 2)</h1>
+        Môi trường Giả lập: Virtual Tester</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Chu Kỳ Vòng Kín
-                Thu Thập
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Cơ Chế Máy ATE
+                (2/2)
             </h2>
             <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 12px;"><b>Thủ tục Áp dụng Vector (4 Pha):</b>
+                <li style="margin-bottom: 12px;"><b>Điều Quản Clock:</b> Máy ATE còn đóng vai trò phát các xung Nhịp
+                    (Clock Signal) kiểm thử để đẩy (Shift) tín hiệu trôi tuột vào đường ruột Scan Chain.</li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <img src="images/VirtualTesterFullScanResidue5.png" alt="Virtual Tester"
+                    style="max-height: 480px; width: auto; border-radius: 8px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">8.
+        Môi trường Giả lập: Virtual Tester</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Chu Kỳ Kiểm Thử 4
+                Pha (1/2)</h2>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Thủ tục Áp dụng Vector Bắt Đầu:</b>
                     <ol style="margin-top:10px; font-size: 1.15rem; color: #555;">
-                        <li><b>Shift-In:</b> Dồn Dữ Liệu vào nội tạng Flip-flop bằng xung Clock mồi (TE=1).</li>
+                        <li style="margin-bottom: 5px;"><b>Shift-In:</b> Dồn Dữ Liệu vào nội tạng Flip-flop bằng xung
+                            Clock mồi (TE=1).</li>
                         <li><b>Apply:</b> Đẩy Dữ Liệu ngõ vào Primary Inputs và chờ hệ thống tĩnh mịch (TE=0).</li>
-                        <li><b>Capture:</b> Giật nhấp đúng 1 Nhịp Clock (Functional Clock) để trói chốt lại Kết quả Mạch
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <img src="images/TestApplicationResponseCollection.png" alt="Test Application Collection"
+                    style="max-height: 480px; width: auto; border-radius: 8px;">
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.42. Chu trình
+                    Shift-In và Apply Vector.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">8.
+        Môi trường Giả lập: Virtual Tester</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Chu Kỳ Kiểm Thử 4
+                Pha (2/2)</h2>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 12px;"><b>Thủ tục Áp dụng Vector Kết Thúc:</b>
+                    <ol style="margin-top:10px; font-size: 1.15rem; color: #555;" start="3">
+                        <li style="margin-bottom: 5px;"><b>Capture:</b> Giật nhấp đúng 1 Nhịp Clock (Functional Clock)
+                            để trói chốt lại Kết quả Mạch
                             Tổ Hợp vừa tính vào các rãnh FF.</li>
                         <li><b>Shift-Out & Overlap:</b> Bóp còi đẩy kết quả đó trôi ra ngoài. Cùng lúc, tiết kiệm Cycle
-                            bằng cách nạp luôn mẫu Vector số $k+1$ mới vào đèlấp lên chỗ trống!</li>
+                            bằng cách nạp luôn mẫu Vector số $k+1$ mới vào đè lấp lên chỗ trống!</li>
                     </ol>
                 </li>
             </ul>
