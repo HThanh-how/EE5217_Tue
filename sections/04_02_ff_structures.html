@@ -44,89 +44,127 @@
             </ul>
         </div>
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes data-pulse {
+                @keyframes signal-flow-normal {
                     0% {
-                        transform: scale(1);
-                        opacity: 0.8;
+                        stroke-dashoffset: 200;
+                        stroke: #3b82f6;
                     }
 
                     50% {
-                        transform: scale(1.15);
-                        opacity: 1;
-                        filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+                        stroke-dashoffset: 0;
+                        stroke: #3b82f6;
                     }
 
                     100% {
-                        transform: scale(1);
-                        opacity: 0.8;
+                        stroke-dashoffset: -200;
+                        stroke: #cbd5e1;
                     }
                 }
 
-                @keyframes scan-slide {
+                @keyframes signal-flow-scan {
                     0% {
-                        transform: translateX(-15px);
-                        color: #8b5cf6;
+                        stroke-dashoffset: 200;
+                        stroke: #cbd5e1;
                     }
 
                     50% {
-                        transform: translateX(15px);
-                        color: #a855f7;
-                        filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+                        stroke-dashoffset: -200;
+                        stroke: #cbd5e1;
                     }
 
                     100% {
-                        transform: translateX(-15px);
-                        color: #8b5cf6;
+                        stroke-dashoffset: 0;
+                        stroke: #8b5cf6;
                     }
                 }
 
-                @keyframes switch-blink {
+                @keyframes mux-switch {
 
                     0%,
-                    100% {
-                        color: #94a3b8;
-                        transform: rotate(0deg);
-                    }
-
-                    50% {
+                    45% {
+                        transform: translateY(-10px);
                         color: #3b82f6;
-                        transform: rotate(180deg);
                     }
-                }
 
-                .anim-data {
-                    animation: data-pulse 2s infinite ease-in-out;
-                }
-
-                .anim-scan {
-                    animation: scan-slide 3s infinite alternate ease-in-out;
-                }
-
-                .anim-switch {
-                    animation: switch-blink 4s infinite ease-in-out;
-                    transition: all 0.5s;
+                    55%,
+                    100% {
+                        transform: translateY(10px);
+                        color: #8b5cf6;
+                    }
                 }
             </style>
 
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display: flex; justify-content: space-around; align-items: center;">
-                <div style="text-align: center;" class="anim-data">
-                    <i class="fa-solid fa-code-branch"
-                        style="font-size: 4rem; color: #3b82f6; margin-bottom: 15px;"></i>
-                    <p style="font-weight: bold; color: #1d4ed8;">Data Path ($TE=0$)</p>
-                </div>
-                <!-- Animated Switch Router -->
-                <i class="fa-solid fa-arrow-right-arrow-left anim-switch"
-                    style="font-size: 2.5rem; text-shadow: 0 4px 6px rgba(0,0,0,0.1);"></i>
-                <div style="text-align: center;" class="anim-scan">
-                    <i class="fa-solid fa-barcode" style="font-size: 4rem; margin-bottom: 15px;"></i>
-                    <p style="font-weight: bold; color: #6d28d9;">Scan Path ($TE=1$)</p>
+                style="background: #0f172a; padding: 25px; border-radius: 16px; border: 2px solid #334155; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;">
+                <h3
+                    style="color: #64748b; font-family: monospace; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; font-size: 1rem;">
+                    Structural Diagram</h3>
+
+                <div style="position: relative; width: 100%; height: 200px;">
+                    <!-- SVG Wire Paths -->
+                    <svg width="100%" height="100%"
+                        style="position: absolute; top:0; left:0; pointer-events: none; z-index: 1;">
+                        <!-- Normal Data Line -->
+                        <path d="M 10 60 L 100 60 L 120 80" fill="none" class="anim-wire" stroke="#3b82f6"
+                            stroke-width="4" stroke-dasharray="10 5"
+                            style="animation: signal-flow-normal 4s infinite linear;" />
+                        <!-- Scan Data Line -->
+                        <path d="M 10 140 L 100 140 L 120 120" fill="none" class="anim-wire" stroke="#8b5cf6"
+                            stroke-width="4" stroke-dasharray="10 5"
+                            style="animation: signal-flow-scan 4s infinite linear;" />
+                        <!-- Output Line -->
+                        <path d="M 190 100 L 260 100 L 260 90 L 320 90" fill="none" stroke="#22c55e" stroke-width="4"
+                            stroke-dasharray="10 5" style="animation: signal-flow-normal 2s infinite linear;" />
+                    </svg>
+
+                    <!-- Input Labels -->
+                    <div
+                        style="position: absolute; left: 10px; top: 40px; color: #60a5fa; font-family: monospace; font-weight: bold; font-size: 1.2rem;">
+                        Din</div>
+                    <div
+                        style="position: absolute; left: 10px; top: 120px; color: #a78bfa; font-family: monospace; font-weight: bold; font-size: 1.2rem;">
+                        SI</div>
+                    <div
+                        style="position: absolute; left: 140px; top: 180px; color: #facc15; font-family: monospace; font-weight: bold; font-size: 1.2rem;">
+                        TE</div>
+
+                    <!-- MUX Component -->
+                    <div
+                        style="position: absolute; left: 120px; top: 50px; width: 60px; height: 100px; background: rgba(51, 65, 85, 0.8); border: 2px solid #94a3b8; clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); display: flex; align-items: center; justify-content: center; z-index: 2;">
+                        <div
+                            style="color: white; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: space-around; height: 100%; width: 100%;">
+                            <span style="font-size: 0.8rem; margin-top: 10px;">0</span>
+                            <span style="font-size: 0.8rem; margin-bottom: 10px;">1</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Selector Indicator -->
+                    <div style="position: absolute; left: 155px; top: 90px; z-index: 3;">
+                        <i class="fa-solid fa-arrow-left"
+                            style="font-size: 1.2rem; transform: rotate(180deg); animation: mux-switch 4s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);"></i>
+                    </div>
+
+                    <!-- D-FF Component -->
+                    <div
+                        style="position: absolute; left: 260px; top: 50px; width: 80px; height: 100px; background: rgba(15, 23, 42, 0.9); border: 2px solid #22c55e; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px; z-index: 2; box-sizing: border-box; box-shadow: 0 0 15px rgba(34,197,94,0.3);">
+                        <div style="display: flex; justify-content: space-between; width: 100%;">
+                            <span style="color: white; font-weight: bold; font-family: monospace;">D</span>
+                            <span style="color: #22c55e; font-weight: bold; font-family: monospace;">Q</span>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: flex-end; width: 100%;">
+                            <!-- Clock triangle -->
+                            <div
+                                style="width: 15px; height: 15px; border-top: 2px solid #cbd5e1; border-right: 2px solid #cbd5e1; transform: rotate(45deg) translate(-2px, -8px); margin-left: 2px;">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Minh họa: Tín hiệu TE
-                (đóng vai trò ngã rẽ) như công tắc chuyển mạch đường ray xe lửa.</p>
+
+            <p style="margin-top: 10px; text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">
+                Minh họa: Tín hiệu TE như chốt gạt đường ray, ép dữ liệu đi vào ngõ 0 (Normal) hoặc ngõ 1 (Scan).</p>
         </div>
     </div>
 </div>
@@ -150,14 +188,74 @@
             </p>
         </div>
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes timing-critical {
+                    0% {
+                        width: 0%;
+                        background: #22c55e;
+                    }
+
+                    40% {
+                        width: 40%;
+                        background: #eab308;
+                    }
+
+                    70% {
+                        width: 70%;
+                        background: #ef4444;
+                    }
+
+                    100% {
+                        width: 100%;
+                        background: #b91c1c;
+                        box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+                    }
+                }
+
+                .anim-timing-bar {
+                    animation: timing-critical 3s infinite linear;
+                }
+            </style>
+
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <i class="fa-solid fa-hourglass-half" style="font-size: 5rem; color: #e11d48; margin-bottom: 20px;"></i>
-                <h3 style="color: #be123c;">Performance Overhead</h3>
-                <p style="color: #64748b; font-size: 1.1rem; text-align: center; margin-top: 10px;">Thiết kế bắt buộc
-                    thêm phần cứng trên đường timing nguy kịch (critical path).</p>
+                style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #fca5a5; display: flex; flex-direction: column; position: relative;">
+
+                <h3
+                    style="color: #be123c; margin-bottom: 25px; border-bottom: 2px solid #fda4af; padding-bottom: 10px;">
+                    Critical Path Analysis</h3>
+
+                <!-- Normal Path -->
+                <div style="margin-bottom: 20px;">
+                    <span
+                        style="font-family: monospace; font-weight: bold; color: #475569; display: block; margin-bottom: 5px;">Mạch
+                        Gốc: 2 ns</span>
+                    <div
+                        style="width: 100%; height: 15px; background: #e2e8f0; border-radius: 8px; overflow: hidden; position: relative;">
+                        <div style="width: 50%; height: 100%; background: #22c55e;"></div>
+                    </div>
+                </div>
+
+                <!-- Mutated Path -->
+                <div>
+                    <span
+                        style="font-family: monospace; font-weight: bold; color: #b91c1c; display: block; margin-bottom: 5px;">Scan
+                        MUX-DFF: 2 ns + <span
+                            style="color: #ef4444; background:#fee2e2; padding:0 5px; border-radius:3px;">0.5 ns
+                            (MUX)</span></span>
+                    <div
+                        style="width: 100%; height: 15px; background: #e2e8f0; border-radius: 8px; overflow: hidden; position: relative;">
+                        <div class="anim-timing-bar" style="height: 100%; border-radius: 8px;"></div>
+                    </div>
+                </div>
+
+                <div style="position: absolute; right: 20px; top: 20px;">
+                    <i class="fa-solid fa-bolt"
+                        style="font-size: 2.5rem; color: #ef4444; filter: drop-shadow(0 0 5px rgba(239,68,68,0.4));"></i>
+                </div>
             </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Hiệu ứng
+                nút thắt cổ chai về Timing khi nhồi nhét cổng Mux.</p>
         </div>
     </div>
 </div>
@@ -209,18 +307,88 @@
             </p>
         </div>
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes pulse-wave-a {
+
+                    0%,
+                    20%,
+                    60%,
+                    100% {
+                        height: 5px;
+                        transform: translateY(20px);
+                        background: #94a3b8;
+                    }
+
+                    30%,
+                    50% {
+                        height: 45px;
+                        transform: translateY(0);
+                        background: #2563eb;
+                        box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+                    }
+                }
+
+                @keyframes pulse-wave-b {
+
+                    0%,
+                    40%,
+                    80%,
+                    100% {
+                        height: 5px;
+                        transform: translateY(20px);
+                        background: #94a3b8;
+                    }
+
+                    55%,
+                    75% {
+                        height: 45px;
+                        transform: translateY(0);
+                        background: #16a34a;
+                        box-shadow: 0 0 10px rgba(22, 163, 74, 0.6);
+                    }
+                }
+            </style>
+
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <div style="display: flex; gap: 20px; align-items: center;">
-                    <i class="fa-solid fa-clock" style="font-size: 4rem; color: #2563eb;"></i>
-                    <i class="fa-solid fa-not-equal" style="font-size: 2rem; color: #94a3b8;"></i>
-                    <i class="fa-solid fa-clock" style="font-size: 4rem; color: #16a34a;"></i>
+                style="background: #0f172a; padding: 30px; border-radius: 16px; border: 2px solid #334155; position: relative;">
+
+                <h3
+                    style="color: #f8fafc; margin-bottom: 30px; border-left: 4px solid #3b82f6; padding-left: 10px; font-family: monospace;">
+                    Timing Diagram</h3>
+
+                <!-- System Clock A -->
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px; position: relative;">
+                    <div style="color: #60a5fa; font-family: monospace; font-weight: bold; width: 60px;">CLK A</div>
+                    <div
+                        style="display: flex; align-items: flex-end; gap: 4px; border-bottom: 1px dotted #475569; padding-bottom: 2px; flex: 1; height: 50px;">
+                        <div style="width: 25px; animation: pulse-wave-a 4s infinite linear;"></div>
+                        <div style="width: 25px; animation: pulse-wave-a 4s infinite linear; animation-delay: -2s;">
+                        </div>
+                        <div style="width: 25px; animation: pulse-wave-a 4s infinite linear; animation-delay: -4s;">
+                        </div>
+                        <div style="width: 25px; animation: pulse-wave-a 4s infinite linear; animation-delay: -6s;">
+                        </div>
+                    </div>
                 </div>
-                <h3 style="color: #334155; margin-top: 20px;">Non-Overlapping Clocks</h3>
-                <p style="color: #64748b; font-size: 1.1rem; text-align: center; margin-top: 10px;">Clock A và Clock B
-                    đánh phiên ngắt quãng, đảm bảo tín hiệu không bị chạy lố.</p>
+
+                <!-- System Clock B -->
+                <div style="display: flex; align-items: center; gap: 20px; position: relative;">
+                    <div style="color: #4ade80; font-family: monospace; font-weight: bold; width: 60px;">CLK B</div>
+                    <div
+                        style="display: flex; align-items: flex-end; gap: 4px; border-bottom: 1px dotted #475569; padding-bottom: 2px; flex: 1; height: 50px;">
+                        <div style="width: 25px; animation: pulse-wave-b 4s infinite linear;"></div>
+                        <div style="width: 25px; animation: pulse-wave-b 4s infinite linear; animation-delay: -2s;">
+                        </div>
+                        <div style="width: 25px; animation: pulse-wave-b 4s infinite linear; animation-delay: -4s;">
+                        </div>
+                        <div style="width: 25px; animation: pulse-wave-b 4s infinite linear; animation-delay: -6s;">
+                        </div>
+                    </div>
+                </div>
             </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Tín hiệu
+                Waveform tách biệt, không bao giờ giao nhau (Overlap).</p>
         </div>
     </div>
 </div>
@@ -244,13 +412,66 @@
             </ul>
         </div>
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes weight-balance {
+
+                    0%,
+                    100% {
+                        transform: rotate(0deg);
+                    }
+
+                    25% {
+                        transform: rotate(-8deg);
+                    }
+
+                    75% {
+                        transform: rotate(8deg);
+                    }
+                }
+            </style>
+
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <i class="fa-solid fa-arrows-down-to-people"
-                    style="font-size: 5rem; color: #d97706; margin-bottom: 20px;"></i>
-                <h3 style="color: #b45309;">An toàn tuyệt đối $\leftrightarrow$ Siêu to khổng lồ</h3>
+                style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #fcd34d; position: relative; height: 100%; display: flex; flex-direction: column; align-items: center;">
+
+                <h3 style="color: #b45309; margin-bottom: 25px; text-transform: uppercase;">Area vs Safety Rating</h3>
+
+                <div
+                    style="display: flex; gap: 30px; width: 100%; justify-content: center; align-items:flex-end; transform-origin: bottom center; animation: weight-balance 5s infinite ease-in-out;">
+                    <!-- Area Penalty -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                        <div
+                            style="width: 100px; height: 130px; background: repeating-linear-gradient(45deg, #fca5a5, #fca5a5 10px, #ef4444 10px, #ef4444 20px); border: 3px solid #b91c1c; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
+                            <span
+                                style="font-weight: bold; color: white; text-shadow: 1px 1px 2px black;">LATCH<br>ARRAY
+                                x3</span>
+                        </div>
+                        <span
+                            style="font-family: monospace; font-weight: bold; color: #b91c1c; background: #fee2e2; padding: 4px 10px; border-radius: 20px;">+
+                            Area</span>
+                    </div>
+
+                    <!-- Pivot -->
+                    <div
+                        style="width: 20px; height: 40px; background: #94a3b8; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); margin-bottom: -15px;">
+                    </div>
+
+                    <!-- Timing Safety -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                        <div
+                            style="width: 100px; height: 80px; background: #10b981; border: 3px solid #047857; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(16,185,129,0.5);">
+                            <i class="fa-solid fa-check-double" style="color: white; font-size: 2.5rem;"></i>
+                        </div>
+                        <span
+                            style="font-family: monospace; font-weight: bold; color: #047857; background: #dcfce7; padding: 4px 10px; border-radius: 20px;">Timing
+                            Safe</span>
+                    </div>
+                </div>
+
+                <div style="width: 80%; height: 5px; background: #475569; border-radius: 5px; margin-top: 15px;"></div>
             </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Tính an
+                toàn tuyệt đối phải nhượng bộ cho diện tích Silic siêu khủng.</p>
         </div>
     </div>
 </div>

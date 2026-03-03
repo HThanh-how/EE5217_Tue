@@ -45,51 +45,134 @@
             </p>
         </div>
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes pulse-robot {
+                @keyframes data-pulse-down {
                     0% {
-                        filter: drop-shadow(0 0 0 rgba(100, 116, 139, 0));
+                        stroke-dashoffset: 40;
+                        stroke: #3b82f6;
                     }
 
                     50% {
-                        filter: drop-shadow(0 0 15px rgba(100, 116, 139, 0.8));
-                        transform: scale(1.05);
+                        stroke-dashoffset: 0;
+                        stroke: #60a5fa;
+                        filter: drop-shadow(0 0 5px #3b82f6);
                     }
 
                     100% {
-                        filter: drop-shadow(0 0 0 rgba(100, 116, 139, 0));
+                        stroke-dashoffset: -40;
+                        stroke: #3b82f6;
                     }
                 }
 
-                @keyframes march-ants {
-                    to {
-                        background-position: 100% 0;
+                @keyframes data-pulse-up {
+                    0% {
+                        stroke-dashoffset: 40;
+                        stroke: #10b981;
+                    }
+
+                    50% {
+                        stroke-dashoffset: 0;
+                        stroke: #34d399;
+                        filter: drop-shadow(0 0 5px #10b981);
+                    }
+
+                    100% {
+                        stroke-dashoffset: -40;
+                        stroke: #10b981;
                     }
                 }
 
-                .anim-robot {
-                    animation: pulse-robot 2s infinite ease-in-out;
-                }
+                @keyframes probe-touch {
 
-                .anim-probe-cable {
-                    width: 100%;
-                    height: 4px;
-                    margin: 20px 0;
-                    background: linear-gradient(90deg, #94a3b8 50%, transparent 50%);
-                    background-size: 20px 4px;
-                    animation: march-ants 1s linear infinite;
+                    0%,
+                    100% {
+                        transform: translateY(-5px);
+                    }
+
+                    50% {
+                        transform: translateY(0);
+                    }
                 }
             </style>
 
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-                <i class="fa-solid fa-microchip" style="font-size: 8rem; color: #3b82f6;"></i>
-                <div class="anim-probe-cable"></div>
-                <i class="fa-solid fa-robot anim-robot" style="font-size: 4rem; color: #64748b;"></i>
-                <p style="margin-top: 15px; font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Chỉ
-                    giao tiếp 100% qua I/O Boundary Pin.</p>
+                style="background: #0f172a; padding: 25px; border-radius: 16px; border: 2px solid #334155; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%; overflow: hidden;">
+
+                <!-- Heavy ATE Tester Head -->
+                <div
+                    style="width: 80%; background: linear-gradient(180deg, #334155, #1e293b); padding: 15px; border-radius: 12px 12px 0 0; border: 2px solid #475569; position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 15px rgba(0,0,0,0.5);">
+                    <div style="display: flex; gap: 10px; margin-bottom: 5px;">
+                        <div
+                            style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%; animation: blink 1s infinite alternate;">
+                        </div>
+                        <div style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></div>
+                        <div
+                            style="width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; animation: blink 0.5s infinite alternate;">
+                        </div>
+                    </div>
+                    <span style="color: #94a3b8; font-family: monospace; font-weight: bold; letter-spacing: 2px;">ATE
+                        TEST HEAD</span>
+
+                    <!-- Inside Tester (Vector generator) -->
+                    <div style="margin-top: 10px; display: flex; gap: 20px;">
+                        <span style="color: #60a5fa; font-family: monospace; font-size: 0.8rem;">[STIMULUS]</span>
+                        <span style="color: #4ade80; font-family: monospace; font-size: 0.8rem;">[RESPONSE]</span>
+                    </div>
+                </div>
+
+                <!-- Probe Card & Needles -->
+                <div
+                    style="position: relative; width: 100%; height: 80px; display: flex; justify-content: center; animation: probe-touch 4s infinite ease-in-out; z-index: 2;">
+                    <!-- Base Plate -->
+                    <div
+                        style="position: absolute; top: 0; width: 60%; height: 10px; background: #cbd5e1; border-radius: 0 0 8px 8px;">
+                    </div>
+
+                    <!-- Needles & Data Flow -->
+                    <div style="position: absolute; top: 10px; display: flex; gap: 30px;">
+                        <svg width="20" height="70">
+                            <!-- Needle -->
+                            <path d="M 10 0 L 10 65 L 5 70 L 15 70 Z" fill="#94a3b8" />
+                            <!-- Data Flow Inject -->
+                            <line x1="10" y1="0" x2="10" y2="70" stroke="#3b82f6" stroke-width="3"
+                                stroke-dasharray="10 5" style="animation: data-pulse-down 1s infinite linear;" />
+                        </svg>
+
+                        <svg width="20" height="70">
+                            <path d="M 10 0 L 10 65 L 5 70 L 15 70 Z" fill="#94a3b8" />
+                            <!-- Data Flow Inject -->
+                            <line x1="10" y1="0" x2="10" y2="70" stroke="#3b82f6" stroke-width="3"
+                                stroke-dasharray="10 5"
+                                style="animation: data-pulse-down 1s infinite linear; animation-delay: 0.2s;" />
+                        </svg>
+
+                        <svg width="20" height="70">
+                            <path d="M 10 0 L 10 65 L 5 70 L 15 70 Z" fill="#94a3b8" />
+                            <!-- Data Flow Read -->
+                            <line x1="10" y1="70" x2="10" y2="0" stroke="#10b981" stroke-width="3"
+                                stroke-dasharray="10 5" style="animation: data-pulse-up 1s infinite linear;" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Silicon Wafer / Chip -->
+                <div
+                    style="width: 90%; background: #020617; border: 2px solid #334155; height: 40px; border-radius: 4px; position: relative; z-index: 1; display: flex; justify-content: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.8);">
+                    <div style="position: absolute; top: 0; display: flex; gap: 30px;">
+                        <!-- I/O Pads -->
+                        <div style="width: 20px; height: 6px; background: #fbbf24; border-radius: 0 0 2px 2px;"></div>
+                        <div style="width: 20px; height: 6px; background: #fbbf24; border-radius: 0 0 2px 2px;"></div>
+                        <div style="width: 20px; height: 6px; background: #fbbf24; border-radius: 0 0 2px 2px;"></div>
+                    </div>
+                    <span
+                        style="position: absolute; bottom: 5px; color: #475569; font-family: monospace; font-weight: bold; font-size: 0.9rem;">SILICON
+                        DIE (I/O BOUNDARY)</span>
+                </div>
+
             </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Probe Card
+                tiếp xúc vật lý và bơm/hút dữ liệu trực tiếp tại I/O Pads.</p>
         </div>
     </div>
 </div>

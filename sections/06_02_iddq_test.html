@@ -4,7 +4,7 @@
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #ff4d4f;">
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #ff4d4f;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-bolt"></i> Kiểm Thử Dòng Rò
                 (IDDQ Test)</h2>
             <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
@@ -25,6 +25,102 @@
                 <li style="margin-bottom: 15px;">Nhược điểm ở tiến trình sâu (Deep Sub-Micron), mức dòng rò tự nhiên
                     cũng to theo, làm kỹ thuật IDDQ truyền thống gặp nhiều thử thách lớn.</li>
             </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes iddq-graph {
+                    0% {
+                        transform: scaleY(0.1);
+                        background: #22c55e;
+                    }
+
+                    45% {
+                        transform: scaleY(0.12);
+                        background: #22c55e;
+                    }
+
+                    50% {
+                        transform: scaleY(0.9);
+                        background: #ef4444;
+                        box-shadow: 0 0 15px #ef4444;
+                    }
+
+                    55% {
+                        transform: scaleY(0.1);
+                        background: #22c55e;
+                    }
+
+                    100% {
+                        transform: scaleY(0.11);
+                        background: #22c55e;
+                    }
+                }
+
+                @keyframes warning-flash {
+
+                    0%,
+                    100% {
+                        opacity: 0;
+                    }
+
+                    50% {
+                        opacity: 1;
+                        color: #ef4444;
+                    }
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: #1e293b; padding: 25px; border-radius: 16px; border: 2px solid #334155; display: flex; flex-direction: column; align-items: stretch; justify-content: center; position: relative; height: 100%;">
+
+                <h3 style="color: #fca5a5; margin-bottom: 15px; text-transform: uppercase;">Quiescent Current Monitor
+                </h3>
+
+                <div
+                    style="flex: 1; position: relative; background: #0f172a; border-left: 2px solid #64748b; border-bottom: 2px solid #64748b; margin: 10px; display: flex; align-items: flex-end; padding-left: 10px; padding-right: 10px;">
+
+                    <!-- Y Axis Labels -->
+                    <span
+                        style="position: absolute; left: -45px; top: 10px; color: #ef4444; font-family: monospace; font-size: 0.75rem; font-weight: bold;">mA</span>
+                    <span
+                        style="position: absolute; left: -45px; bottom: 10px; color: #22c55e; font-family: monospace; font-size: 0.75rem; font-weight: bold;">nA</span>
+
+                    <!-- Graph bars masquerading as continuous plot -->
+                    <div style="display: flex; gap: 2px; width: 100%; height: 100%; align-items: flex-end;">
+                        <div style="flex: 1; height: 11%; background: #22c55e;"></div>
+                        <div style="flex: 1; height: 12%; background: #22c55e;"></div>
+                        <div style="flex: 1; height: 10%; background: #22c55e;"></div>
+                        <div style="flex: 1; height: 13%; background: #22c55e;"></div>
+                        <!-- Peak Defect -->
+                        <div
+                            style="flex: 2; height: 100%; background: #ef4444; transform-origin: bottom; animation: iddq-graph 4s infinite linear;">
+                        </div>
+                        <div style="flex: 1; height: 12%; background: #22c55e;"></div>
+                        <div style="flex: 1; height: 11%; background: #22c55e;"></div>
+                        <div style="flex: 1; height: 10%; background: #22c55e;"></div>
+                    </div>
+
+                    <!-- Alert Indicator -->
+                    <div
+                        style="position: absolute; top: 10px; right: 10px; animation: warning-flash 4s infinite linear;">
+                        <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem;"></i>
+                        <span
+                            style="display: block; font-family: monospace; font-weight: bold; font-size: 0.8rem; margin-top: 5px;">SHORT
+                            DEFECT!</span>
+                    </div>
+
+                </div>
+
+                <!-- X Axis Label -->
+                <div
+                    style="width: 100%; text-align: center; color: #94a3b8; font-family: monospace; font-size: 0.8rem; margin-top: 5px;">
+                    TIME (Test Vectors)</div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Sự tăng vọt
+                bất thường của dòng tĩnh I_DDQ (khi đang đo mạch CMOS ổn định) lập tức lật tẩy một lỗi đứt chập bên
+                trong mà không cần soi kỹ ngõ ra.</p>
         </div>
     </div>
 </div>

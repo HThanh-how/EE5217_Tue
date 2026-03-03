@@ -19,31 +19,162 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes spin-slowly {
-                    from {
-                        transform: rotate(0deg);
+                @keyframes highlight-state-0 {
+
+                    0%,
+                    19% {
+                        background: #3b82f6;
+                        color: white;
+                        border-color: #1e40af;
+                        transform: scale(1.1);
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
                     }
 
-                    to {
-                        transform: rotate(360deg);
+                    20%,
+                    100% {
+                        background: white;
+                        color: #64748b;
+                        border-color: #cbd5e1;
+                        transform: scale(1);
+                        box-shadow: none;
                     }
                 }
 
-                .anim-spin {
-                    animation: spin-slowly 4s linear infinite;
+                @keyframes highlight-state-1 {
+
+                    20%,
+                    39% {
+                        background: #3b82f6;
+                        color: white;
+                        border-color: #1e40af;
+                        transform: scale(1.1);
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+                    }
+
+                    0%,
+                    19%,
+                    40%,
+                    100% {
+                        background: white;
+                        color: #64748b;
+                        border-color: #cbd5e1;
+                        transform: scale(1);
+                        box-shadow: none;
+                    }
+                }
+
+                @keyframes highlight-state-2 {
+
+                    40%,
+                    59% {
+                        background: #3b82f6;
+                        color: white;
+                        border-color: #1e40af;
+                        transform: scale(1.1);
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+                    }
+
+                    0%,
+                    39%,
+                    60%,
+                    100% {
+                        background: white;
+                        color: #64748b;
+                        border-color: #cbd5e1;
+                        transform: scale(1);
+                        box-shadow: none;
+                    }
+                }
+
+                @keyframes highlight-state-3 {
+
+                    60%,
+                    79% {
+                        background: #3b82f6;
+                        color: white;
+                        border-color: #1e40af;
+                        transform: scale(1.1);
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+                    }
+
+                    0%,
+                    59%,
+                    80%,
+                    100% {
+                        background: white;
+                        color: #64748b;
+                        border-color: #cbd5e1;
+                        transform: scale(1);
+                        box-shadow: none;
+                    }
+                }
+
+                @keyframes highlight-state-4 {
+
+                    80%,
+                    99% {
+                        background: #3b82f6;
+                        color: white;
+                        border-color: #1e40af;
+                        transform: scale(1.1);
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+                    }
+
+                    0%,
+                    79%,
+                    100% {
+                        background: white;
+                        color: #64748b;
+                        border-color: #cbd5e1;
+                        transform: scale(1);
+                        box-shadow: none;
+                    }
                 }
             </style>
 
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; display:flex; justify-content:center; align-items:center;">
-                <i class="fa-solid fa-rotate-right anim-spin"
-                    style="font-size: 6rem; color: #3b82f6; filter: drop-shadow(0 0 8px rgba(59,130,246,0.3));"></i>
-                <div style="margin-left: 20px; text-align: left;">
-                    <h3 style="color: #1e40af;">Modulo-5 FSM</h3>
-                    <p style="color: #64748b; font-size: 1.1rem; margin-top: 5px;">Máy trạng thái lặp tuần hoàn 5 nhịp.
-                    </p>
+                style="background: #ffffff; padding: 25px; border-radius: 16px; border: 2px dashed #bfdbfe; display:flex; flex-direction:column; justify-content:center; align-items:center; position: relative;">
+                <h3 style="color: #1e40af; margin-bottom: 20px; font-family: monospace; font-size: 1.2rem;">S0
+                    $\rightarrow$ S1 $\rightarrow$ S2 $\rightarrow$ S3 $\rightarrow$ S4 $\rightarrow$ S0</h3>
+                <div
+                    style="position: relative; width: 220px; height: 220px; outline: 3px dotted #e2e8f0; border-radius: 50%;">
+
+                    <!-- Center Clock Hub -->
+                    <div
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #475569;">
+                        <i class="fa-solid fa-clock" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
+                        <span style="font-size: 0.8rem; font-weight: bold;">CLK</span>
+                    </div>
+
+                    <!-- 5 States aligned in a circle mathematically -->
+                    <!-- S0: Top -->
+                    <div
+                        style="position: absolute; top: -20px; left: 85px; width: 50px; height: 50px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: monospace; animation: highlight-state-0 5s infinite;">
+                        0</div>
+
+                    <!-- S1: Top Right -->
+                    <div
+                        style="position: absolute; top: 40px; right: -15px; width: 50px; height: 50px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: monospace; animation: highlight-state-1 5s infinite;">
+                        1</div>
+
+                    <!-- S2: Bottom Right -->
+                    <div
+                        style="position: absolute; bottom: 20px; right: 15px; width: 50px; height: 50px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: monospace; animation: highlight-state-2 5s infinite;">
+                        2</div>
+
+                    <!-- S3: Bottom Left -->
+                    <div
+                        style="position: absolute; bottom: 20px; left: 15px; width: 50px; height: 50px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: monospace; animation: highlight-state-3 5s infinite;">
+                        3</div>
+
+                    <!-- S4: Top Left -->
+                    <div
+                        style="position: absolute; top: 40px; left: -15px; width: 50px; height: 50px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: monospace; animation: highlight-state-4 5s infinite;">
+                        4</div>
                 </div>
             </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: FSM lồng
+                kính hiển vi quay vòng vô tận theo từng nhịp Clock.</p>
         </div>
     </div>
 </div>
@@ -95,25 +226,89 @@
         </div>
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes scan-stitch {
+
+                    0%,
+                    20% {
+                        opacity: 0;
+                        transform: scale(0.8) translateX(30px);
+                    }
+
+                    40%,
+                    80% {
+                        opacity: 1;
+                        transform: scale(1) translateX(0);
+                    }
+
+                    100% {
+                        opacity: 1;
+                        transform: scale(1.05);
+                        box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+                    }
+                }
+
+                @keyframes spark-weld {
+                    40% {
+                        opacity: 0;
+                    }
+
+                    45%,
+                    55% {
+                        opacity: 1;
+                        color: #facc15;
+                        text-shadow: 0 0 10px #f59e0b;
+                    }
+
+                    60%,
+                    100% {
+                        opacity: 0;
+                    }
+                }
+            </style>
+
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
-                    <div style="padding: 15px; background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 8px;">
-                        <i class="fa-solid fa-microchip" style="font-size: 2.5rem; color: #64748b;"></i>
-                        <p style="font-weight: bold; margin-top: 10px;">D-FF Gốc</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right" style="font-size: 2rem; color: #16a34a;"></i>
-                    <div style="padding: 15px; background: #dcfce7; border: 2px solid #86efac; border-radius: 8px;">
-                        <i class="fa-solid fa-microchip" style="font-size: 2.5rem; color: #16a34a;"></i>
+                style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #86efac; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+
+                <h3 style="color: #15803d; margin-bottom: 25px; text-transform: uppercase;">Scan Cell Substitution</h3>
+
+                <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 15px;">
+                    <!-- Original FF -->
+                    <div style="display: flex; flex-direction: column; align-items: center;">
                         <span
-                            style="position:absolute; background:#ef4444; color:white; font-size:0.7rem; padding:3px; border-radius:4px; font-weight:bold; transform:translate(-10px, -20px);">+
-                            MUX</span>
-                        <p style="font-weight: bold; color: #15803d; margin-top: 10px;">SD-FF</p>
+                            style="color: #94a3b8; font-weight: bold; margin-bottom: 5px; text-decoration: line-through;">D-FF</span>
+                        <div
+                            style="width: 70px; height: 70px; border: 2px solid #cbd5e1; background: #f1f5f9; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-microchip" style="font-size: 2rem; color: #94a3b8;"></i>
+                        </div>
+                    </div>
+
+                    <!-- Surgical Tool -->
+                    <div style="position: relative;">
+                        <i class="fa-solid fa-arrow-right" style="font-size: 2.5rem; color: #10b981;"></i>
+                        <i class="fa-solid fa-wand-magic-sparkles"
+                            style="position: absolute; top: -15px; right: 0; color: #eab308; font-size: 1.5rem; animation: spark-weld 4s infinite;"></i>
+                    </div>
+
+                    <!-- Replaced SD-FF -->
+                    <div style="display: flex; flex-direction: column; align-items: center; position: relative;"
+                        style="animation: scan-stitch 4s infinite alternate;">
+                        <span style="color: #16a34a; font-weight: bold; margin-bottom: 5px;">SD-FF</span>
+
+                        <div
+                            style="width: 130px; height: 90px; border: 3px solid #22c55e; background: #dcfce7; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; box-shadow: inset 0 0 10px rgba(34,197,94,0.3);">
+
+                            <div
+                                style="background: #ef4444; color: white; width: 35px; height: 45px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; border-left: 2px solid #b91c1c;">
+                                MUX</div>
+
+                            <i class="fa-solid fa-microchip" style="font-size: 2rem; color: #15803d;"></i>
+                        </div>
                     </div>
                 </div>
-                <p style="margin-top: 20px; font-style: italic; color: #666; font-size: 1.1rem;">"Phẫu thuật cắt ghép"
-                    thay thế hàng loạt tế bào Register.</p>
             </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Compiler
+                nhổ bỏ D-FF cũ, cấy ghép khối nguyên tử SD-FF chứa sẵn MUX.</p>
         </div>
     </div>
 </div>

@@ -4,10 +4,9 @@
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; max-width: 100%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-code"></i> Tối ưu chi phí từ
-                cấp độ
-                Hệ thống Top-Down</h2>
+                cấp độ Hệ thống Top-Down</h2>
             <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
                 <li style="margin-bottom: 15px;"><b>Thiết kế Scan Toàn phần RTL (RTL Design Full Scan)</b>:
                     Ép đồng loạt mọi đối tượng phần cứng mức cao (như Register Files, Counters, Bus) vào một chuỗi quét
@@ -23,6 +22,112 @@
                     (Feedback loops) và bỏ qua việc chèn Scan vào các vùng ít nghiêm trọng. Chiến thuật chọn lọc tinh
                     hoa này giúp tiết kiệm Logic Mux-DFF tới 10-15% so với chèn mù quáng ở Gate-level.</li>
             </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes rtl-scan-flow-1 {
+                    0% {
+                        stroke-dashoffset: 100;
+                        opacity: 0;
+                    }
+
+                    20%,
+                    80% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        stroke-dashoffset: 0;
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes rtl-scan-flow-2 {
+                    0% {
+                        stroke-dashoffset: 100;
+                        opacity: 0;
+                    }
+
+                    20%,
+                    80% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        stroke-dashoffset: 0;
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes block-glow {
+
+                    0%,
+                    100% {
+                        box-shadow: 0 0 5px rgba(2, 132, 199, 0.2);
+                    }
+
+                    50% {
+                        box-shadow: 0 0 15px rgba(2, 132, 199, 0.8);
+                    }
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: #f8fafc; padding: 25px; border-radius: 16px; border: 2px dashed #0ea5e9; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%;">
+                <h3 style="color: #0284c7; margin-bottom: 25px; text-transform: uppercase;">RTL Hierarchical Scan</h3>
+
+                <div
+                    style="display: flex; gap: 30px; align-items: center; position: relative; width: 100%; justify-content: center;">
+
+                    <!-- Controller Block -->
+                    <div
+                        style="background: white; border: 3px solid #0ea5e9; border-radius: 12px; width: 120px; height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; animation: block-glow 3s infinite;">
+                        <i class="fa-solid fa-microchip" style="color: #0284c7; font-size: 2rem;"></i>
+                        <span
+                            style="font-weight: bold; font-family: monospace; color: #0f172a; margin-top: 10px;">CONTROLLER</span>
+                    </div>
+
+                    <!-- Scan Paths -->
+                    <div style="position: absolute; width: 100%; height: 100px; z-index: 1;">
+                        <!-- Scan in 1 -->
+                        <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0;">
+                            <path d="M 10 30 L 70 30" fill="none" stroke="#f43f5e" stroke-width="3"
+                                stroke-dasharray="10 5" style="animation: rtl-scan-flow-1 1s infinite linear;" />
+                            <!-- Scan out 1 -->
+                            <path d="M 190 30 L 250 30" fill="none" stroke="#f43f5e" stroke-width="3"
+                                stroke-dasharray="10 5" style="animation: rtl-scan-flow-1 1s infinite linear;" />
+
+                            <!-- Scan in 2 -->
+                            <path d="M 10 70 L 70 70" fill="none" stroke="#8b5cf6" stroke-width="3"
+                                stroke-dasharray="10 5" style="animation: rtl-scan-flow-2 1.5s infinite linear;" />
+                            <!-- Scan out 2 -->
+                            <path d="M 190 70 L 250 70" fill="none" stroke="#8b5cf6" stroke-width="3"
+                                stroke-dasharray="10 5" style="animation: rtl-scan-flow-2 1.5s infinite linear;" />
+                        </svg>
+                    </div>
+
+                    <!-- Datapath Block -->
+                    <div
+                        style="background: white; border: 3px solid #0ea5e9; border-radius: 12px; width: 120px; height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; animation: block-glow 3s infinite; animation-delay: 1.5s;">
+                        <i class="fa-solid fa-network-wired" style="color: #0284c7; font-size: 2rem;"></i>
+                        <span
+                            style="font-weight: bold; font-family: monospace; color: #0f172a; margin-top: 10px;">DATAPATH</span>
+                    </div>
+
+                </div>
+
+                <div style="display: flex; gap: 20px; margin-top: 30px;">
+                    <span style="color: #e11d48; font-weight: bold; font-family: monospace; font-size: 0.85rem;"><i
+                            class="fa-solid fa-arrow-right"></i> SCAN CHAIN 1</span>
+                    <span style="color: #7c3aed; font-weight: bold; font-family: monospace; font-size: 0.85rem;"><i
+                            class="fa-solid fa-arrow-right"></i> SCAN CHAIN 2</span>
+                </div>
+
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Tách luồng
+                quét độc lập dựa trên kiến trúc phân cấp của RTL (Phân tách Controller và Datapath).</p>
         </div>
     </div>
 </div>

@@ -23,75 +23,118 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; gap: 15px; justify-content: center;">
             <style>
-                @keyframes spark {
+                @keyframes signal-stuck {
+                    0% {
+                        width: 0%;
+                        background: #3b82f6;
+                    }
+
+                    49% {
+                        width: 45%;
+                        background: #3b82f6;
+                    }
+
+                    50% {
+                        width: 50%;
+                        background: #ef4444;
+                    }
+
+                    100% {
+                        width: 100%;
+                        background: #ef4444;
+                    }
+                }
+
+                @keyframes sparks {
 
                     0%,
                     100% {
                         opacity: 0;
-                        transform: scale(0.5);
+                        transform: scale(0.5) rotate(0deg);
                     }
 
                     50% {
                         opacity: 1;
-                        transform: scale(1.5);
-                        color: #facc15;
+                        transform: scale(1.5) rotate(45deg);
+                        filter: drop-shadow(0 0 5px #eab308);
                     }
                 }
 
-                .anim-spark {
-                    animation: spark 0.5s infinite alternate;
-                }
-
-                .anim-flicker {
-                    animation: blink 0.2s infinite;
-                }
-
-                @keyframes blink {
+                @keyframes delay-wave {
                     0% {
-                        opacity: 1;
-                    }
-
-                    50% {
-                        opacity: 0;
+                        stroke-dashoffset: 100;
+                        -webkit-mask-position: 0px;
                     }
 
                     100% {
-                        opacity: 1;
+                        stroke-dashoffset: -100;
+                        -webkit-mask-position: 200px;
                     }
                 }
             </style>
 
             <div class="text-block-shadow"
-                style="background: white; padding: 25px; border-radius: 12px; border: 2px dashed #fca5a5; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                style="background: #1e293b; padding: 25px; border-radius: 12px; border: 2px solid #334155; display: flex; flex-direction: column; align-items: stretch; justify-content: space-around; height: 100%; gap: 15px;">
 
-                <div
-                    style="display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; margin-bottom: 20px;">
-                    <!-- Stuck-at 0 -->
-                    <div style="text-align: center; position: relative;">
-                        <i class="fa-solid fa-code-branch" style="font-size: 3rem; color: #475569;"></i>
+                <!-- Stuck-at Fault -->
+                <div style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 8px; position: relative;">
+                    <span
+                        style="color: #f87171; font-weight: bold; font-family: monospace; font-size: 0.9rem; position: absolute; top: -10px; left: 15px; background: #1e293b; padding: 0 5px;">[1]
+                        STUCK-AT FAULT</span>
+                    <div
+                        style="height: 30px; display: flex; align-items: center; position: relative; margin-top: 10px;">
                         <div
-                            style="position: absolute; top: -10px; right: -15px; background: #ef4444; color: white; border-radius: 5px; padding: 2px 8px; font-weight: bold; font-family: monospace;">
-                            SA0</div>
-                    </div>
-
-                    <div style="width: 2px; height: 50px; background: #e2e8f0;"></div>
-
-                    <!-- Short Circuit / Bridging -->
-                    <div style="text-align: center; position: relative;">
-                        <i class="fa-solid fa-plug-circle-bolt" style="font-size: 3rem; color: #ef4444;"></i>
-                        <i class="fa-solid fa-bolt anim-spark"
-                            style="position: absolute; top: -15px; right: -10px; font-size: 1.5rem;"></i>
+                            style="width: 100%; height: 4px; background: #334155; border-radius: 2px; position: relative; overflow: hidden;">
+                            <div style="height: 100%; animation: signal-stuck 2s infinite;"></div>
+                        </div>
+                        <i class="fa-solid fa-thumbtack"
+                            style="position: absolute; left: 45%; top: -15px; color: #ef4444; font-size: 1.2rem; transform: rotate(45deg);"></i>
+                        <span
+                            style="position: absolute; left: 50%; top: -20px; color: #ef4444; font-weight: bold; font-family: monospace;">SA0</span>
                     </div>
                 </div>
 
-                <!-- Clock Delay / Timing -->
-                <div
-                    style="width: 100%; border-top: 1px dashed #cbd5e1; padding-top: 15px; text-align: center; position: relative;">
-                    <i class="fa-regular fa-clock anim-flicker"
-                        style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 10px;"></i>
-                    <p style="margin: 0; font-weight: bold; color: #d97706; font-family: monospace;">> t_delay_exceeded
-                    </p>
+                <!-- Bridging Fault -->
+                <div style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 8px; position: relative;">
+                    <span
+                        style="color: #facc15; font-weight: bold; font-family: monospace; font-size: 0.9rem; position: absolute; top: -10px; left: 15px; background: #1e293b; padding: 0 5px;">[2]
+                        BRIDGING FAULT</span>
+                    <div style="height: 40px; position: relative; margin-top: 10px;">
+                        <div style="position: absolute; top: 10px; width: 100%; height: 4px; background: #22c55e;">
+                        </div>
+                        <div style="position: absolute; top: 30px; width: 100%; height: 4px; background: #3b82f6;">
+                        </div>
+                        <!-- Short circuit connection -->
+                        <div
+                            style="position: absolute; left: 50%; top: 10px; width: 4px; height: 24px; background: #eab308; box-shadow: 0 0 8px #facc15;">
+                        </div>
+                        <i class="fa-solid fa-bolt"
+                            style="position: absolute; left: calc(50% - 6px); top: 12px; color: #fef08a; animation: sparks 0.5s infinite;"></i>
+                    </div>
                 </div>
+
+                <!-- Delay Fault -->
+                <div style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 8px; position: relative;">
+                    <span
+                        style="color: #c084fc; font-weight: bold; font-family: monospace; font-size: 0.9rem; position: absolute; top: -10px; left: 15px; background: #1e293b; padding: 0 5px;">[3]
+                        DELAY FAULT</span>
+                    <div
+                        style="height: 40px; position: relative; margin-top: 10px; display: flex; align-items: center;">
+                        <svg width="100%" height="40" style="position: absolute;">
+                            <!-- Expected Clock -->
+                            <path d="M 0 30 L 40 30 L 40 10 L 80 10 L 80 30 L 120 30" fill="none" stroke="#475569"
+                                stroke-width="2" stroke-dasharray="4 4" />
+                            <!-- Actual Sluggish Clock -->
+                            <path d="M 0 30 L 55 30 L 70 10 L 110 10 L 130 30" fill="none" stroke="#c084fc"
+                                stroke-width="3"
+                                style="stroke-dasharray: 200; animation: delay-wave 2s infinite linear;" />
+                        </svg>
+                        <span
+                            style="position: absolute; right: 10px; color: #c084fc; font-weight: bold; font-size: 0.8rem; font-family: monospace;">>
+                            t_setup violation</span>
+                    </div>
+                </div>
+
             </div>
             <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Các hình
                 thức lỗi vật lý phổ biến tàn phá logic.</p>
@@ -123,58 +166,75 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes scan-shift {
+                @keyframes scan-shift-bits {
                     0% {
-                        transform: translateX(0);
-                        color: #94a3b8;
+                        transform: translateX(-50px);
+                        opacity: 0;
                     }
 
-                    50% {
-                        transform: translateX(40px);
-                        color: #10b981;
-                        filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.5));
+                    20% {
+                        transform: translateX(-10px);
+                        opacity: 1;
+                    }
+
+                    80% {
+                        transform: translateX(50px);
+                        opacity: 1;
                     }
 
                     100% {
                         transform: translateX(80px);
-                        color: #94a3b8;
                         opacity: 0;
                     }
-                }
-
-                .anim-shifter {
-                    animation: scan-shift 1.5s infinite linear;
                 }
             </style>
 
             <div class="text-block-shadow"
-                style="background: white; padding: 25px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                style="background: white; padding: 25px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%; overflow: hidden;">
 
                 <h3 style="color: #047857; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">From
                     Hidden To Observable</h3>
 
                 <div
-                    style="display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; position: relative;">
-                    <div style="background: #f1f5f9; border: 2px solid #cbd5e1; padding: 15px; border-radius: 8px;">
-                        <i class="fa-solid fa-box-open" style="font-size: 2.5rem; color: #3b82f6;"></i>
+                    style="display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; padding: 0 20px;">
+
+                    <!-- Dark Box -->
+                    <div
+                        style="background: #1e293b; border: 2px solid #0f172a; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; z-index: 2; box-shadow: 0 10px 15px rgba(0,0,0,0.3);">
+                        <i class="fa-solid fa-lock" style="font-size: 2.5rem; color: #94a3b8;"></i>
+                        <span
+                            style="color: #94a3b8; font-family: monospace; font-size: 0.8rem; margin-top: 5px;">INTERNAL
+                            FFs</span>
                     </div>
 
-                    <!-- Translating Data Box -->
-                    <div style="position: absolute; left: 30%; display: flex; align-items: center; gap: 5px;"
-                        class="anim-shifter">
-                        <i class="fa-solid fa-arrow-right" style="font-size: 1.5rem;"></i>
-                        <span style="font-family: monospace; font-weight: bold; font-size: 1.2rem;">[1011]</span>
+                    <!-- Shift Pipeline -->
+                    <div
+                        style="position: absolute; left: 80px; right: 80px; height: 2px; border-bottom: 2px dashed #cbd5e1; top: 50%; z-index: 1;">
+                        <!-- Animated Bits -->
+                        <div
+                            style="position: absolute; top: -15px; display: flex; gap: 5px; animation: scan-shift-bits 2.5s infinite linear;">
+                            <span
+                                style="background: #3b82f6; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(59,130,246,0.6);">1</span>
+                            <span
+                                style="background: #10b981; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(16,185,129,0.6);">0</span>
+                            <span
+                                style="background: #3b82f6; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(59,130,246,0.6);">1</span>
+                            <span
+                                style="background: #3b82f6; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(59,130,246,0.6);">1</span>
+                        </div>
                     </div>
 
-                    <div style="width: 100px; height: 4px; background: #e2e8f0; position: relative;"></div>
-
-                    <div style="background: #f1f5f9; border: 2px solid #cbd5e1; padding: 15px; border-radius: 8px;">
+                    <!-- Output Tester -->
+                    <div
+                        style="background: #f0fdf4; border: 2px solid #22c55e; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; z-index: 2; box-shadow: 0 5px 15px rgba(34,197,94,0.2);">
                         <i class="fa-solid fa-eye" style="font-size: 2.5rem; color: #10b981;"></i>
+                        <span
+                            style="color: #166534; font-family: monospace; font-size: 0.8rem; margin-top: 5px;">TESTER/DEBUGGER</span>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Scan-shift
-                đẩy trạng thái bí mật ra vùng sáng để kiểm duyệt.</p>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Dây chuyền
+                SCAN kéo tuột các bit trạng thái bí mật ra ngoài ánh sáng.</p>
         </div>
     </div>
 </div>

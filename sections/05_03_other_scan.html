@@ -4,7 +4,7 @@
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #8a2be2;">
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #8a2be2;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-puzzle-piece"></i> 5.5 Các
                 Phương Pháp Quét Khác</h2>
             <p style="font-size: 1.25rem; margin-bottom: 15px;">Bên cạnh Full Scan, Shadow Register và Multiple Scan, kỹ
@@ -28,6 +28,127 @@
                     </ul>
                 </li>
             </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes grid-scan-x {
+
+                    0%,
+                    100% {
+                        top: 15px;
+                    }
+
+                    25% {
+                        top: 45px;
+                    }
+
+                    50% {
+                        top: 75px;
+                    }
+
+                    75% {
+                        top: 105px;
+                    }
+                }
+
+                @keyframes grid-scan-y {
+
+                    0%,
+                    100% {
+                        left: 15px;
+                    }
+
+                    30% {
+                        left: 45px;
+                    }
+
+                    60% {
+                        left: 75px;
+                    }
+
+                    90% {
+                        left: 105px;
+                    }
+                }
+
+                @keyframes target-hit {
+
+                    0%,
+                    90% {
+                        background: #cbd5e1;
+                        box-shadow: none;
+                        transform: scale(1);
+                    }
+
+                    10%,
+                    80% {
+                        background: #a855f7;
+                        box-shadow: 0 0 10px #c084fc;
+                        transform: scale(1.2);
+                    }
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: #1e293b; padding: 25px; border-radius: 16px; border: 2px solid #334155; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <h3 style="color: #c084fc; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">Random
+                    Access Scan Array</h3>
+
+                <div style="display: flex; gap: 20px; align-items: flex-end;">
+                    <!-- Y Decoder -->
+                    <div
+                        style="width: 20px; height: 120px; background: #334155; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-around; padding: 5px 0;">
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                    </div>
+
+                    <!-- Array Grid -->
+                    <div
+                        style="position: relative; width: 130px; height: 130px; background: #0f172a; border: 2px solid #475569; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 5px; padding: 10px;">
+
+                        <!-- Scanner Lasers -->
+                        <div
+                            style="position: absolute; width: 100%; height: 2px; background: rgba(192, 132, 252, 0.5); left: 0; animation: grid-scan-x 4s infinite steps(4); box-shadow: 0 0 8px #c084fc; z-index: 2;">
+                        </div>
+                        <div
+                            style="position: absolute; height: 100%; width: 2px; background: rgba(192, 132, 252, 0.5); top: 0; animation: grid-scan-y 5s infinite steps(4); box-shadow: 0 0 8px #c084fc; z-index: 2;">
+                        </div>
+
+                        <!-- Cells (FFs) -->
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px; animation: target-hit 20s infinite;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                    </div>
+                </div>
+
+                <!-- X Decoder -->
+                <div
+                    style="width: 120px; height: 20px; background: #334155; border-radius: 4px; display: flex; justify-content: space-around; padding: 0 5px; margin-left: 40px; margin-top: 10px; align-items: center;">
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                </div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Mạng lưới
+                FF được đọc/ghi trực tiếp theo tọa độ X-Y (Random Access) bỏ qua việc dồn dịch tuần tự.</p>
         </div>
     </div>
 </div>

@@ -19,106 +19,90 @@
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <style>
-                @keyframes pulse-icon {
-                    0% {
-                        transform: scale(1);
-                        filter: drop-shadow(0 0 0 rgba(100, 116, 139, 0));
-                    }
-
-                    50% {
-                        transform: scale(1.1);
-                        filter: drop-shadow(0 0 10px rgba(100, 116, 139, 0.5));
-                    }
-
-                    100% {
-                        transform: scale(1);
-                        filter: drop-shadow(0 0 0 rgba(100, 116, 139, 0));
-                    }
-                }
-
-                @keyframes data-flow-stuck {
+                @keyframes data-flow-penalty {
                     0% {
                         transform: translateX(0);
+                        opacity: 0;
+                    }
+
+                    20% {
                         opacity: 1;
                     }
 
                     40% {
-                        transform: translateX(30px);
+                        transform: translateX(60px);
                         opacity: 1;
                     }
 
-                    /* Runs into MUX */
-                    50% {
-                        transform: translateX(25px);
-                        opacity: 0.5;
+                    45%,
+                    55% {
+                        transform: translateX(60px);
+                        opacity: 0.2;
                     }
 
-                    /* Bounces back/Stuck */
+                    /* Stuck at MUX */
+                    60% {
+                        transform: translateX(60px);
+                        opacity: 1;
+                    }
+
                     100% {
-                        transform: translateX(0);
+                        transform: translateX(120px);
                         opacity: 0;
                     }
                 }
 
-                @keyframes alert-blink {
+                @keyframes mux-struggle {
 
                     0%,
                     100% {
-                        background: #fee2e2;
                         border-color: #ef4444;
-                        color: #ef4444;
+                        box-shadow: 0 0 5px rgba(239, 68, 68, 0);
                     }
 
                     50% {
-                        background: #ef4444;
-                        border-color: #7f1d1d;
-                        color: #ffffff;
+                        border-color: #f87171;
+                        box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
                     }
-                }
-
-                .anim-pulse {
-                    animation: pulse-icon 2s infinite ease-in-out;
-                }
-
-                .anim-flow-stuck {
-                    animation: data-flow-stuck 3s infinite ease-in-out;
-                }
-
-                .anim-alert {
-                    animation: alert-blink 1s infinite alternate;
                 }
             </style>
 
-            <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 20px;">
-                <div style="padding: 20px; background: #e2e8f0; border-radius: 12px; text-align: center; border: 2px solid #cbd5e1;"
-                    class="anim-pulse">
-                    <i class="fa-solid fa-square-envelope" style="font-size: 2.5rem; color: #64748b;"></i>
-                    <p style="margin-top: 10px; font-weight: bold;">Dữ liệu (D)</p>
-                </div>
-                <div style="position: relative;">
-                    <div style="height: 4px; width: 80px; background: #ef4444; position: relative;">
-                        <!-- Arrow Head -->
-                        <div
-                            style="position: absolute; right: -2px; top: -6px; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 10px solid #ef4444;">
-                        </div>
-                    </div>
+            <div
+                style="display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; padding: 0 20px;">
 
-                    <!-- Flowing Data Packet Anim -->
-                    <i class="fa-solid fa-bolt anim-flow-stuck"
-                        style="position: absolute; top: -10px; left: 0; font-size: 1.5rem; color: #f59e0b; filter: drop-shadow(0 0 5px rgba(245,158,11,0.8));"></i>
+                <!-- Data Source -->
+                <div style="color: #64748b; font-weight: bold; font-family: monospace;">DATA IN</div>
 
-                    <!-- Multiplexer blocking the path -->
-                    <div class="anim-alert"
-                        style="position: absolute; top: -35px; left: 15px; border: 2px solid; padding: 10px; border-radius: 8px; font-weight: bold; transition: all 0.3s ease;">
-                        <i class="fa-solid fa-traffic-light"></i> MUX Delay
-                    </div>
-                </div>
+                <!-- Wire Path -->
                 <div
-                    style="padding: 20px; background: #e0f2fe; border-radius: 12px; text-align: center; border: 2px solid #7dd3fc;">
-                    <i class="fa-solid fa-microchip" style="font-size: 2.5rem; color: #0284c7;"></i>
-                    <p style="margin-top: 10px; font-weight: bold;">Flip-Flop</p>
+                    style="position: absolute; left: 80px; right: 100px; height: 4px; background: #e2e8f0; top: 50%; z-index: 1;">
+                    <!-- Flowing Bit -->
+                    <div
+                        style="position: absolute; top: -10px; width: 24px; height: 24px; background: #3b82f6; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: monospace; animation: data-flow-penalty 3s infinite linear; z-index: 5;">
+                        1</div>
+
+                    <!-- MUX Hurdle -->
+                    <div
+                        style="position: absolute; left: 60px; top: -30px; width: 30px; height: 64px; background: #fef2f2; border: 3px solid #ef4444; border-left-width: 6px; clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); display: flex; align-items: center; justify-content: center; z-index: 2; animation: mux-struggle 1s infinite alternate;">
+                        <span
+                            style="font-size: 0.6rem; font-weight: bold; transform: rotate(-90deg); color: #b91c1c;">MUX</span>
+                    </div>
+                </div>
+
+                <!-- D-FF Target -->
+                <div
+                    style="background: #f8fafc; border: 2px solid #cbd5e1; width: 60px; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 3;">
+                    <span style="font-weight: bold; color: #475569;">FF</span>
                 </div>
             </div>
+
+            <!-- Warning Banner -->
+            <div
+                style="margin-top: 30px; background: #fef2f2; border-left: 4px solid #ef4444; padding: 10px 15px; border-radius: 0 8px 8px 0; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444; font-size: 1.2rem;"></i>
+                <span style="color: #b91c1c; font-weight: bold; font-family: monospace;">Setup Time Delay +120ps</span>
+            </div>
+
             <p style="margin-top: 25px; font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Minh
                 họa: MUX chèn vào giữa tạo ra 'chướng ngại vật' gây trễ tín hiệu.</p>
         </div>
@@ -145,29 +129,136 @@
 
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+                @keyframes data-bypass {
+                    0% {
+                        stroke-dashoffset: 150;
+                        stroke: #22c55e;
+                    }
+
+                    100% {
+                        stroke-dashoffset: -150;
+                        stroke: #22c55e;
+                    }
+                }
+
+                @keyframes shadow-capture {
+
+                    0%,
+                    70% {
+                        transform: translateY(-30px);
+                        opacity: 0;
+                    }
+
+                    80% {
+                        transform: translateY(0);
+                        opacity: 1;
+                        background: #fef08a;
+                    }
+
+                    90%,
+                    100% {
+                        transform: translateY(0);
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes shift-out {
+
+                    0%,
+                    80% {
+                        transform: translateX(0);
+                        opacity: 0;
+                    }
+
+                    85% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        transform: translateX(80px);
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes flash-capture-btn {
+
+                    0%,
+                    75%,
+                    85%,
+                    100% {
+                        background: #cbd5e1;
+                    }
+
+                    80% {
+                        background: #f59e0b;
+                        box-shadow: 0 0 10px #f59e0b;
+                    }
+                }
+            </style>
+
             <div
-                style="background: #f0f4f8; padding: 30px; border-radius: 12px; width: 100%; text-align: center; border: 2px dashed #cbd5e1; position: relative;">
+                style="background: #f8fafc; padding: 25px; border-radius: 16px; width: 100%; border: 2px solid #e2e8f0; position: relative;">
 
-                <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 20px;">
-                    <div style="padding: 15px; background: #dcfce7; border: 2px solid #86efac; border-radius: 8px;">
-                        <i class="fa-solid fa-server" style="font-size: 2rem; color: #16a34a;"></i>
-                        <p style="margin-top: 5px; font-weight: bold; color: #15803d;">System FF</p>
-                    </div>
+                <div
+                    style="display: flex; gap: 40px; justify-content: center; align-items: center; position: relative;">
 
-                    <i class="fa-solid fa-arrows-up-down" style="font-size: 2rem; color: #94a3b8;"></i>
+                    <!-- System Pipeline -->
+                    <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
+                        <!-- Thick Fast Wire -->
+                        <svg width="250" height="20" style="position: absolute; top: 40px; z-index: 1;">
+                            <path d="M 0 10 L 250 10" fill="none" stroke="#e2e8f0" stroke-width="6" />
+                            <path d="M 0 10 L 250 10" fill="none" stroke="#22c55e" stroke-width="6"
+                                stroke-dasharray="80 150" style="animation: data-bypass 1.5s infinite linear;" />
+                        </svg>
 
-                    <div style="padding: 15px; background: #fef08a; border: 2px solid #fde047; border-radius: 8px;">
-                        <i class="fa-solid fa-ghost" style="font-size: 2rem; color: #ca8a04;"></i>
-                        <p style="margin-top: 5px; font-weight: bold; color: #a16207;">Shadow FF</p>
+                        <!-- System FF -->
+                        <div
+                            style="background: white; border: 3px solid #22c55e; border-radius: 8px; width: 70px; height: 90px; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 5px 10px rgba(34,197,94,0.2);">
+                            <span style="font-weight: bold; color: #166534;">SYS-FF</span>
+                        </div>
                     </div>
                 </div>
 
-                <p style="color: #64748b; font-size: 1.1rem; line-height: 1.5;">Dữ liệu hệ thống chảy tự do qua
-                    System-FF. Khi cần Test, lệnh Capture sẽ "chụp" trạng thái vào Shadow-FF và đẩy Serial trôi ra
-                    ngoài.</p>
+                <!-- Shadow Capture Mechanism -->
+                <div
+                    style="display: flex; gap: 40px; justify-content: center; align-items: center; position: relative; margin-top: 30px;">
+
+                    <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
+                        <!-- Verticle capture pipe -->
+                        <div
+                            style="width: 4px; height: 40px; background: dashed 2px #cbd5e1; position: absolute; top: -40px;">
+                            <!-- Falling Data -->
+                            <div
+                                style="width: 14px; height: 14px; background: #eab308; border-radius: 50%; border: 2px solid white; position: absolute; left: -5px; animation: shadow-capture 3s infinite; font-size: 0.6rem; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                D</div>
+                        </div>
+
+                        <!-- Shadow FF -->
+                        <div
+                            style="background: #fefce8; border: 3px dashed #eab308; border-radius: 8px; width: 70px; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 2;">
+                            <span style="font-weight: bold; color: #854d0e;">SH-FF</span>
+                        </div>
+
+                        <!-- Scan Out Path -->
+                        <div
+                            style="position: absolute; right: -80px; top: 20px; width: 60px; height: 4px; border-bottom: 2px dashed #eab308;">
+                            <div
+                                style="width: 14px; height: 14px; background: #eab308; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: bold; margin-top: -14px; animation: shift-out 3s infinite;">
+                                D</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capture Trigger -->
+                <div
+                    style="position: absolute; right: 20px; bottom: 20px; padding: 5px 10px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; font-weight: bold; color: #1e293b; transition: all 0.1s; animation: flash-capture-btn 3s infinite;">
+                    TE STROBE
+                </div>
+
             </div>
             <p style="margin-top: 25px; font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Mô
-                hình: Kiến trúc System + Shadow chạy song song độc lập.</p>
+                hình: Kiến trúc System + Shadow chặn bắt dữ liệu an toàn.</p>
         </div>
     </div>
 </div>
@@ -192,11 +283,61 @@
         </div>
 
         <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <i class="fa-solid fa-gauge-high" style="font-size: 6rem; color: #10b981; margin-bottom: 20px;"></i>
-            <h3 style="color: #059669; margin-bottom: 10px; font-size: 1.5rem;">Maximum Performance</h3>
-            <p style="color: #64748b; font-size: 1.15rem; line-height: 1.5; text-align: center;">Do không phải đi qua
-                MUX, tốc độ xung nhịp của vi mạch được tối ưu ở mức lý tưởng gốc của nó.</p>
+            style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; position: relative;">
+
+            <style>
+                @keyframes supercar-flow {
+                    0% {
+                        stroke-dashoffset: 200;
+                        stroke: #10b981;
+                    }
+
+                    50% {
+                        stroke-dashoffset: 0;
+                        stroke: #34d399;
+                    }
+
+                    100% {
+                        stroke-dashoffset: -200;
+                        stroke: #10b981;
+                    }
+                }
+
+                @keyframes bg-speed {
+                    0% {
+                        background-position: 0 0;
+                    }
+
+                    100% {
+                        background-position: -40px 0;
+                    }
+                }
+            </style>
+
+            <div
+                style="width: 100%; height: 120px; background: repeating-linear-gradient(90deg, #f0fdf4, #f0fdf4 20px, #dcfce7 20px, #dcfce7 40px); border-radius: 12px; position: relative; display: flex; align-items: center; justify-content: center; animation: bg-speed 1s infinite linear; border: 2px solid #86efac; box-shadow: inset 0 0 15px rgba(34,197,94,0.3);">
+
+                <!-- Speed Lines -->
+                <svg width="100%" height="80" style="position: absolute;">
+                    <line x1="0" y1="20" x2="100%" y2="20" stroke="#22c55e" stroke-width="4" stroke-dasharray="60 140"
+                        style="animation: supercar-flow 0.5s infinite linear;" />
+                    <line x1="0" y1="40" x2="100%" y2="40" stroke="#10b981" stroke-width="6" stroke-dasharray="100 100"
+                        style="animation: supercar-flow 0.4s infinite linear;" />
+                    <line x1="0" y1="60" x2="100%" y2="60" stroke="#059669" stroke-width="4" stroke-dasharray="40 160"
+                        style="animation: supercar-flow 0.6s infinite linear;" />
+                </svg>
+
+                <div
+                    style="background: white; padding: 10px 20px; border-radius: 20px; border: 3px solid #10b981; z-index: 2; box-shadow: 0 0 15px rgba(16,185,129,0.5); display: flex; gap: 10px; align-items: center;">
+                    <i class="fa-solid fa-gauge-high" style="font-size: 2rem; color: #10b981;"></i>
+                    <span style="font-weight: bold; color: #059669; font-size: 1.5rem; font-family: monospace;">ZERO
+                        DELAY</span>
+                </div>
+            </div>
+
+            <p style="color: #64748b; font-size: 1.15rem; line-height: 1.5; text-align: center; margin-top: 25px;">Tốc
+                độ xung nhịp của vi mạch được tối ưu ở tốc độ chớp mắt vì loại bỏ hoàn toàn cổng MUX trên System Path.
+            </p>
         </div>
     </div>
 </div>
