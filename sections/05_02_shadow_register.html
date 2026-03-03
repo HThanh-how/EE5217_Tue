@@ -18,22 +18,98 @@
 
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+                @keyframes pulse-icon {
+                    0% {
+                        transform: scale(1);
+                        filter: drop-shadow(0 0 0 rgba(100, 116, 139, 0));
+                    }
+
+                    50% {
+                        transform: scale(1.1);
+                        filter: drop-shadow(0 0 10px rgba(100, 116, 139, 0.5));
+                    }
+
+                    100% {
+                        transform: scale(1);
+                        filter: drop-shadow(0 0 0 rgba(100, 116, 139, 0));
+                    }
+                }
+
+                @keyframes data-flow-stuck {
+                    0% {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+
+                    40% {
+                        transform: translateX(30px);
+                        opacity: 1;
+                    }
+
+                    /* Runs into MUX */
+                    50% {
+                        transform: translateX(25px);
+                        opacity: 0.5;
+                    }
+
+                    /* Bounces back/Stuck */
+                    100% {
+                        transform: translateX(0);
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes alert-blink {
+
+                    0%,
+                    100% {
+                        background: #fee2e2;
+                        border-color: #ef4444;
+                        color: #ef4444;
+                    }
+
+                    50% {
+                        background: #ef4444;
+                        border-color: #7f1d1d;
+                        color: #ffffff;
+                    }
+                }
+
+                .anim-pulse {
+                    animation: pulse-icon 2s infinite ease-in-out;
+                }
+
+                .anim-flow-stuck {
+                    animation: data-flow-stuck 3s infinite ease-in-out;
+                }
+
+                .anim-alert {
+                    animation: alert-blink 1s infinite alternate;
+                }
+            </style>
+
             <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 20px;">
-                <div
-                    style="padding: 20px; background: #e2e8f0; border-radius: 12px; text-align: center; border: 2px solid #cbd5e1;">
+                <div style="padding: 20px; background: #e2e8f0; border-radius: 12px; text-align: center; border: 2px solid #cbd5e1;"
+                    class="anim-pulse">
                     <i class="fa-solid fa-square-envelope" style="font-size: 2.5rem; color: #64748b;"></i>
                     <p style="margin-top: 10px; font-weight: bold;">Dữ liệu (D)</p>
                 </div>
                 <div style="position: relative;">
                     <div style="height: 4px; width: 80px; background: #ef4444; position: relative;">
-                        <!-- Arrow -->
+                        <!-- Arrow Head -->
                         <div
                             style="position: absolute; right: -2px; top: -6px; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 10px solid #ef4444;">
                         </div>
                     </div>
+
+                    <!-- Flowing Data Packet Anim -->
+                    <i class="fa-solid fa-bolt anim-flow-stuck"
+                        style="position: absolute; top: -10px; left: 0; font-size: 1.5rem; color: #f59e0b; filter: drop-shadow(0 0 5px rgba(245,158,11,0.8));"></i>
+
                     <!-- Multiplexer blocking the path -->
-                    <div
-                        style="position: absolute; top: -35px; left: 15px; background: #fee2e2; border: 2px solid #ef4444; padding: 10px; border-radius: 8px; font-weight: bold; color: #ef4444;">
+                    <div class="anim-alert"
+                        style="position: absolute; top: -35px; left: 15px; border: 2px solid; padding: 10px; border-radius: 8px; font-weight: bold; transition: all 0.3s ease;">
                         <i class="fa-solid fa-traffic-light"></i> MUX Delay
                     </div>
                 </div>

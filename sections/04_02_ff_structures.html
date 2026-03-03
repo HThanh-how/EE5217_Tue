@@ -45,21 +45,88 @@
         </div>
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes data-pulse {
+                    0% {
+                        transform: scale(1);
+                        opacity: 0.8;
+                    }
+
+                    50% {
+                        transform: scale(1.15);
+                        opacity: 1;
+                        filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+                    }
+
+                    100% {
+                        transform: scale(1);
+                        opacity: 0.8;
+                    }
+                }
+
+                @keyframes scan-slide {
+                    0% {
+                        transform: translateX(-15px);
+                        color: #8b5cf6;
+                    }
+
+                    50% {
+                        transform: translateX(15px);
+                        color: #a855f7;
+                        filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+                    }
+
+                    100% {
+                        transform: translateX(-15px);
+                        color: #8b5cf6;
+                    }
+                }
+
+                @keyframes switch-blink {
+
+                    0%,
+                    100% {
+                        color: #94a3b8;
+                        transform: rotate(0deg);
+                    }
+
+                    50% {
+                        color: #3b82f6;
+                        transform: rotate(180deg);
+                    }
+                }
+
+                .anim-data {
+                    animation: data-pulse 2s infinite ease-in-out;
+                }
+
+                .anim-scan {
+                    animation: scan-slide 3s infinite alternate ease-in-out;
+                }
+
+                .anim-switch {
+                    animation: switch-blink 4s infinite ease-in-out;
+                    transition: all 0.5s;
+                }
+            </style>
+
             <div class="text-block-shadow"
                 style="background: #ffffff; padding: 30px; border-radius: 16px; display: flex; justify-content: space-around; align-items: center;">
-                <div style="text-align: center;">
+                <div style="text-align: center;" class="anim-data">
                     <i class="fa-solid fa-code-branch"
                         style="font-size: 4rem; color: #3b82f6; margin-bottom: 15px;"></i>
                     <p style="font-weight: bold; color: #1d4ed8;">Data Path ($TE=0$)</p>
                 </div>
-                <i class="fa-solid fa-arrow-right-arrow-left" style="font-size: 2.5rem; color: #94a3b8;"></i>
-                <div style="text-align: center;">
-                    <i class="fa-solid fa-barcode" style="font-size: 4rem; color: #8b5cf6; margin-bottom: 15px;"></i>
+                <!-- Animated Switch Router -->
+                <i class="fa-solid fa-arrow-right-arrow-left anim-switch"
+                    style="font-size: 2.5rem; text-shadow: 0 4px 6px rgba(0,0,0,0.1);"></i>
+                <div style="text-align: center;" class="anim-scan">
+                    <i class="fa-solid fa-barcode" style="font-size: 4rem; margin-bottom: 15px;"></i>
                     <p style="font-weight: bold; color: #6d28d9;">Scan Path ($TE=1$)</p>
                 </div>
             </div>
-            <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Minh họa: Tín hiệu TE như
-                công tắc chuyển mạch đường ray xe lửa.</p>
+            <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Minh họa: Tín hiệu TE
+                (đóng vai trò ngã rẽ) như công tắc chuyển mạch đường ray xe lửa.</p>
         </div>
     </div>
 </div>

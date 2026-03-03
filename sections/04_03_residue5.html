@@ -18,9 +18,26 @@
         </div>
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes spin-slowly {
+                    from {
+                        transform: rotate(0deg);
+                    }
+
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                .anim-spin {
+                    animation: spin-slowly 4s linear infinite;
+                }
+            </style>
+
             <div class="text-block-shadow"
                 style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; display:flex; justify-content:center; align-items:center;">
-                <i class="fa-solid fa-rotate-right" style="font-size: 6rem; color: #3b82f6;"></i>
+                <i class="fa-solid fa-rotate-right anim-spin"
+                    style="font-size: 6rem; color: #3b82f6; filter: drop-shadow(0 0 8px rgba(59,130,246,0.3));"></i>
                 <div style="margin-left: 20px; text-align: left;">
                     <h3 style="color: #1e40af;">Modulo-5 FSM</h3>
                     <p style="color: #64748b; font-size: 1.1rem; margin-top: 5px;">Máy trạng thái lặp tuần hoàn 5 nhịp.

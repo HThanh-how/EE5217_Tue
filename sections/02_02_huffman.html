@@ -47,24 +47,48 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; gap: 20px; justify-content:center;">
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                style="background: #1e293b; padding: 30px; border-radius: 16px; display:flex; flex-direction:column; justify-content:center; align-items:center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden;">
+                <!-- Abstract glowing background -->
                 <div
-                    style="position: relative; padding: 30px; background: #334155; border-radius: 12px; border: 4px dashed #94a3b8; width: 80%;">
-                    <i class="fa-solid fa-lock"
-                        style="font-size: 4rem; color: #ef4444; position: absolute; top: -25px; right: -25px;"></i>
-                    <h3 style="color: #f8fafc; margin: 0;">Khối Trạng Thái Ẩn</h3>
-                    <p style="color: #cbd5e1; margin-top: 10px;">(Dark Box)</p>
+                    style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(239,68,68,0.15) 0%, transparent 70%); animation: pulse-robot 4s infinite linear;">
                 </div>
-                <div style="display: flex; justify-content: space-around; width: 100%; margin-top: 20px;">
-                    <div style="color: #ef4444; text-align: center;">
-                        <i class="fa-solid fa-eye-slash"
-                            style="font-size: 2.5rem; display: block; margin-bottom: 10px;"></i>
-                        <span style="font-weight: bold;">Unobservable</span>
+
+                <div
+                    style="position: relative; padding: 25px; background: rgba(15, 23, 42, 0.8); border-radius: 12px; border: 2px solid #334155; width: 85%; backdrop-filter: blur(4px);">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; padding-bottom: 10px; margin-bottom: 15px;">
+                        <div style="display: flex; gap: 8px;">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ef4444;"></div>
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #f59e0b;"></div>
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #22c55e;"></div>
+                        </div>
+                        <span style="color: #64748b; font-family: monospace; font-size: 0.9rem;">system_state.mem</span>
                     </div>
-                    <div style="color: #ef4444; text-align: center;">
+
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                        <i class="fa-solid fa-lock"
+                            style="font-size: 3rem; color: #ef4444; filter: drop-shadow(0 0 8px rgba(239,68,68,0.8));"></i>
+                    </div>
+                    <h3
+                        style="color: #f8fafc; margin: 0; text-align: center; text-transform: uppercase; letter-spacing: 2px;">
+                        Khối Trạng Thái Ẩn</h3>
+                    <p style="color: #94a3b8; margin-top: 5px; text-align: center; font-family: monospace;">&lt;Dark Box
+                        Area&gt;</p>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-around; width: 100%; margin-top: 25px; position: relative; z-index: 10;">
+                    <div
+                        style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); padding: 15px; border-radius: 10px; text-align: center; width: 45%;">
+                        <i class="fa-solid fa-eye-slash"
+                            style="font-size: 2rem; color: #fca5a5; display: block; margin-bottom: 8px;"></i>
+                        <span style="font-weight: bold; color: #f87171; font-size: 0.95rem;">Không Quan Sát</span>
+                    </div>
+                    <div
+                        style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); padding: 15px; border-radius: 10px; text-align: center; width: 45%;">
                         <i class="fa-solid fa-handcuffs"
-                            style="font-size: 2.5rem; display: block; margin-bottom: 10px;"></i>
-                        <span style="font-weight: bold;">Uncontrollable</span>
+                            style="font-size: 2rem; color: #fca5a5; display: block; margin-bottom: 8px;"></i>
+                        <span style="font-weight: bold; color: #f87171; font-size: 0.95rem;">Không Điều Khiển</span>
                     </div>
                 </div>
             </div>
@@ -142,29 +166,77 @@
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
             <p style="font-size: 1.4rem; color: var(--text-color); line-height: 1.6;">
                 <b>Ghim Nối Trạng Thái Ảo (Pseudo-States hook-ups):</b><br><br>
-                Trên bức tranh kéo cưa này, ngõ ra trạng thái của cỗ máy chu kỳ trước liền kề ($Time Frame_{k-1}$) sẽ bị
-                chọc ống chích nối móc trực tiếp vào ngõ vào ảo cho sự kiện chu kỳ hiện thời ($Time Frame_k$).
+                Trên bức tranh kéo cưa này, ngõ ra trạng thái của cỗ máy chu kỳ trước liền kề (Time Frame
+                <sub>k-1</sub>) sẽ bị
+                chọc ống chích nối móc trực tiếp vào ngõ vào ảo cho sự kiện chu kỳ hiện thời (Time Frame <sub>k</sub>).
             </p>
         </div>
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; gap: 20px; justify-content:center;">
+            <style>
+                @keyframes data-flow {
+                    0% {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+
+                    100% {
+                        transform: translateX(60px);
+                        opacity: 0;
+                    }
+                }
+
+                .anim-data-flow {
+                    animation: data-flow 1.5s infinite linear;
+                }
+            </style>
             <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display:flex; justify-content:center; align-items:center;">
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <div style="background: #e2e8f0; padding: 20px; border-radius: 12px; border: 2px solid #94a3b8;">
-                        <h3 style="color: #475569; margin: 0;">Khung $k-1$</h3>
-                        <p style="color: #64748b; margin-top: 5px;">Ra: <span
-                                style="font-weight: bold; color: #ef4444;">$S_{k-1}$</span></p>
+                style="background: #ffffff; padding: 40px 30px; border-radius: 16px; display:flex; justify-content:center; align-items:center; position: relative;">
+
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 10px;">
+                    <!-- Frame k-1 -->
+                    <div
+                        style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 25px 20px; border-radius: 16px; border: 2px solid #cbd5e1; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); width: 40%;">
+                        <div
+                            style="text-align: center; border-bottom: 2px dashed #94a3b8; padding-bottom: 10px; margin-bottom: 15px;">
+                            <i class="fa-solid fa-microchip" style="font-size: 1.5rem; color: #475569;"></i>
+                            <h3 style="color: #334155; margin: 5px 0 0 0; font-size: 1.3rem;">Khung k-1</h3>
+                        </div>
+                        <div
+                            style="background: #fee2e2; border-left: 4px solid #ef4444; padding: 10px; border-radius: 4px;">
+                            <span style="color: #991b1b; font-weight: bold; font-size: 0.9rem;">OUTPUT TRẠNG THÁI</span>
+                            <p
+                                style="color: #ef4444; margin: 5px 0 0 0; font-family: monospace; font-size: 1.2rem; font-weight: bold;">
+                                <i>S<sub>k-1</sub></i></p>
+                        </div>
                     </div>
-                    <i class="fa-solid fa-link" style="font-size: 2.5rem; color: #3b82f6;"></i>
-                    <div style="background: #e2e8f0; padding: 20px; border-radius: 12px; border: 2px solid #94a3b8;">
-                        <h3 style="color: #475569; margin: 0;">Khung $k$</h3>
-                        <p style="color: #64748b; margin-top: 5px;">Vào: <span
-                                style="font-weight: bold; color: #10b981;">$S_{k}$</span></p>
+
+                    <!-- Animated Connection Pathway -->
+                    <div style="position: relative; width: 80px; height: 6px; background: #bfdbfe; border-radius: 3px;">
+                        <i class="fa-solid fa-circle-chevron-right anim-data-flow"
+                            style="position: absolute; top: -10px; left: 0; font-size: 1.5rem; color: #3b82f6; filter: drop-shadow(0 0 5px rgba(59,130,246,0.5));"></i>
+                    </div>
+
+                    <!-- Frame k -->
+                    <div
+                        style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 25px 20px; border-radius: 16px; border: 2px solid #cbd5e1; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); width: 40%;">
+                        <div
+                            style="text-align: center; border-bottom: 2px dashed #94a3b8; padding-bottom: 10px; margin-bottom: 15px;">
+                            <i class="fa-solid fa-microchip" style="font-size: 1.5rem; color: #475569;"></i>
+                            <h3 style="color: #334155; margin: 5px 0 0 0; font-size: 1.3rem;">Khung k</h3>
+                        </div>
+                        <div
+                            style="background: #dcfce7; border-left: 4px solid #22c55e; padding: 10px; border-radius: 4px;">
+                            <span style="color: #166534; font-weight: bold; font-size: 0.9rem;">INPUT TRẠNG THÁI</span>
+                            <p
+                                style="color: #10b981; margin: 5px 0 0 0; font-family: monospace; font-size: 1.2rem; font-weight: bold;">
+                                <i>S<sub>k</sub></i></p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <p style="font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Móc ngoặc trạng thái qua
+            <p style="font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Wiring trạng thái ảo qua
                 dòng không - thời gian.</p>
         </div>
     </div>
@@ -182,21 +254,86 @@
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #fffbeb; padding: 30px; border-radius: 16px; border-top: 5px solid #d97706;">
             <p style="font-size: 1.4rem; color: var(--text-color); line-height: 1.6;">
                 <b>Thảm họa Nổ Khối lượng Backtracking:</b><br><br>
-                Điều tồi tệ: Nếu ATPG đánh rơi mất $1$ vector làm nó vấp ngã thất bại (Conflict) ở mãi tít chu kỳ cuối
+                Điều tồi tệ: Nếu ATPG đánh rơi mất 1 vector làm nó vấp ngã thất bại (Conflict) ở mãi tít chu kỳ cuối
                 cùng...<br><br>
                 Nó phải xóa bài dò lùng tìm lại gốc gác sai lầm (Backtrack) <b>lội ngược dòng thời gian xuyên qua hàng
                     chục chu kỳ trước</b>.<br><br>
-                Với mạch IC công nhiệp lớn, Thuật Toán Gần Như Tê Liệt đứt thở ngắc ngoải vì bị Time-out.
+                Với mạch IC công nhiệp lớn, Thuật Toán Gần Như Tê Liệt đứt thở ngắc ngoải vì bị Time-out do Exponential
+                Explosion (Bùng nổ hàm mũ).
             </p>
         </div>
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; gap: 20px; justify-content:center;">
-            <div class="text-block-shadow"
-                style="background: #ffffff; padding: 30px; border-radius: 16px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-                <i class="fa-solid fa-bomb" style="font-size: 6rem; color: #f59e0b; margin-bottom: 20px;"></i>
-                <h3 style="color: #d97706; margin-bottom: 10px;">Backtracking Explosion</h3>
-                <p style="color: #64748b; font-size: 1.1rem; text-align: center;">Hệ thống rẽ nhánh đệ quy vượt quá sức
-                    chứa CPU (Time/Memory Limits Exceeded).</p>
+            <style>
+                @keyframes shake {
+
+                    0%,
+                    100% {
+                        transform: translateX(0);
+                    }
+
+                    10%,
+                    30%,
+                    50%,
+                    70%,
+                    90% {
+                        transform: translateX(-5px);
+                    }
+
+                    20%,
+                    40%,
+                    60%,
+                    80% {
+                        transform: translateX(5px);
+                    }
+                }
+
+                @keyframes warning-flash {
+                    0% {
+                        background: rgba(245, 158, 11, 0.1);
+                        border-color: rgba(245, 158, 11, 0.3);
+                    }
+
+                    50% {
+                        background: rgba(239, 68, 68, 0.2);
+                        border-color: rgba(239, 68, 68, 0.8);
+                    }
+
+                    100% {
+                        background: rgba(245, 158, 11, 0.1);
+                        border-color: rgba(245, 158, 11, 0.3);
+                    }
+                }
+
+                .anim-shake {
+                    animation: shake 2s infinite ease-in-out;
+                }
+
+                .anim-flash-bg {
+                    animation: warning-flash 1s infinite alternate;
+                }
+            </style>
+
+            <div class="text-block-shadow anim-flash-bg"
+                style="padding: 30px; border-radius: 16px; border: 3px solid; display:flex; flex-direction:column; justify-content:center; align-items:center; width: 100%; box-sizing: border-box;">
+                <div style="position: relative; margin-bottom: 25px;">
+                    <i class="fa-solid fa-bomb anim-shake"
+                        style="font-size: 6rem; color: #ef4444; filter: drop-shadow(0 0 15px rgba(239,68,68,0.6));"></i>
+                    <i class="fa-solid fa-triangle-exclamation"
+                        style="position: absolute; top: -15px; right: -25px; font-size: 2.5rem; color: #f59e0b;"></i>
+                </div>
+
+                <h3
+                    style="color: #b91c1c; margin-bottom: 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 1px;">
+                    Backtracking Explosion</h3>
+
+                <div
+                    style="background: rgba(0,0,0,0.8); border-radius: 8px; padding: 15px; width: 100%; text-align: left; font-family: monospace; color: #4ade80;">
+                    <div style="color: #f87171;">> Error: CPU RAM Exceeded</div>
+                    <div style="color: #f87171;">> Backtrack depth limit reached</div>
+                    <div style="color: #fcd34d; margin-top: 5px;">> Thread 0x0A: Time-out / Deadlock</div>
+                    <div class="anim-pulse" style="color: #ffffff; margin-top: 5px;">_</div>
+                </div>
             </div>
         </div>
     </div>
