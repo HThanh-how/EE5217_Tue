@@ -4,29 +4,25 @@
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Cơ Chế Máy ATE
-                (1/2)
-            </h2>
-            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 12px;"><b>Hệ thống Test Tự động:</b> Máy ATE (Automated Test Equipment) bơm
-                    các chuỗi nhị phân (Test Vector) vào mạch và so sánh ngõ ra với giá trị Vàng lý thuyết (Golden
-                    Response).</li>
-                <li style="margin-bottom: 12px;"><b>Phương pháp Liên kết:</b> Tester không thể móc mỏ hàn vào từng sợi
-                    dây li ti bên trong IC bé tí. Các đầu kim Probe Card của ATE chỉ chạm được vào <b>Bề mặt Vỏ Gói</b>
-                    qua các chân Pin I/O chuẩn. Các chân này vừa tải tín hiệu Functional, vừa đóng vai trò Test In /
-                    Test Out.</li>
-            </ul>
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-robot"></i> Cơ Chế Máy ATE
+                (1/3)</h2>
+            <p style="font-size: 1.4rem; color: var(--text-color); line-height: 1.6;">
+                <b>Hệ thống thiết bị kiểm thử tự động (ATE - Automated Test Equipment):</b><br><br>
+                Đây là tủ máy khổng lồ bên ngoài. Nhiệm vụ của nó là <b>bơm (drive)</b> các chuỗi nhị phân (Test Vector)
+                vào vi mạch.<br><br>
+                Sau đó, thiết bị sẽ hứng ngõ ra thực tế của Chip và so sánh liên tục với <b>Giá trị Vàng lý thuyết
+                    (Golden Response / Expected Output)</b>.
+            </p>
         </div>
-
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <div class="text-block-shadow"
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/VirtualTesterFullScanResidue5.png" alt="Virtual Tester"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.40. Sơ đồ ATE
-                    vờn dữ liệu vào đường rãnh Scan Chain (Residue-5).</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.40. Sơ đồ logic
+                    Virtual Tester (ATE Tester) vờn dữ liệu Scan.</p>
             </div>
         </div>
     </div>
@@ -38,16 +34,46 @@
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Cơ Chế Máy ATE
-                (2/2)
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-plug"></i> Cơ Chế Máy ATE (2/3)
             </h2>
-            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 12px;"><b>Điều Quản Clock:</b> Máy ATE còn đóng vai trò phát các xung Nhịp
-                    (Clock Signal) kiểm thử để đẩy (Shift) tín hiệu trôi tuột vào đường ruột Scan Chain.</li>
-            </ul>
+            <p style="font-size: 1.4rem; color: var(--text-color); line-height: 1.6;">
+                <b>Phương pháp tiếp xúc vật lý:</b><br><br>
+                Tester bên ngoài là công kềnh, không thể chọc mỏ hàn sâu vào từng sợi dây nano mét bên trong IC.<br><br>
+                Thiết bị chỉ kết nối thông qua <b>Bề mặt Vỏ Gói</b> bằng các xúc tu kim loại (Probe Card) chạm vào các
+                chân <b>Primary I/O Pin</b> ngoài bìa.
+            </p>
         </div>
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 30px; border-radius: 16px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                <i class="fa-solid fa-microchip" style="font-size: 8rem; color: #3b82f6;"></i>
+                <div style="width: 100%; border-top: 4px dashed #94a3b8; margin: 20px 0;"></div>
+                <i class="fa-solid fa-robot" style="font-size: 4rem; color: #64748b;"></i>
+                <p style="margin-top: 15px; font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Chỉ
+                    giao tiếp 100% qua I/O Boundary Pin.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">8.
+        Môi trường Giả lập: Virtual Tester</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-clock"></i> Cơ Chế Máy ATE
+                (3/3)</h2>
+            <p style="font-size: 1.4rem; color: var(--text-color); line-height: 1.6;">
+                <b>Điều khiển Clock Nhịp nhàng:</b><br><br>
+                ATE đồng thời cung cấp các tín hiệu nhịp đập Clock phụ trợ trong quá trình kiểm thử.<br><br>
+                Mục tiêu của chóp điều khiển này là để <b>đẩy nhịp nhàng (Shift)</b> lượng dữ liệu trôi tuột tuần tự vào
+                đường ruột rãnh Scan Chain của Chip.
+            </p>
+        </div>
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <div class="text-block-shadow"
@@ -59,35 +85,31 @@
     </div>
 </div>
 
-
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">8.
         Môi trường Giả lập: Virtual Tester</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Chu Kỳ Kiểm Thử 4
-                Pha (1/2)</h2>
-            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 12px;"><b>Thủ tục Áp dụng Vector Bắt Đầu:</b>
-                    <ol style="margin-top:10px; font-size: 1.15rem; color: #555;">
-                        <li style="margin-bottom: 5px;"><b>Shift-In:</b> Dồn Dữ Liệu vào nội tạng Flip-flop bằng xung
-                            Clock mồi (TE=1).</li>
-                        <li><b>Apply:</b> Đẩy Dữ Liệu ngõ vào Primary Inputs và chờ hệ thống tĩnh mịch (TE=0).</li>
-                    </ol>
-                </li>
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #eab308;">
+            <h2 style="color: #ca8a04; margin-bottom: 20px;"><i class="fa-solid fa-timeline"></i> Quy Trình Nạp Test
+                Xoay Vòng (1/2)</h2>
+            <ul style="font-size: 1.35rem; color: var(--text-color); margin-left: 20px; line-height: 1.7;">
+                <li><b>Pha 1: Shift-In</b><br>Bật TE=1 (Test/Scan Enable mode). Mở rãnh và dồn dịch mảng dữ liệu Tester
+                    vào nội tạng các Flip-flop bằng xung Clock mồi liên tục.</li>
+                <li><b>Pha 2: Apply Functional</b><br>Giáng TE=0 (Normal mode). Đẩy vector Primary Data vào các chân ngõ
+                    vào mạch Tổ Hợp. Sau đó chờ một khoảng thời gian ngắn để tia chớp tĩnh mịch (Tín hiệu đã ổn định
+                    hoàn toàn xuyên qua các tầng delay).</li>
             </ul>
         </div>
-
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <div class="text-block-shadow"
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/TestApplicationResponseCollection.png" alt="Test Application Collection"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.42. Chu trình
-                    Shift-In và Apply Vector.</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.42. Tiến trình
+                    dồn dịch (Shift In).</p>
             </div>
         </div>
     </div>
@@ -99,30 +121,26 @@
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div
-            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(3, 78, 162, 0.08); border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-desktop"></i> Chu Kỳ Kiểm Thử 4
-                Pha (2/2)</h2>
-            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 12px;"><b>Thủ tục Áp dụng Vector Kết Thúc:</b>
-                    <ol style="margin-top:10px; font-size: 1.15rem; color: #555;" start="3">
-                        <li style="margin-bottom: 5px;"><b>Capture:</b> Giật nhấp đúng 1 Nhịp Clock (Functional Clock)
-                            để trói chốt lại Kết quả Mạch
-                            Tổ Hợp vừa tính vào các rãnh FF.</li>
-                        <li><b>Shift-Out & Overlap:</b> Bóp còi đẩy kết quả đó trôi ra ngoài. Cùng lúc, tiết kiệm Cycle
-                            bằng cách nạp luôn mẫu Vector số $k+1$ mới vào đè lấp lên chỗ trống!</li>
-                    </ol>
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #eab308;">
+            <h2 style="color: #ca8a04; margin-bottom: 20px;"><i class="fa-solid fa-timeline"></i> Quy Trình Nạp Test
+                Xoay Vòng (2/2)</h2>
+            <ul style="font-size: 1.35rem; color: var(--text-color); margin-left: 20px; line-height: 1.7;">
+                <li><b>Pha 3: Capture Result</b><br>Giật nhấp đúng <b>1 Nhịp Tín Hiệu Clock Duy Nhất</b>. Việc này để
+                    trói, bắt (capture) và chốt lại kết quả điện toán của Mạch Tổ Hợp ngược trở lại vào các rãnh FF.
                 </li>
+                <li><b>Pha 4: Shift-Out & Overlap</b><br>Bật lại TE=1. Bóp còi đẩy (Shift Out) chuỗi kết quả vừa chốt
+                    trôi tuột ra ngoài cho Máy so sánh. Cùng lúc đó, cực kỳ <b>tiết kiệm Clock Cycle</b> bằng cách nạp
+                    đè luôn vector test $k+1$ mới vào khoảng trống trượt đó.</li>
             </ul>
         </div>
-
         <div
             style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <div class="text-block-shadow"
                 style="background: #ffffff; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
                 <img src="images/TestApplicationResponseCollection.png" alt="Test Application Collection"
                     style="max-height: 480px; width: auto; border-radius: 8px;">
-                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.42. Hình ảnh
-                    Trôi Dịch Song Song (Shift Out cũ bị đè lên bởi Shift In mới).</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 0.95rem;">Hình 7.42. Tiến trình
+                    kết xuất kết quả ra ngòi (Shift Out bị đè bởi Shift In k+1 mới).</p>
             </div>
         </div>
     </div>

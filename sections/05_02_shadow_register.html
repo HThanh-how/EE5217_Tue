@@ -1,42 +1,126 @@
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">5.
         Các Kiến Trúc Scan (Tiếp)</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;"><i class="fa-solid fa-clone"></i> 5.2
+        Shadow Register DFT (1/3)</h2>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
-            style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-clone"></i> 5.2 Shadow Register
-                DFT</h2>
-            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 15px;"><b>Vấn đề của Full Scan:</b> Full Scan yêu cầu phần cứng quét chèn lên
-                    đường truyền dữ liệu chính (data path), gây trễ tín hiệu (performance penalty) và làm thay đổi đặc
-                    tính thời gian thực của Flip-Flop.</li>
-                <li style="margin-bottom: 15px;"><b>Giải pháp Shadow Register:</b> Sử dụng một thanh ghi "bóng" (shadow
-                    register) đặt song song với thanh ghi hệ thống. Nghĩa là mỗi Flip-Flop làm việc (System FF) sẽ có
-                    một Flip-Flop quét riêng tư (Scan FF) được nối chập đi kèm.</li>
-                <li style="margin-bottom: 15px;"><b>Ưu điểm rõ rệt:</b>
-                    <ul style="margin-top: 5px;">
-                        <li>Mạch truyền nhận dữ liệu chính không bị ảnh hưởng (Zero delay penalty).</li>
-                        <li>Có thể Dump dữ liệu ra hoặc Load test đè vào ở bất kỳ thì nhịp hoạt động.</li>
-                        <li>Cho phép <i>Snapshot / Debug on the fly</i> ở hiện trường (Debug in field) mà không gián
-                            đoạn hệ thống.</li>
-                    </ul>
-                </li>
-            </ul>
+            style="flex: 1; min-width: 0; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
+            <h3 style="color: #005ce6; margin-bottom: 20px; font-size: 1.6rem;">Vấn đề của Full Scan</h3>
+            <p style="font-size: 1.4rem; color: var(--text-color); line-height: 1.6;">
+                <b>Full Scan</b> yêu cầu phần cứng quét chèn trực tiếp lên đường truyền dữ liệu chính (data
+                path).<br><br>
+                Hệ quả là gây ra <b>trễ tín hiệu (performance penalty)</b> và làm thay đổi đặc tính thời gian thực của
+                Flip-Flop gốc.
+            </p>
+        </div>
+
+        <div class="text-block-shadow"
+            style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 20px;">
+                <div
+                    style="padding: 20px; background: #e2e8f0; border-radius: 12px; text-align: center; border: 2px solid #cbd5e1;">
+                    <i class="fa-solid fa-square-envelope" style="font-size: 2.5rem; color: #64748b;"></i>
+                    <p style="margin-top: 10px; font-weight: bold;">Dữ liệu (D)</p>
+                </div>
+                <div style="position: relative;">
+                    <div style="height: 4px; width: 80px; background: #ef4444; position: relative;">
+                        <!-- Arrow -->
+                        <div
+                            style="position: absolute; right: -2px; top: -6px; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 10px solid #ef4444;">
+                        </div>
+                    </div>
+                    <!-- Multiplexer blocking the path -->
+                    <div
+                        style="position: absolute; top: -35px; left: 15px; background: #fee2e2; border: 2px solid #ef4444; padding: 10px; border-radius: 8px; font-weight: bold; color: #ef4444;">
+                        <i class="fa-solid fa-traffic-light"></i> MUX Delay
+                    </div>
+                </div>
+                <div
+                    style="padding: 20px; background: #e0f2fe; border-radius: 12px; text-align: center; border: 2px solid #7dd3fc;">
+                    <i class="fa-solid fa-microchip" style="font-size: 2.5rem; color: #0284c7;"></i>
+                    <p style="margin-top: 10px; font-weight: bold;">Flip-Flop</p>
+                </div>
+            </div>
+            <p style="margin-top: 25px; font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Minh
+                họa: MUX chèn vào giữa tạo ra 'chướng ngại vật' gây trễ tín hiệu.</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">5.
+        Các Kiến Trúc Scan (Tiếp)</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;"><i class="fa-solid fa-clone"></i> 5.2
+        Shadow Register DFT (2/3)</h2>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div class="text-block-shadow"
+            style="flex: 1; min-width: 0; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #00d2ff;">
+            <h3 style="color: #005ce6; margin-bottom: 20px; font-size: 1.6rem;">Giải pháp Shadow Register</h3>
+            <p style="font-size: 1.4rem; color: var(--text-color); line-height: 1.6;">
+                Sử dụng một <b>thanh ghi "bóng" (shadow register)</b> đặt trực tiếp song song với thanh ghi hệ
+                thống.<br><br>
+                Nghĩa là mỗi Flip-Flop làm việc (System FF) sẽ có một <b>Flip-Flop quét riêng tư (Scan FF)</b> được nối
+                chập đi kèm.
+            </p>
         </div>
 
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <div
-                style="background: #f0f4f8; padding: 30px; border-radius: 12px; width: 100%; text-align: center; border: 2px dashed #cbd5e1;">
-                <i class="fa-solid fa-layer-group" style="font-size: 3rem; color: #94a3b8; margin-bottom: 20px;"></i>
-                <h3 style="color: #475569; margin-bottom: 10px;">Cơ Chế Hoạt Động Của Bóng</h3>
-                <p style="color: #64748b; font-size: 1.1rem; line-height: 1.5;">Dữ liệu hệ thống vẫn chảy xuyên qua
-                    Master-FF (Normal Mode). Khi cần Test, lệnh Capture sẽ sao chép trạng thái hiện hành vào Shadow-FF
-                    và đẩy Serial trôi ra ngoài mà không cản trở mạch chính.</p>
+                style="background: #f0f4f8; padding: 30px; border-radius: 12px; width: 100%; text-align: center; border: 2px dashed #cbd5e1; position: relative;">
+
+                <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 20px;">
+                    <div style="padding: 15px; background: #dcfce7; border: 2px solid #86efac; border-radius: 8px;">
+                        <i class="fa-solid fa-server" style="font-size: 2rem; color: #16a34a;"></i>
+                        <p style="margin-top: 5px; font-weight: bold; color: #15803d;">System FF</p>
+                    </div>
+
+                    <i class="fa-solid fa-arrows-up-down" style="font-size: 2rem; color: #94a3b8;"></i>
+
+                    <div style="padding: 15px; background: #fef08a; border: 2px solid #fde047; border-radius: 8px;">
+                        <i class="fa-solid fa-ghost" style="font-size: 2rem; color: #ca8a04;"></i>
+                        <p style="margin-top: 5px; font-weight: bold; color: #a16207;">Shadow FF</p>
+                    </div>
+                </div>
+
+                <p style="color: #64748b; font-size: 1.1rem; line-height: 1.5;">Dữ liệu hệ thống chảy tự do qua
+                    System-FF. Khi cần Test, lệnh Capture sẽ "chụp" trạng thái vào Shadow-FF và đẩy Serial trôi ra
+                    ngoài.</p>
             </div>
             <p style="margin-top: 25px; font-style: italic; color: #666; font-size: 1.1rem; text-align: center;">Mô
-                hình: Dữ liệu được sao lưu và giao tiếp thông qua "Bóng" khi mạch vẫn đang chạy sống.</p>
+                hình: Kiến trúc System + Shadow chạy song song độc lập.</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">5.
+        Các Kiến Trúc Scan (Tiếp)</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;"><i class="fa-solid fa-clone"></i> 5.2
+        Shadow Register DFT (3/3)</h2>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div class="text-block-shadow"
+            style="flex: 1; min-width: 0; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #10b981;">
+            <h3 style="color: #059669; margin-bottom: 20px; font-size: 1.6rem;"><i class="fa-solid fa-check-circle"></i>
+                Ưu điểm rõ rệt</h3>
+            <ul style="font-size: 1.35rem; color: var(--text-color); margin-left: 20px; line-height: 1.7;">
+                <li>Mạch truyền nhận dữ liệu chính không bị ảnh hưởng <b>(Zero delay penalty)</b>.</li>
+                <li>Có thể <b>Dump dữ liệu ra</b> hoặc <b>Load test đè vào</b> ở bất kỳ thì nhịp hoạt động nào.</li>
+                <li>Cho phép <i>Snapshot / Debug on the fly</i> ở hiện trường (Debug in field) mà hoàn toàn <b>không
+                        gián đoạn</b> hệ thống.</li>
+            </ul>
+        </div>
+
+        <div class="text-block-shadow"
+            style="flex: 1; min-width: 0; text-align: left; background: #ffffff; padding: 25px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <i class="fa-solid fa-gauge-high" style="font-size: 6rem; color: #10b981; margin-bottom: 20px;"></i>
+            <h3 style="color: #059669; margin-bottom: 10px; font-size: 1.5rem;">Maximum Performance</h3>
+            <p style="color: #64748b; font-size: 1.15rem; line-height: 1.5; text-align: center;">Do không phải đi qua
+                MUX, tốc độ xung nhịp của vi mạch được tối ưu ở mức lý tưởng gốc của nó.</p>
         </div>
     </div>
 </div>
