@@ -68,9 +68,14 @@ body.presentation-mode #slides_wrapper {
   box-sizing: border-box;
   text-align: center;
   background-color: #ffffff;
-  /* Simplified white background */
-  background-image: none;
-  box-shadow: 0 15px 45px rgba(0, 82, 204, 0.1); /* Subtle blue shadow */
+  /* Premium Dotted Tech Grid Background */
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(0, 92, 230, 0.03) 0%, transparent 60%),
+    radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 32px 32px;
+  background-position: top center, 0 0;
+  box-shadow: 0 15px 45px rgba(0, 82, 204, 0.1);
+  /* Subtle blue shadow */
   border-radius: 16px;
   opacity: 1;
   /* Always visible in overview mode */
@@ -97,9 +102,13 @@ body.presentation-mode .slide {
   max-width: none;
   border-radius: 0;
   box-shadow: none;
-  background: #ffffff;
-  /* Ensure slide is white */
-  background-image: none;
+  background-color: #ffffff;
+  /* Premium Dotted Tech Grid Background in Presentation Mode */
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(0, 92, 230, 0.04) 0%, transparent 70%),
+    radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 32px 32px;
+  background-position: top center, 0 0;
   opacity: 0;
   visibility: hidden;
   /* Fix WebKit bug where gradient-text bleeds through opacity:0 */
