@@ -1,0 +1,155 @@
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">6.
+        Tổng hợp Phân tích (Phần phụ trợ)</h1>
+
+    <div style="margin-top: 30px; width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px; color:#8b5cf6;"><i
+                class="fa-solid fa-scale-balanced"></i> Bảng So Sánh Các Kiến Trúc Scan</h2>
+
+        <p
+            style="font-size: 1.25rem; color: var(--text-color); margin-bottom: 25px; max-width: 900px; text-align: center;">
+            Việc lựa chọn chiến lược Testability Insertion luôn tuân theo bài toán <b>Trade-off (đánh đổi)</b> giữa các
+            yếu tố Phần cứng, Thời gian, và Hiệu suất.
+        </p>
+
+        <style>
+            .compare-table {
+                width: 95%;
+                border-collapse: separate;
+                border-spacing: 0;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                font-size: 1.2rem;
+            }
+
+            .compare-table th {
+                background: linear-gradient(135deg, #1e293b, #334155);
+                color: white;
+                padding: 18px 15px;
+                text-align: center;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                border-bottom: 3px solid #64748b;
+            }
+
+            .compare-table td {
+                padding: 18px 15px;
+                background: white;
+                border-bottom: 1px solid #e2e8f0;
+                text-align: center;
+                transition: background 0.3s ease;
+            }
+
+            .compare-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .compare-table tbody tr:hover td {
+                background: #f1f5f9;
+                /* transform: scale(1.01); */
+            }
+
+            .compare-table td:first-child {
+                font-weight: bold;
+                color: #0f172a;
+                text-align: left;
+                background: #f8fafc;
+                border-right: 2px solid #e2e8f0;
+            }
+
+            /* Status flags */
+            .bad-badge {
+                background: #fee2e2;
+                color: #b91c1c;
+                padding: 5px 10px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+
+            .good-badge {
+                background: #dcfce7;
+                color: #15803d;
+                padding: 5px 10px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+
+            .avg-badge {
+                background: #fef08a;
+                color: #a16207;
+                padding: 5px 10px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+
+            .excel-badge {
+                background: #cffafe;
+                color: #0369a1;
+                padding: 5px 10px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+        </style>
+
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%; text-align: left;">Kiến trúc Scan</th>
+                    <th style="width: 18%;">Area Overhead<br><span
+                            style="font-size: 0.85rem; font-weight: normal; color: #94a3b8;">(Diện tích)</span></th>
+                    <th style="width: 18%;">Test Time<br><span
+                            style="font-size: 0.85rem; font-weight: normal; color: #94a3b8;">(Tgian Nạp/Xuất)</span>
+                    </th>
+                    <th style="width: 18%;">Fault Coverage<br><span
+                            style="font-size: 0.85rem; font-weight: normal; color: #94a3b8;">(Độ phủ lỗi)</span></th>
+                    <th style="width: 21%;">Complexity<br><span
+                            style="font-size: 0.85rem; font-weight: normal; color: #94a3b8;">(Khó khăn TK/Delay)</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fa-solid fa-link" style="color: #3b82f6; margin-right: 10px;"></i> Full Scan (Chuỗi
+                        đơn)</td>
+                    <td><span class="bad-badge">Cao (~20%)</span></td>
+                    <td><span class="bad-badge">Rất Chậm</span></td>
+                    <td><span class="excel-badge">Tối đa (~100%)</span></td>
+                    <td><span class="good-badge">Dễ (Tự động 100%)</span></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-scissors" style="color: #ef4444; margin-right: 10px;"></i> Partial Scan
+                        (Phân đoạn)</td>
+                    <td><span class="good-badge">Thấp (~5%)</span></td>
+                    <td><span class="avg-badge">Nhanh hơn</span></td>
+                    <td><span class="avg-badge">Trung bình - Khá</span></td>
+                    <td><span class="bad-badge">Rất Khó (Chọn lọc)</span></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-layer-group" style="color: #8b5cf6; margin-right: 10px;"></i> Multiple
+                        Scan (Đa luồng)</td>
+                    <td><span class="bad-badge">Cao (~20%)</span></td>
+                    <td><span class="good-badge">Rất Nhanh (/K lần)</span></td>
+                    <td><span class="excel-badge">Tối đa (~100%)</span></td>
+                    <td><span class="avg-badge">Khó (Định tuyến I/O)</span></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-clone" style="color: #f59e0b; margin-right: 10px;"></i> Shadow Register
+                        DFT</td>
+                    <td><span class="bad-badge">Cực Cao (>30%)</span></td>
+                    <td><span class="good-badge">Zero Delay</span></td>
+                    <td><span class="excel-badge">Tối đa (~100%)</span></td>
+                    <td><span class="bad-badge">Khó (2 lớp Clock)</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 15px; font-style: italic; color: #64748b; font-size: 1.1rem; text-align: center;">* Bảng
+            so sánh tham chiếu trên cùng một quy mô thiết kế (Gate-count).</p>
+    </div>
+</div>

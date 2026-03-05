@@ -1,0 +1,69 @@
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">6.
+        Tổng hợp Phân tích (Thực tiễn)</h1>
+
+    <div style="margin-top: 30px; width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px; color:#10b981;"><i
+                class="fa-solid fa-microchip"></i> Thực Tế Thiết Kế Tại Các Tập Đoàn Lớn (Case Study)</h2>
+
+        <div style="display: flex; gap: 30px; width: 95%; margin-top: 10px;">
+
+            <!-- ARM Case Study -->
+            <div class="text-block-shadow"
+                style="flex: 1; background: #ffffff; padding: 25px; border-radius: 16px; border-top: 5px solid #0284c7; overflow: hidden; position: relative;">
+                <div style="position: absolute; right: -20px; top: -20px; font-size: 8rem; color: #f1f5f9; z-index: 1;">
+                    <i class="fa-brands fa-arm"></i></div>
+                <div style="position: relative; z-index: 2;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-mobile-screen-button" style="font-size: 2.5rem; color: #0284c7;"></i>
+                        <h3 style="color: #0f172a; font-size: 1.6rem; margin: 0;">Kiến trúc lõi ARM Cortex™</h3>
+                    </div>
+
+                    <p
+                        style="font-size: 1.25rem; color: var(--text-color); margin-bottom: 15px; font-weight: bold; color: #0369a1;">
+                        Công Nghệ: Multiple Scan + Test Compression</p>
+                    <ul style="font-size: 1.15rem; color: #475569; margin-left: 20px; line-height: 1.6;">
+                        <li style="margin-bottom: 10px;"><b>Bối cảnh:</b> Các SoC di động hiện đại (Snapdragon,
+                            Dimensity) có đến hàng tỷ Transistors và hàng chục triệu Flip-Flops. Nếu chạy 1 luồng Single
+                            Scan Chain, máy ATE chuyên dụng sẽ phải tốn hàng giờ/chip, phá sản mô hình Time-to-Market.
+                        </li>
+                        <li style="margin-bottom: 10px;"><b>Triển khai:</b> ARM cung cấp sẵn thư viện mềm cho phép bẻ
+                            mạch ra thành <b>hàng ngàn luồng Multiple Scan ngắn</b> song song.</li>
+                        <li><b>Giá trị cốt lõi:</b> Kèm theo mạch On-chip Decompressor để bóp nhỏ Input Data từ máy ATE,
+                            giảm 100 lần Volume tín hiệu, tiết kiệm hàng triệu USD tiền mua Máy test ATE băng thông cao.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Intel Case Study -->
+            <div class="text-block-shadow"
+                style="flex: 1; background: #ffffff; padding: 25px; border-radius: 16px; border-top: 5px solid #2563eb; overflow: hidden; position: relative;">
+                <div style="position: absolute; right: -10px; top: -10px; font-size: 7rem; color: #f1f5f9; z-index: 1;">
+                    <b>INTEL</b></div>
+                <div style="position: relative; z-index: 2;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-server" style="font-size: 2.5rem; color: #2563eb;"></i>
+                        <h3 style="color: #0f172a; font-size: 1.6rem; margin: 0;">Vi xử lý Máy Chủ Intel® Xeon®</h3>
+                    </div>
+
+                    <p
+                        style="font-size: 1.25rem; color: var(--text-color); margin-bottom: 15px; font-weight: bold; color: #1d4ed8;">
+                        Công Nghệ: LSSD (Level-Sensitive Scan Design)</p>
+                    <ul style="font-size: 1.15rem; color: #475569; margin-left: 20px; line-height: 1.6;">
+                        <li style="margin-bottom: 10px;"><b>Bối cảnh:</b> Ở tần số cực cao (trên 4-5 GHz), độ lệch đồng
+                            hồ rễ (Clock Skew) rất dễ gây ra hiện tượng Race Condition, làm lỗi sai dữ liệu trong lúc
+                            Shift dữ liệu kiểm thử.</li>
+                        <li style="margin-bottom: 10px;"><b>Triển khai:</b> Từ thuở sơ khai thiết kế IBM cho đến Intel
+                            hiện đại mảng máy chủ, kiến trúc Latch không nhạy cạnh (Edge-triggered) mà <b>dùng 2 pha
+                                nhạy mức (Dual Clock LSSD)</b> được chuẩn hoá nội bộ.</li>
+                        <li><b>Giá trị cốt lõi:</b> Loại trừ hoàn toàn mọi sự cố Race Condition vật lý trong giai đoạn
+                            test, đổi lại là phải tốn thêm nhiều chân cắm (Pins) cấp Clock pha A và pha B chuyên biệt.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

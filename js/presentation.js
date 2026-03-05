@@ -26,6 +26,8 @@ const slidesList = [
     'sections/05_03_other_scan.html',
     'sections/06_01_rtl_scan.html',
     'sections/06_02_iddq_test.html',
+    'sections/06_03_comparison.html',
+    'sections/06_04_casestudy.html',
     'sections/07_01_summary.html'
 ];
 
