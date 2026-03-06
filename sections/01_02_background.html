@@ -1,5 +1,6 @@
 <div class="slide slide-container">
-    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">2.
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        1.2.
         Background & Vai trò của Scan Design (1/2)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
@@ -8,8 +9,8 @@
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-chart-line"></i> Bối cảnh
                 (Background)</h2>
             <ul style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
-                <li style="margin-bottom: 15px;">Mật độ tích hợp vi mạch ngày càng cao, dẫn đến độ phức tạp của chip
-                    tăng theo cấp số nhân.</li>
+                <li style="margin-bottom: 15px;">Mật độ tích hợp ngày càng cao làm số lượng transistor và phần tử tuần
+                    tự tăng mạnh, khiến độ phức tạp của chip tăng nhanh.</li>
                 <li style="margin-bottom: 15px;"><b>Test Time (Thời gian kiểm thử)</b> tăng mạnh do số lượng vector kiểm
                     thử (test vectors) cần sinh ra khổng lồ.</li>
                 <li style="margin-bottom: 15px;"><b>Test Cost (Chi phí kiểm thử)</b> trở thành một phần đáng kể trong
@@ -21,114 +22,64 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes grow-chart-1 {
+                @keyframes draw-line {
                     0% {
-                        height: 0%;
-                        opacity: 0;
-                    }
-
-                    20%,
-                    100% {
-                        height: 20%;
-                        opacity: 0.8;
-                        filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.4));
-                    }
-                }
-
-                @keyframes grow-chart-2 {
-                    0% {
-                        height: 0%;
+                        stroke-dashoffset: 400;
                         opacity: 0;
                     }
 
                     20% {
-                        height: 0%;
-                        opacity: 0;
-                    }
-
-                    40%,
-                    100% {
-                        height: 40%;
-                        opacity: 0.9;
-                        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
-                    }
-                }
-
-                @keyframes grow-chart-3 {
-                    0% {
-                        height: 0%;
-                        opacity: 0;
-                    }
-
-                    40% {
-                        height: 0%;
-                        opacity: 0;
-                    }
-
-                    60%,
-                    100% {
-                        height: 75%;
                         opacity: 1;
-                        filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.8));
-                    }
-                }
-
-                @keyframes grow-chart-4 {
-                    0% {
-                        height: 0%;
-                        opacity: 0;
                     }
 
-                    60% {
-                        height: 0%;
-                        opacity: 0;
-                    }
-
-                    80%,
                     100% {
-                        height: 100%;
+                        stroke-dashoffset: 0;
                         opacity: 1;
-                        filter: drop-shadow(0 0 15px rgba(220, 38, 38, 0.9));
-                        background: linear-gradient(to top, #f87171, #b91c1c);
                     }
                 }
 
-                .anim-bar-1 {
-                    animation: grow-chart-1 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
-                }
-
-                .anim-bar-2 {
-                    animation: grow-chart-2 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
-                }
-
-                .anim-bar-3 {
-                    animation: grow-chart-3 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
-                }
-
-                .anim-bar-4 {
-                    animation: grow-chart-4 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+                .anim-line {
+                    stroke-dasharray: 400;
+                    stroke-dashoffset: 400;
+                    animation: draw-line 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
                 }
             </style>
 
             <div class="text-block-shadow"
-                style="background: white; padding: 30px; border-radius: 16px; border: 2px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                <h3 style="color: #b91c1c; margin-bottom: 20px; font-size: 1.5rem; text-transform: uppercase;"><i
-                        class="fa-solid fa-arrow-trend-up"></i> Tốc độ tăng trưởng chi phí</h3>
+                style="background: white; padding: 25px 30px; border-radius: 16px; border: 2px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                <h3
+                    style="color: #b91c1c; margin-bottom: 20px; font-size: 1.4rem; text-transform: uppercase; text-align: center; line-height: 1.4;">
+                    <i class="fa-solid fa-arrow-trend-up"></i> Tốc độ tăng trưởng của chi phí kiểm thử so với độ phức
+                    tạp của chip</h3>
 
-                <div
-                    style="display: flex; align-items: flex-end; justify-content: center; gap: 15px; height: 150px; width: 100%; border-bottom: 3px solid #cbd5e1; border-left: 3px solid #cbd5e1; padding-bottom: 5px; padding-left: 10px;">
-                    <div style="width: 40px; background: linear-gradient(to top, #fca5a5, #ef4444); border-radius: 4px 4px 0 0;"
-                        class="anim-bar-1"></div>
-                    <div style="width: 40px; background: linear-gradient(to top, #fca5a5, #ef4444); border-radius: 4px 4px 0 0;"
-                        class="anim-bar-2"></div>
-                    <div style="width: 40px; background: linear-gradient(to top, #fca5a5, #ef4444); border-radius: 4px 4px 0 0;"
-                        class="anim-bar-3"></div>
-                    <div style="width: 40px; background: linear-gradient(to top, #fca5a5, #ef4444); border-radius: 4px 4px 0 0;"
-                        class="anim-bar-4"></div>
-                </div>
-                <div
-                    style="display: flex; justify-content: space-around; width: 100%; margin-top: 10px; font-weight: bold; color: #64748b;">
-                    <span>Q1</span><span>Q2</span><span>Q3</span><span style="color: #b91c1c;">Q4</span>
+                <div style="display: flex; width: 100%; height: 170px; align-items: stretch;">
+                    <div style="width: 40px; display: flex; align-items: center; justify-content: center;">
+                        <span
+                            style="transform: rotate(-90deg); font-weight: bold; color: #64748b; font-size: 1.1rem; white-space: nowrap;">Chi
+                            phí kiểm thử</span>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column;">
+                        <div
+                            style="flex: 1; border-left: 3px solid #cbd5e1; border-bottom: 3px solid #cbd5e1; position: relative;">
+                            <svg viewBox="0 0 300 150" preserveAspectRatio="none"
+                                style="width: 100%; height: 100%; overflow: visible; position: absolute; top: 0; left: 0;">
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2"
+                                        orient="auto">
+                                        <polygon points="0 0, 6 2, 0 4" fill="#ef4444" />
+                                    </marker>
+                                </defs>
+                                <path class="anim-line" d="M 0 148 C 100 145, 180 110, 290 10" fill="none"
+                                    stroke="#ef4444" stroke-width="4" stroke-linecap="round"
+                                    marker-end="url(#arrowhead)"
+                                    filter="drop-shadow(0px 4px 6px rgba(239, 68, 68, 0.5))" />
+                            </svg>
+                        </div>
+                        <div
+                            style="height: 35px; display: flex; align-items: flex-end; justify-content: center; font-weight: bold; color: #64748b; font-size: 1.1rem;">
+                            Độ phức tạp của chip
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
