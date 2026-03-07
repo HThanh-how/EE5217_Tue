@@ -33,7 +33,6 @@ const slidesList = [
     'sections/06_01_rtl_scan.html',
     'sections/06_02_rtl_full_scan.html',
     'sections/06_03_rtl_multiple_scan.html',
-    'sections/06_02_iddq_test.html',
     'sections/07_00_chapter.html',
     'sections/07_01_comparison.html',
     'sections/07_02_casestudy.html',

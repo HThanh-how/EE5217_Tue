@@ -1,6 +1,6 @@
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">6.
-        Thiết Kế Quét Mức RTL</h1>
+        Thiết Kế Scan Mức RTL</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
@@ -9,14 +9,14 @@
                 từ cấp độ Hệ thống Top-Down</h2>
             <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.5;">
                 <li style="margin-bottom: 15px;"><b>Thiết kế Scan Toàn phần RTL (RTL Design Full Scan)</b>:
-                    Ép đồng loạt mọi đối tượng phần cứng mức cao (như Register Files, Counters, Bus) vào một chuỗi quét
+                    Ép đồng loạt mọi đối tượng phần cứng mức cao (như Register Files, Counters, Bus) vào một chuỗi Scan
                     duy nhất, tương tự cách làm ở mức Gate-level. Tuy dễ thực hiện nhưng rất tốn diện tích chèn MUX.
                 </li>
-                <li style="margin-bottom: 15px;"><b>Thiết kế Quét Đa luồng RTL (RTL Design Multiple Scan)</b>:
+                <li style="margin-bottom: 15px;"><b>Thiết kế Scan Đa luồng RTL (RTL Design Multiple Scan)</b>:
                     Hệ thống RTL có phân cấp rõ ràng (Controller vs Datapath). Lập trình viên có thể chỉ định từng block
-                    chức năng thành các chuỗi quét đa luồng riêng rẽ. Nó giúp tận dụng nền ổn định của Controller làm bệ
+                    chức năng thành các chuỗi Scan đa luồng riêng rẽ. Nó giúp tận dụng nền ổn định của Controller làm bệ
                     phóng khi đang test Datapath.</li>
-                <li style="margin-bottom: 15px;"><b>Quét Phân vùng / Cục bộ RTL (Scan Designs for RTL | Partial
+                <li style="margin-bottom: 15px;"><b>Scan Phân vùng / Cục bộ RTL (Scan Designs for RTL | Partial
                         Scan)</b>:
                     Nhờ có luồng dữ liệu RTL trực quan, kỹ sư có thể nhắm vào việc phá vỡ các vòng lặp phản hồi
                     (Feedback loops) và bỏ qua việc chèn Scan vào các vùng ít nghiêm trọng. Chiến thuật chọn lọc tinh
@@ -127,7 +127,7 @@
 
             </div>
             <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Tách luồng
-                quét độc lập dựa trên kiến trúc phân cấp của RTL (Phân tách Controller và Datapath).</p>
+                Scan độc lập dựa trên kiến trúc phân cấp của RTL (Phân tách Controller và Datapath).</p>
         </div>
     </div>
 </div>

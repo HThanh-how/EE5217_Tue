@@ -1,12 +1,12 @@
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">5.
-        Các Kiến Trúc Quét (Tiếp)</h1>
+        Các Kiến Trúc Scan (Tiếp)</h1>
 
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #8a2be2;">
             <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-puzzle-piece"></i> 5.5 Các
-                Phương Pháp Quét Khác</h2>
+                Phương Pháp Scan Khác</h2>
             <p style="font-size: 1.25rem; margin-bottom: 15px;">Bên cạnh Full Scan, Shadow Register và Multiple Scan, kỹ
                 thuật DFT còn hỗ trợ các biến thể thiết kế sau để tối ưu hóa hiệu năng, độ trễ và cả chi phí die diện
                 tích:</p>
@@ -14,12 +14,12 @@
                 <li style="margin-bottom: 15px;"><b>LSSD (Level-Sensitive Scan Design):</b>
                     <ul style="margin-top: 5px;">
                         <li>Thiết kế đặc trưng của IBM dựa trên Mạch chốt (Latch) thay vì Flip-Flop.</li>
-                        <li>Sử dụng cấu hình phân tách cổng D (Data) và cổng Quét độc lập.</li>
+                        <li>Sử dụng cấu hình phân tách cổng D (Data) và cổng Scan độc lập.</li>
                         <li>Loại bỏ hoàn toàn rủi ro Delay Faults / Race Condition do xung đột mạch dọc chuỗi truyền tín
                             hiệu.</li>
                     </ul>
                 </li>
-                <li style="margin-bottom: 15px;"><b>Quét Truy Cập Ngẫu Nhiên (Random Access Scan):</b>
+                <li style="margin-bottom: 15px;"><b>Scan Truy Cập Ngẫu Nhiên (Random Access Scan):</b>
                     <ul style="margin-top: 5px;">
                         <li>Biến các Flip-Flop trong hệ thống thành một lưới địa chỉ giống như RAM (SRAM tĩnh).</li>
                         <li>Dùng bộ giải mã địa chỉ (Address Decoder) để ghi/đọc từng Flip-Flop mà không cần phải đẩy dữ
