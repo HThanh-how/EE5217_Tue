@@ -14,13 +14,11 @@
             <ul
                 style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6; text-align: justify;">
                 <li style="margin-bottom: 25px;">
-                    <b style="color: #005ce6; font-size: 1.6rem;"><i class="fa-solid fa-gamepad"></i> Tăng khả năng điều
-                        khiển
-                        (Controllability)</b><br><br>
-                    Cho phép áp đặt một trạng thái logic bất kỳ (0 hoặc 1) vào các node nội bộ của mạch một cách dễ dàng
-                    thông qua các chuỗi <b>Scan Chain</b>, không phụ thuộc vào trạng thái khởi tạo hay các rào cản từ
-                    mạch tuần
-                    tự.
+                    <b style="color: #005ce6; font-size: 1.6rem;"><i class="fa-solid fa-shield-halved"></i> Đảm bảo chất
+                        lượng sản phẩm LSI</b><br><br>
+                    Scan design giúp cấu trúc lại vi mạch để dễ dàng kiểm tra. Từ đó đảm bảo chip giao đến tay khách
+                    hàng đạt chất lượng cao nhất, hoạt động đúng chức năng và không chứa các lỗi vật lý sau quy trình
+                    sản xuất phức tạp.
                 </li>
             </ul>
         </div>
@@ -28,56 +26,43 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes joystick-move {
-
-                    0%,
-                    100% {
-                        transform: rotate(0deg) translate(0, 0);
-                    }
-
-                    25% {
-                        transform: rotate(-15deg) translate(-10px, 5px);
-                        color: #3b82f6;
+                @keyframes verify-pulse {
+                    0% {
+                        transform: scale(0.9);
+                        opacity: 0.7;
                     }
 
                     50% {
-                        transform: rotate(15deg) translate(10px, -5px);
-                        color: #ef4444;
+                        transform: scale(1.1);
+                        opacity: 1;
                     }
 
-                    75% {
-                        transform: rotate(0deg) translate(0, 10px);
-                        color: #10b981;
+                    100% {
+                        transform: scale(0.9);
+                        opacity: 0.7;
                     }
                 }
 
-                .anim-joystick {
-                    animation: joystick-move 3s infinite ease-in-out;
+                .anim-verify {
+                    animation: verify-pulse 2s infinite ease-in-out;
                 }
             </style>
 
             <div class="text-block-shadow"
                 style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #bfdbfe; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; position: relative;">
 
-                <h3 style="color: #1d4ed8; margin-bottom: 20px; font-size: 1.4rem;">Override Internal States</h3>
+                <h3 style="color: #1d4ed8; margin-bottom: 20px; font-size: 1.4rem;">High Quality Assurance</h3>
 
                 <div
-                    style="display: flex; align-items: center; justify-content: center; width: 100%; position: relative;">
-                    <i class="fa-solid fa-gamepad anim-joystick"
-                        style="font-size: 6rem; color: #64748b; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); z-index: 2;"></i>
-
-                    <div
-                        style="position: absolute; right: 10%; top: -10px; background: #fee2e2; color: #b91c1c; padding: 5px 15px; border-radius: 8px; font-weight: bold; border: 1px solid #fca5a5; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        Force [1]
-                    </div>
-                    <div
-                        style="position: absolute; right: 20%; bottom: -10px; background: #e0f2fe; color: #0369a1; padding: 5px 15px; border-radius: 8px; font-weight: bold; border: 1px solid #7dd3fc; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        Force [0]
-                    </div>
+                    style="display: flex; align-items: center; justify-content: center; width: 100%; position: relative; height: 120px;">
+                    <i class="fa-solid fa-microchip"
+                        style="font-size: 5rem; color: #64748b; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); z-index: 2;"></i>
+                    <i class="fa-solid fa-circle-check anim-verify"
+                        style="font-size: 3rem; color: #10b981; position: absolute; bottom: 0px; right: 25%; z-index: 3; background: white; border-radius: 50%;"></i>
                 </div>
             </div>
-            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Quyền năng
-                ép trạng thái bất kỳ thông qua Scan Chain.</p>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Đảm bảo
+                chip đạt chất lượng hoàn hảo trước khi xuất xưởng.</p>
         </div>
     </div>
 </div>
@@ -93,12 +78,11 @@
             <ul
                 style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6; text-align: justify;">
                 <li style="margin-bottom: 25px; text-align: justify;">
-                    <b style="color: #ff4d4f; font-size: 1.6rem;"><i class="fa-solid fa-eye"></i> Tăng khả năng quan sát
-                        (Observability)</b><br><br>
-                    Giúp dễ dàng thu thập và đọc được trạng thái tại bất cứ node nội bộ nào sau khi thực thi một lệnh
-                    test. Kết quả sẽ được dịch chuyển (shift) ra mặt ngoài thông qua các chân <b>Scan Out</b> để so sánh
-                    với
-                    kết quả kỳ vọng.
+                    <b style="color: #ff4d4f; font-size: 1.6rem;"><i class="fa-solid fa-industry"></i> Cải thiện quy
+                        trình sản xuất</b><br><br>
+                    Tăng cường khả năng chẩn đoán, phát hiện và xác định vị trí lỗi nhanh chóng. Dữ liệu lỗi thu được
+                    giúp các kỹ sư tinh chỉnh quy trình chế tạo, tăng tỷ lệ lỗi hỏng và nâng cao năng suất (Yield) của
+                    dây chuyền sản xuất vi mạch.
                 </li>
             </ul>
         </div>
@@ -106,23 +90,22 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes scan-radar {
+                @keyframes gear-spin {
                     0% {
-                        transform: scale(0.5);
-                        opacity: 0.8;
+                        transform: rotate(0deg);
                     }
 
                     100% {
-                        transform: scale(2.5);
-                        opacity: 0;
+                        transform: rotate(360deg);
                     }
                 }
 
-                .anim-radar {
-                    animation: scan-radar 2s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);
-                    border-radius: 50%;
-                    border: 3px solid #f87171;
-                    position: absolute;
+                .anim-gear {
+                    animation: gear-spin 4s infinite linear;
+                }
+
+                .anim-gear-reverse {
+                    animation: gear-spin 4s infinite linear reverse;
                 }
             </style>
 
@@ -131,26 +114,20 @@
 
                 <h3
                     style="color: #b91c1c; margin-bottom: 20px; font-size: 1.4rem; z-index: 2; position: relative; background: white; padding: 0 10px;">
-                    Extract Hidden Data</h3>
+                    Manufacturing Improvement</h3>
 
                 <div
-                    style="display: flex; align-items: center; justify-content: center; width: 100%; position: relative; height: 150px;">
-                    <div
-                        style="width: 80px; height: 80px; background: #fee2e2; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; border: 3px solid #ef4444; position: relative;">
-                        <i class="fa-solid fa-eye" style="font-size: 2.5rem; color: #b91c1c;"></i>
-                        <div class="anim-radar" style="width: 100%; height: 100%;"></div>
-                        <div class="anim-radar" style="width: 100%; height: 100%; animation-delay: 1s;"></div>
-                    </div>
-
-                    <div style="position: absolute; right: 10%; display: flex; align-items: center; gap: 5px;">
-                        <i class="fa-solid fa-satellite-dish" style="font-size: 2rem; color: #64748b;"></i>
-                        <span
-                            style="font-family: monospace; font-weight: bold; font-size: 1.2rem; color: #0f172a;">Capture()</span>
-                    </div>
+                    style="display: flex; align-items: center; justify-content: center; width: 100%; position: relative; height: 120px;">
+                    <i class="fa-solid fa-gear anim-gear"
+                        style="font-size: 4rem; color: #f87171; position: absolute; left: 30%;"></i>
+                    <i class="fa-solid fa-gear anim-gear-reverse"
+                        style="font-size: 3rem; color: #ef4444; position: absolute; right: 35%; top: 20px;"></i>
+                    <i class="fa-solid fa-seedling"
+                        style="font-size: 2.5rem; color: #10b981; position: absolute; bottom: 0;"></i>
                 </div>
             </div>
-            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Tầm nhìn
-                X-Ray siêu thanh thâm nhập vào các Node sâu.</p>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Tối ưu hóa
+                quy trình chế tạo để nâng cao năng suất (Yield).</p>
         </div>
     </div>
 </div>
@@ -165,13 +142,11 @@
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #f0fdf4; padding: 30px; border-radius: 16px; border-top: 5px solid #52c41a; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
             <ul style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
                 <li style="margin-bottom: 15px; text-align: justify;">
-                    <b style="color: #22c55e; font-size: 1.6rem;"><i class="fa-solid fa-magnifying-glass-chart"></i>
-                        Tăng khả năng phát hiện lỗi <br>(Fault Detection)</b><br><br>
-                    Sự kết hợp giữa điều khiển và quan sát tốt dẫn đến <b>Độ bao phủ lỗi (Fault Coverage)</b> cao. Dễ
-                    dàng phát
-                    hiện các lỗi vật lý như <b>Stuck-at, Transition</b> hay <b>Bridging faults</b> trước khi chip được
-                    giao cho khách
-                    hàng.
+                    <b style="color: #22c55e; font-size: 1.6rem;"><i class="fa-solid fa-coins"></i> Tối ưu chi phí kiểm
+                        thử</b><br><br>
+                    Rút ngắn thời gian tạo vector test (ATPG), làm cho việc kiểm tra trở nên mang tính hệ thống hơn và
+                    giảm đáng kể thời gian chip lưu lại trên máy kiểm tra ATE. Kết quả mang lại là tiết kiệm được lượng
+                    lớn chi phí kiểm thử trong toàn bộ quy trình.
                 </li>
             </ul>
         </div>
@@ -179,52 +154,46 @@
         <div
             style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <style>
-                @keyframes target-scan {
+                @keyframes cost-down {
                     0% {
-                        transform: translateY(-30px);
-                        opacity: 0;
+                        transform: translateY(-5px);
+                        opacity: 0.8;
                     }
 
-                    20% {
-                        opacity: 1;
-                    }
-
-                    80% {
+                    50% {
+                        transform: translateY(5px);
                         opacity: 1;
                     }
 
                     100% {
-                        transform: translateY(30px);
-                        opacity: 0;
+                        transform: translateY(-5px);
+                        opacity: 0.8;
                     }
                 }
 
-                .anim-scanner-laser {
-                    animation: target-scan 2s infinite linear;
+                .anim-cost {
+                    animation: cost-down 2s infinite ease-in-out;
                 }
             </style>
 
             <div class="text-block-shadow"
                 style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #86efac; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; position: relative;">
 
-                <h3 style="color: #15803d; margin-bottom: 20px; font-size: 1.4rem;">High Fault Coverage Output</h3>
+                <h3 style="color: #15803d; margin-bottom: 20px; font-size: 1.4rem;">Test Cost Reduction</h3>
 
                 <div
-                    style="position: relative; width: 150px; height: 120px; border: 4px solid #cbd5e1; border-radius: 12px; display: flex; align-items: center; justify-content: center; 
-                    background: linear-gradient(45deg, #f8fafc 25%, #f1f5f9 25%, #f1f5f9 50%, #f8fafc 50%, #f8fafc 75%, #f1f5f9 75%, #f1f5f9 100%); background-size: 20px 20px;">
+                    style="position: relative; width: 150px; height: 120px; display: flex; align-items: center; justify-content: center;">
 
-                    <i class="fa-solid fa-bug"
-                        style="font-size: 3rem; color: #ef4444; position: absolute; left: 20px; top: 20px; transform: rotate(-15deg);"></i>
-                    <i class="fa-solid fa-bolt"
-                        style="font-size: 2.5rem; color: #f59e0b; position: absolute; right: 25px; bottom: 15px;"></i>
-
-                    <div class="anim-scanner-laser"
-                        style="width: 120%; height: 4px; background: #22c55e; position: absolute; border-radius: 2px; box-shadow: 0 0 10px 2px rgba(34,197,94,0.6);">
-                    </div>
+                    <i class="fa-solid fa-money-bill-wave anim-cost"
+                        style="font-size: 4rem; color: #22c55e; position: absolute; left: 10px;"></i>
+                    <i class="fa-solid fa-arrow-trend-down"
+                        style="font-size: 3.5rem; color: #16a34a; position: absolute; right: 20px; top: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);"></i>
+                    <i class="fa-regular fa-clock"
+                        style="font-size: 2rem; color: #64748b; position: absolute; bottom: 0;"></i>
                 </div>
             </div>
-            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Radar quét
-                Laser truy lùng và phát hiện mọi mẫu lỗi vật lý.</p>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Giảm thiểu
+                thời gian chuẩn bị và chi phí khi vận hành trên ATE.</p>
         </div>
     </div>
 </div>
