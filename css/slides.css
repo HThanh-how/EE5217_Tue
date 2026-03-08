@@ -115,19 +115,14 @@ body.presentation-mode .slide {
     radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
   background-size: 100% 100%, 32px 32px;
   background-position: top center, 0 0;
-  opacity: 0;
-  visibility: hidden;
-  /* Fix WebKit bug where gradient-text bleeds through opacity:0 */
-  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+  display: none;
   z-index: 0;
   transform: translate(-50%, -50%) scale(var(--scale, 1));
   transform-origin: center center;
 }
 
 body.presentation-mode .slide.active {
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0s;
+  display: flex;
   z-index: 10;
 }
 
