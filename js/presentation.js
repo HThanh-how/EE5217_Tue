@@ -127,8 +127,16 @@ async function loadSlides() {
         updateCounter();
 
         // Gọi MathJax render lại toàn bộ trang sau khi đã nạp xong HTML
-        if (window.MathJax) {
+        if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
             MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+        } else {
+            console.log('MathJax not ready yet, will typeset when available.');
+            // Retry after MathJax finishes loading
+            document.getElementById('MathJax-script')?.addEventListener('load', () => {
+                if (typeof MathJax.typesetPromise === 'function') {
+                    MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+                }
+            });
         }
 
         return Promise.resolve(); // Return success
@@ -182,21 +190,31 @@ function prevSlide() {
     }
 }
 
+let wasFullscreenAchieved = false;
+
 function togglePresentation() {
     const slides = document.querySelectorAll('.slide-container');
     isPresenting = !isPresenting;
     document.body.classList.toggle('presentation-mode', isPresenting);
 
     if (isPresenting) {
-        document.documentElement.requestFullscreen().catch(e => { });
-        updateView(); // Update DOM active states first, which triggers handleResize via timeout
+        // Try fullscreen but don't depend on it for presentation mode
+        wasFullscreenAchieved = false;
+        document.documentElement.requestFullscreen().then(() => {
+            wasFullscreenAchieved = true;
+        }).catch(e => {
+            console.log('Fullscreen not available, presenting in windowed mode.');
+            wasFullscreenAchieved = false;
+        });
+        updateView();
         // Change icon to Stop/Compress
         const btnIcon = document.querySelector('#controls button:nth-child(2) i');
         if (btnIcon) {
             btnIcon.classList.remove('fa-play');
-            btnIcon.classList.add('fa-compress'); // Or fa-stop
+            btnIcon.classList.add('fa-compress');
         }
     } else {
+        wasFullscreenAchieved = false;
         if (document.fullscreenElement) {
             document.exitFullscreen().catch(e => { });
         }
@@ -213,9 +231,9 @@ function togglePresentation() {
     }
 }
 
-// Đảm bảo đồng bộ với trạng thái phím ESC (khi trình duyệt tự động tắt Fullscreen)
+// Only exit presentation if user intentionally exited fullscreen (e.g. ESC key)
 document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement && isPresenting) {
+    if (!document.fullscreenElement && isPresenting && wasFullscreenAchieved) {
         togglePresentation();
     }
 });
@@ -225,7 +243,8 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
     if (e.key === 'f' || e.key === 'F' || e.key === 'p' || e.key === 'P') togglePresentation();
-    // Phím Escape đã được xử lý bởi fullscreenchange
+    if (e.key === 'Escape' && isPresenting && !wasFullscreenAchieved) togglePresentation();
+    // ESC during fullscreen is handled by fullscreenchange
 });
 
 // Mouse nav

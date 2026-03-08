@@ -52,6 +52,12 @@ body.presentation-mode #slides_wrapper {
   display: block;
   padding: 0;
   gap: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* Lớp chung cho mỗi slide */
