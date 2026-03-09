@@ -1,0 +1,140 @@
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">5.
+        Các Kiến Trúc SCAN</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;"><i class="fa-solid fa-microchip"></i> 5.1.
+        Kiến Trúc Full Scan Design</h2>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div class="text-block-shadow"
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-draw-polygon"></i> Đặc điểm
+                kiến trúc</h2>
+            <ul style="font-size: 1.3rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px;"><b>Thay thế 100%</b>: Toàn bộ các Flip-Flop (FF) trong thiết kế ban đầu
+                    đều được thay thế bằng các <b>Scan Flip-Flops (SFF)</b>.</li>
+                <li style="margin-bottom: 15px;"><b>Chuỗi Scan duy nhất hoặc song song</b>: Các SFF được nối nối tiếp
+                    với nhau tạo thành một hoặc nhiều <b>Scan Chains</b> chạy xuyên suốt Chip.</li>
+                <li style="margin-bottom: 15px;"><b>Chế độ hoạt động</b>:
+                    <ul>
+                        <li><b>Normal Mode</b>: Mạch hoạt động theo chức năng thiết kế gốc.</li>
+                        <li><b>Shift Mode</b>: Dữ liệu test được dịch vào/ra qua chuỗi Scan.</li>
+                        <li><b>Capture Mode</b>: Kết quả từ mạch tổ hợp được chốt vào các SFF.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes signal-flow {
+                    0% {
+                        stroke-dashoffset: 20;
+                        opacity: 0.3;
+                    }
+
+                    50% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        stroke-dashoffset: 0;
+                        opacity: 0.3;
+                    }
+                }
+
+                .sff-box {
+                    width: 80px;
+                    height: 70px;
+                    background: #eff6ff;
+                    border: 2px solid #3b82f6;
+                    border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    color: #1e40af;
+                    position: relative;
+                    padding-left: 25px;
+                    box-sizing: border-box;
+                }
+
+                .mux-part {
+                    position: absolute;
+                    left: 2px;
+                    top: 15px;
+                    width: 25px;
+                    height: 40px;
+                    background: #f87171;
+                    clip-path: polygon(0% 0%, 100% 20%, 100% 80%, 0% 100%);
+                    color: white;
+                    font-size: 0.6rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1;
+                }
+            </style>
+            <div class="text-block-shadow"
+                style="background: #f8fafc; padding: 25px; border-radius: 16px; border: 2px dashed #3b82f6; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%;">
+
+                <h3 style="color: #1e40af; margin-bottom: 25px; text-transform: uppercase;">Full Scan Implementation
+                </h3>
+
+                <div
+                    style="position: relative; width: 340px; height: 180px; display: flex; align-items: center; justify-content: space-around; overflow: visible;">
+                    <!-- SFFs -->
+                    <div class="sff-box">
+                        <div class="mux-part">MUX</div>
+                        SFF1
+                    </div>
+                    <div class="sff-box">
+                        <div class="mux-part">MUX</div>
+                        SFF2
+                    </div>
+                    <div class="sff-box">
+                        <div class="mux-part">MUX</div>
+                        SFF3
+                    </div>
+
+                    <!-- Connection Arrows -->
+                    <svg width="340" height="180" style="position: absolute; top: 0; left: 0; pointer-events: none;">
+                        <!-- SI to SFF1 -->
+                        <path d="M -15 90 L 30 90" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="4 2"
+                            style="animation: signal-flow 1s infinite linear;" />
+                        <!-- SFF1 to SFF2 -->
+                        <path d="M 105 90 L 130 90" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="4 2"
+                            style="animation: signal-flow 1s infinite linear;" />
+                        <!-- SFF2 to SFF3 -->
+                        <path d="M 210 90 L 235 90" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="4 2"
+                            style="animation: signal-flow 1s infinite linear;" />
+                        <!-- SFF3 to SO -->
+                        <path d="M 315 90 L 355 90" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="4 2"
+                            style="animation: signal-flow 1s infinite linear;" />
+
+                        <!-- Global Scan Enable -->
+                        <path d="M 20 160 L 320 160" fill="none" stroke="#f59e0b" stroke-width="2"
+                            stroke-dasharray="5 3" />
+                        <path d="M 65 160 L 65 125" fill="none" stroke="#f59e0b" stroke-width="2" />
+                        <path d="M 170 160 L 170 125" fill="none" stroke="#f59e0b" stroke-width="2" />
+                        <path d="M 275 160 L 275 125" fill="none" stroke="#f59e0b" stroke-width="2" />
+                    </svg>
+
+                    <span
+                        style="position: absolute; left: -20px; top: 70px; font-size: 0.75rem; color: #ef4444; font-weight: bold; font-family: monospace;">SI</span>
+                    <span
+                        style="position: absolute; right: -25px; top: 70px; font-size: 0.75rem; color: #10b981; font-weight: bold; font-family: monospace;">SO</span>
+                    <div
+                        style="position: absolute; left: 0; right: 0; bottom: 5px; text-align: center; font-size: 0.75rem; color: #f59e0b; font-weight: bold; font-family: monospace;">
+                        Scan_Enable (SE)</div>
+                </div>
+
+                <p
+                    style="margin-top: 20px; font-style: italic; color: #64748b; font-size: 0.95rem; text-align: center;">
+                    Kiến trúc Full Scan: Mọi Flip-Flop đều được "mux-hóa" và kết nối thành chuỗi.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

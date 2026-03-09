@@ -47,7 +47,7 @@
                     }
 
                     100% {
-                        transform: translateX(120px);
+                        transform: translateX(240px);
                         opacity: 0;
                     }
                 }
@@ -145,18 +145,21 @@
                 @keyframes shadow-capture {
 
                     0%,
-                    70% {
-                        transform: translateY(-30px);
+                    65% {
+                        transform: translateY(-40px);
                         opacity: 0;
                     }
 
-                    80% {
-                        transform: translateY(0);
+                    75% {
                         opacity: 1;
-                        background: #fef08a;
                     }
 
-                    90%,
+                    85% {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+
+                    95%,
                     100% {
                         transform: translateY(0);
                         opacity: 0;
@@ -206,7 +209,7 @@
                     <!-- System Pipeline -->
                     <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
                         <!-- Thick Fast Wire -->
-                        <svg width="250" height="20" style="position: absolute; top: 40px; z-index: 1;">
+                        <svg width="250" height="20" style="position: absolute; top: 35px; z-index: 1;">
                             <path d="M 0 10 L 250 10" fill="none" stroke="#e2e8f0" stroke-width="6" />
                             <path d="M 0 10 L 250 10" fill="none" stroke="#22c55e" stroke-width="6"
                                 stroke-dasharray="80 150" style="animation: data-bypass 1.5s infinite linear;" />
@@ -222,29 +225,29 @@
 
                 <!-- Shadow Capture Mechanism -->
                 <div
-                    style="display: flex; gap: 40px; justify-content: center; align-items: center; position: relative; margin-top: 30px;">
+                    style="display: flex; gap: 40px; justify-content: center; align-items: center; position: relative; margin-top: 40px;">
 
                     <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-                        <!-- Verticle capture pipe -->
+                        <!-- Vertical capture pipe -->
                         <div
-                            style="width: 4px; height: 40px; background: dashed 2px #cbd5e1; position: absolute; top: -40px;">
+                            style="width: 0; height: 40px; border-left: 2px dashed #cbd5e1; position: absolute; top: -40px;">
                             <!-- Falling Data -->
                             <div
-                                style="width: 14px; height: 14px; background: #eab308; border-radius: 50%; border: 2px solid white; position: absolute; left: -5px; animation: shadow-capture 3s infinite; font-size: 0.6rem; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                style="width: 14px; height: 14px; background: #eab308; border-radius: 50%; border: 2px solid white; position: absolute; left: -7px; animation: shadow-capture 3s infinite; font-size: 0.6rem; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">
                                 D</div>
                         </div>
 
                         <!-- Shadow FF -->
                         <div
-                            style="background: #fefce8; border: 3px dashed #eab308; border-radius: 8px; width: 70px; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 2;">
+                            style="background: #fefce8; border: 3px dashed #eab308; border-radius: 8px; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; z-index: 2;">
                             <span style="font-weight: bold; color: #854d0e;">SH-FF</span>
                         </div>
 
                         <!-- Scan Out Path -->
                         <div
-                            style="position: absolute; right: -80px; top: 20px; width: 60px; height: 4px; border-bottom: 2px dashed #eab308;">
+                            style="position: absolute; left: 70px; top: 35px; width: 60px; height: 4px; border-bottom: 2px dashed #eab308;">
                             <div
-                                style="width: 14px; height: 14px; background: #eab308; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: bold; margin-top: -14px; animation: shift-out 3s infinite;">
+                                style="width: 14px; height: 14px; background: #eab308; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: bold; margin-top: -10px; animation: shift-out 3s infinite;">
                                 D</div>
                         </div>
                     </div>
@@ -252,7 +255,7 @@
 
                 <!-- Capture Trigger -->
                 <div
-                    style="position: absolute; right: 20px; bottom: 20px; padding: 5px 10px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; font-weight: bold; color: #1e293b; transition: all 0.1s; animation: flash-capture-btn 3s infinite;">
+                    style="position: absolute; right: 20px; bottom: 20px; padding: 6px 12px; border-radius: 20px; background: #f1f5f9; border: 1px solid #cbd5e1; font-family: monospace; font-size: 0.75rem; font-weight: bold; color: #475569; animation: flash-capture-btn 3s infinite;">
                     TE STROBE
                 </div>
 

@@ -6,7 +6,7 @@
     <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
         <div class="text-block-shadow"
             style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6;">
-            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-vial"></i>3.1. Vai trò của Điểm
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-vial"></i> 3.1. Vai trò Điểm
                 Kiểm Thử
             </h2>
             <ul style="font-size: 1.35rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
@@ -26,20 +26,20 @@
 
                     0%,
                     45% {
-                        transform: translateY(-10px);
+                        transform: translateY(-28px) rotate(180deg);
                         color: #3b82f6;
                     }
 
                     /* Logic 1 */
                     50%,
                     95% {
-                        transform: translateY(10px);
+                        transform: translateY(22px) rotate(180deg);
                         color: #8b5cf6;
                     }
 
                     /* Logic 2 */
                     100% {
-                        transform: translateY(-10px);
+                        transform: translateY(-28px) rotate(180deg);
                         color: #3b82f6;
                     }
                 }
@@ -94,8 +94,8 @@
                         style="position: absolute; left: 140px; top: 10px; width: 60px; height: 140px; background: #e2e8f0; border: 2px solid #94a3b8; clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); display: flex; align-items: center; justify-content: center; z-index: 2;">
                         <div
                             style="color: #475569; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: space-around; height: 100%; width: 100%;">
-                            <span style="font-size: 0.8rem; margin-top: 20px;">0</span>
-                            <span style="font-size: 0.8rem; margin-bottom: 20px;">1</span>
+                            <span style="font-size: 0.8rem; margin-top: 25px; margin-right: 15px;">0</span>
+                            <span style="font-size: 0.8rem; margin-bottom: 25px; margin-right: 15px;">1</span>
                         </div>
                     </div>
 
@@ -107,14 +107,14 @@
 
                     <!-- Selector Control -->
                     <div
-                        style="position: absolute; left: 165px; top: -30px; display: flex; flex-direction: column; align-items: center;">
+                        style="position: absolute; left: 140px; top: 155px; width: 60px; display: flex; flex-direction: column-reverse; align-items: center; z-index: 3;">
                         <span
-                            style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-family: monospace; font-size: 0.8rem; margin-bottom: 5px;">M
+                            style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-family: monospace; font-size: 0.8rem; margin-top: 5px;">M
                             (Mode)</span>
-                        <div style="width: 2px; height: 40px; background: #f59e0b;"></div>
+                        <div style="width: 2px; height: 35px; background: #f59e0b;"></div>
                     </div>
                     <i class="fa-solid fa-arrow-left"
-                        style="position: absolute; left: 175px; top: 70px; transform: rotate(180deg); font-size: 1.5rem; z-index: 3; animation: mux-obs-select 4s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);"></i>
+                        style="position: absolute; left: 175px; top: 60px; transform: rotate(180deg); font-size: 1.2rem; z-index: 3; animation: mux-obs-select 4s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);"></i>
 
                     <!-- Output Line -->
                     <svg width="50" height="20" style="position: absolute; left: 200px; top: 70px; z-index: 1;">
@@ -123,14 +123,14 @@
 
                     <!-- Shared Pin -->
                     <div
-                        style="position: absolute; right: -20px; top: 60px; height: 40px; padding: 0 15px; border-radius: 20px; border: 3px solid; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 2; animation: signal-out-obs 4s infinite;">
+                        style="position: absolute; right: 10px; top: 60px; height: 40px; padding: 0 15px; border-radius: 20px; border: 3px solid; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 2; animation: signal-out-obs 4s infinite;">
                         Pin O
                     </div>
 
                 </div>
 
                 <p
-                    style="margin-top: 30px; font-style: italic; color: #64748b; font-size: 0.95rem; text-align: center;">
+                    style="margin-top: 70px; font-style: italic; color: #64748b; font-size: 0.95rem; text-align: center;">
                     Minh họa: Quan sát Dồn kênh - Chia sẻ một chân ra O giữa Logic 1 và Logic 2 bằng MUX thông qua tín
                     hiệu Mode (M).</p>
             </div>
