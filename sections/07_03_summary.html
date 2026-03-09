@@ -17,8 +17,8 @@
             <ul style="font-size: 1.25rem; color: var(--text-color); line-height: 1.6;">
                 <li style="margin-bottom: 10px;">Là <b>tiêu chuẩn Công nghiệp (De Facto)</b> cho thiết kế IC tự động
                     (DFT).</li>
-                <li style="margin-bottom: 10px;">Triệt tiêu mạch tuần tự, biến hóa bài toán test tuần tự phức tạp thành
-                    Tổ hợp đơn giản đơn luồng.</li>
+                <li style="margin-bottom: 10px;">Biến bài toán kiểm thử mạch tuần tự thành bài toán kiểm thử tổ hợp
+                    thông qua cơ chế Scan Chain.</li>
                 <li style="margin-bottom: 10px;">Hỗ trợ 100% việc sinh mẫu qua công cụ ATPG. Cho phép độ bao phủ kiểm
                     thử cao.</li>
             </ul>
@@ -35,10 +35,10 @@
             <ul style="font-size: 1.25rem; color: var(--text-color); line-height: 1.6;">
                 <li style="margin-bottom: 10px;">Gia tăng tài nguyên (<b>Area Overhead</b>) lên đến ~20% do bộ ghép kênh
                     Mux-DFF.</li>
-                <li style="margin-bottom: 10px;">Gây tụt giảm hiệu suất logic chung: Nút thắt cổ chai về Delay do cổng
-                    logic nội bộ bị can thiệp.</li>
-                <li style="margin-bottom: 10px;">Số lượng chân Test I/O sẽ tăng tỷ lệ thuận với số làn Multiple Scan
-                    Chains. Testing time kéo dài.</li>
+                <li style="margin-bottom: 10px;">Có thể làm tăng độ trễ đường dữ liệu do
+                    việc chèn MUX vào trước Flip-Flop.</li>
+                <li style="margin-bottom: 10px;">Số lượng chân Scan I/O có thể tăng khi dùng nhiều scan chains,
+                    nhưng bù lại thời gian kiểm thử được giảm đáng kể.</li>
             </ul>
         </div>
     </div>
