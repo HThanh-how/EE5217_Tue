@@ -60,22 +60,22 @@
                         <!-- PI -->
                         <path d="M 0 35 L 60 35" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 3"
                             style="animation: huffman-flow 2s infinite linear;" />
-                        <text x="5" y="25" font-family="monospace" font-size="11" font-weight="bold"
+                        <text x="10" y="25" font-family="monospace" font-size="11" font-weight="bold"
                             fill="#94a3b8">Inputs(PI)</text>
 
                         <!-- PO -->
                         <path d="M 220 35 L 280 35" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 3"
                             style="animation: huffman-flow 2s infinite linear;" />
-                        <text x="225" y="25" font-family="monospace" font-size="11" font-weight="bold"
+                        <text x="210" y="25" font-family="monospace" font-size="11" font-weight="bold"
                             fill="#94a3b8">Outputs(PO)</text>
 
                         <!-- Feedback loops -->
                         <path d="M 190 70 L 190 135 L 165 135 M 100 135 L 70 135 L 70 70" fill="none" stroke="#f472b6"
                             stroke-width="3" stroke-dasharray="8 4"
                             style="animation: huffman-flow 1.5s infinite linear; filter: drop-shadow(0 0 5px rgba(244, 114, 182, 0.6));" />
-                        <text x="195" y="100" font-family="monospace" font-size="10" font-weight="bold"
+                        <text x="205" y="100" font-family="monospace" font-size="10" font-weight="bold"
                             fill="#f472b6">Next State</text>
-                        <text x="2" y="100" font-family="monospace" font-size="10" font-weight="bold"
+                        <text x="10" y="100" font-family="monospace" font-size="10" font-weight="bold"
                             fill="#f472b6">Current State</text>
                     </svg>
                 </div>
@@ -272,10 +272,10 @@
 
                     <!-- Virtual Terminals -->
                     <div
-                        style="position: absolute; left: 35px; bottom: -5px; padding: 5px; background: #dcfce7; border: 2px dashed #22c55e; border-radius: 4px; font-size: 0.7rem; font-weight: bold; color: #166534; z-index: 2; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        style="position: absolute; left: 35px; top: 110px; padding: 5px; background: #dcfce7; border: 2px dashed #22c55e; border-radius: 4px; font-size: 0.7rem; font-weight: bold; color: #166534; z-index: 2; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                         Ngõ vào Giả</div>
                     <div
-                        style="position: absolute; right: 35px; bottom: -5px; padding: 5px; background: #fef08a; border: 2px dashed #ca8a04; border-radius: 4px; font-size: 0.7rem; font-weight: bold; color: #854d0e; z-index: 2; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        style="position: absolute; right: 35px; top: 110px; padding: 5px; background: #fef08a; border: 2px dashed #ca8a04; border-radius: 4px; font-size: 0.7rem; font-weight: bold; color: #854d0e; z-index: 2; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                         Ngõ ra Giả</div>
 
                     <!-- Primary IO Wires -->
@@ -292,14 +292,16 @@
                         <text x="225" y="25" font-family="monospace" font-size="11" font-weight="bold"
                             fill="#64748b">Real PO</text>
 
-                        <!-- Disconnected loops -->
-                        <path d="M 190 70 L 190 135 L 165 135" fill="none" stroke="#ca8a04" stroke-width="3"
+                        <!-- Feedback loops (CUT) -->
+                        <!-- Pseudo-PO (from logic) -->
+                        <path d="M 190 70 L 190 120 L 155 120" fill="none" stroke="#ca8a04" stroke-width="3"
                             stroke-dasharray="4" style="animation: huffman-flow 1.5s infinite linear;" />
-                        <path d="M 100 135 L 70 135 L 70 70" fill="none" stroke="#22c55e" stroke-width="3"
+                        <!-- Pseudo-PI (to logic) -->
+                        <path d="M 105 120 L 70 120 L 70 70" fill="none" stroke="#22c55e" stroke-width="3"
                             stroke-dasharray="4" style="animation: huffman-flow 1.5s infinite linear;" />
 
                         <!-- Scissors cutting -->
-                        <text x="130" y="145" font-family="monospace" font-size="20" fill="#ef4444">✂️</text>
+                        <text x="122" y="130" font-family="monospace" font-size="20" fill="#ef4444">✂️</text>
                     </svg>
                 </div>
 

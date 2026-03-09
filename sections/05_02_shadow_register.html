@@ -145,18 +145,21 @@
                 @keyframes shadow-capture {
 
                     0%,
-                    70% {
-                        transform: translateY(-30px);
+                    65% {
+                        transform: translateY(-40px);
                         opacity: 0;
                     }
 
-                    80% {
-                        transform: translateY(0);
+                    75% {
                         opacity: 1;
-                        background: #fef08a;
                     }
 
-                    90%,
+                    85% {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+
+                    95%,
                     100% {
                         transform: translateY(0);
                         opacity: 0;
@@ -227,7 +230,7 @@
                     <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
                         <!-- Verticle capture pipe -->
                         <div
-                            style="width: 4px; height: 40px; background: dashed 2px #cbd5e1; position: absolute; top: -40px;">
+                            style="width: 0; height: 40px; border-left: 2px dashed #cbd5e1; position: absolute; top: -40px;">
                             <!-- Falling Data -->
                             <div
                                 style="width: 14px; height: 14px; background: #eab308; border-radius: 50%; border: 2px solid white; position: absolute; left: -5px; animation: shadow-capture 3s infinite; font-size: 0.6rem; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">

@@ -46,21 +46,21 @@
 
                     <!-- Inputs -->
                     <div
-                        style="position: absolute; left: 0; top: 40px; font-weight: bold; color: #475569; font-family: monospace;">
+                        style="position: absolute; left: 10px; top: 40px; font-weight: bold; color: #475569; font-family: monospace;">
                         Data (D)</div>
                     <div
-                        style="position: absolute; left: 0; top: 110px; font-weight: bold; color: #475569; font-family: monospace;">
+                        style="position: absolute; left: 10px; top: 110px; font-weight: bold; color: #475569; font-family: monospace;">
                         Scan (SI)</div>
                     <div
-                        style="position: absolute; left: 90px; top: 150px; font-weight: bold; color: #ef4444; font-family: monospace;">
+                        style="position: absolute; left: 95px; top: 155px; font-weight: bold; color: #ef4444; font-family: monospace; width: 20px; text-align: center;">
                         TE</div>
                     <div
-                        style="position: absolute; left: 165px; top: 150px; font-weight: bold; color: #8b5cf6; font-family: monospace;">
+                        style="position: absolute; left: 165px; top: 155px; font-weight: bold; color: #8b5cf6; font-family: monospace; width: 30px; text-align: center;">
                         CLK</div>
 
                     <!-- Outputs -->
                     <div
-                        style="position: absolute; right: 20px; top: 55px; font-weight: bold; color: #166534; font-family: monospace;">
+                        style="position: absolute; right: 25px; top: 55px; font-weight: bold; color: #166534; font-family: monospace;">
                         Out (Q)</div>
 
                     <!-- Wires -->
@@ -171,8 +171,11 @@
                         <path d="M 10 140 L 100 140 L 120 120" fill="none" class="anim-wire" stroke="#8b5cf6"
                             stroke-width="4" stroke-dasharray="10 5"
                             style="animation: signal-flow-scan 4s infinite linear;" />
-                        <!-- Output Line -->
-                        <path d="M 190 100 L 260 100 L 260 90 L 320 90" fill="none" stroke="#22c55e" stroke-width="4"
+                        <!-- Normal Data Line (MUX to FF) -->
+                        <path d="M 170 100 L 240 100" fill="none" stroke="#3b82f6" stroke-width="4"
+                            stroke-dasharray="10 5" style="animation: signal-flow-normal 4s infinite linear;" />
+                        <!-- Output Line (FF to OUT) -->
+                        <path d="M 300 100 L 360 100" fill="none" stroke="#22c55e" stroke-width="4"
                             stroke-dasharray="10 5" style="animation: signal-flow-normal 2s infinite linear;" />
                     </svg>
 

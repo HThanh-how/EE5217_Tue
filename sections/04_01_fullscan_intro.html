@@ -82,10 +82,10 @@
                     style="position: relative; width: 320px; height: 220px; display: flex; flex-direction: column; justify-content: space-around; align-items: center; border: 2px solid #e2e8f0; border-radius: 12px; background: #f8fafc; transform: scale(0.9); margin: -10px;">
 
                     <span
-                        style="position: absolute; top: 10px; left: 15px; font-size: 0.8rem; font-weight: bold; color: #475569; animation: block-disable 6s infinite reverse;">[
+                        style="position: absolute; top: 5px; left: 10px; font-size: 0.75rem; font-weight: bold; color: #475569; animation: block-disable 6s infinite reverse;">[
                         NORMAL MODE ]</span>
                     <span
-                        style="position: absolute; top: 10px; right: 15px; font-size: 0.8rem; font-weight: bold; color: #166534; opacity: 0; animation: block-disable 6s infinite;">[
+                        style="position: absolute; top: 5px; right: 10px; font-size: 0.75rem; font-weight: bold; color: #166534; opacity: 0; animation: block-disable 6s infinite;">[
                         TEST MODE ]</span>
 
                     <!-- Logic Block 1 -->
@@ -110,26 +110,25 @@
                     </div>
 
                     <!-- Scan Chain Wiring (Hidden in Normal mode) -->
-                    <svg width="250" height="50"
-                        style="position: absolute; top: 110px; left: 35px; z-index: 2; pointer-events: none;">
-                        <path d="M 0 0 L -25 0 L -25 40 L 40 40 L 40 0" fill="none" stroke-width="3"
-                            stroke-dasharray="6 3"
+                    <svg width="280" height="60"
+                        style="position: absolute; top: 125px; left: 20px; z-index: 2; pointer-events: none;">
+                        <path d="M 0 30 L 15 30 L 15 0" fill="none" stroke-width="3" stroke-dasharray="6 3"
                             style="animation: stitch-connect 6s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);" />
-                        <path d="M 40 40 L 110 40 L 110 0" fill="none" stroke-width="3" stroke-dasharray="6 3"
+                        <path d="M 55 0 L 55 30 L 85 30 L 85 0" fill="none" stroke-width="3" stroke-dasharray="6 3"
                             style="animation: stitch-connect 6s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);" />
-                        <path d="M 110 40 L 180 40 L 180 0" fill="none" stroke-width="3" stroke-dasharray="6 3"
+                        <path d="M 125 0 L 125 30 L 155 30 L 155 0" fill="none" stroke-width="3" stroke-dasharray="6 3"
                             style="animation: stitch-connect 6s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);" />
-                        <path d="M 180 40 L 250 40 L 250 0 M 250 40 L 280 40" fill="none" stroke-width="3"
-                            stroke-dasharray="6 3"
+                        <path d="M 195 0 L 195 30 L 225 30 L 225 0 M 265 0 L 265 30 L 280 30" fill="none"
+                            stroke-width="3" stroke-dasharray="6 3"
                             style="animation: stitch-connect 6s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);" />
                     </svg>
 
                     <!-- Scan IN / OUT labels -->
                     <div
-                        style="position: absolute; left: -10px; top: 145px; font-size: 0.8rem; font-weight: bold; color: #166534; opacity: 0; animation: block-disable 6s infinite;">
+                        style="position: absolute; left: 5px; top: 175px; font-size: 0.75rem; font-weight: bold; color: #166534; opacity: 0; animation: block-disable 6s infinite;">
                         Scan In</div>
                     <div
-                        style="position: absolute; right: -10px; top: 145px; font-size: 0.8rem; font-weight: bold; color: #166534; opacity: 0; animation: block-disable 6s infinite;">
+                        style="position: absolute; right: 5px; top: 175px; font-size: 0.75rem; font-weight: bold; color: #166534; opacity: 0; animation: block-disable 6s infinite;">
                         Scan Out</div>
 
                     <!-- Logic Block 2 -->
