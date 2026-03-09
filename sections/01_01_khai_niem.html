@@ -77,27 +77,27 @@
 
                     <!-- Internal Nodes (Observability/Controllability targets) -->
                     <div
-                        style="position: absolute; top: 30px; left: 50px; width: 15px; height: 15px; background: #10b981; border-radius: 50%; animation: node-pulse 2s infinite; z-index: 3;">
+                        style="position: absolute; top: 50px; left: 60px; width: 15px; height: 15px; background: #10b981; border-radius: 50%; animation: node-pulse 2s infinite; z-index: 3;">
                     </div>
                     <div
-                        style="position: absolute; bottom: 30px; right: 50px; width: 15px; height: 15px; background: #ef4444; border-radius: 50%; animation: node-pulse 2s infinite; animation-delay: 1s; z-index: 3;">
+                        style="position: absolute; bottom: 50px; right: 60px; width: 15px; height: 15px; background: #ef4444; border-radius: 50%; animation: node-pulse 2s infinite; animation-delay: 1s; z-index: 3;">
                     </div>
 
                     <!-- DFT Paths -->
                     <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0; z-index: 1;">
-                        <path d="M 0 37 L 57 37" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="10 5"
-                            style="animation: dft-scan-path 2s infinite linear;" />
-                        <path d="M 157 137 L 200 137" fill="none" stroke="#f43f5e" stroke-width="3"
+                        <path d="M 0 57.5 L 67.5 57.5" fill="none" stroke="#22c55e" stroke-width="3"
+                            stroke-dasharray="10 5" style="animation: dft-scan-path 2s infinite linear;" />
+                        <path d="M 147.5 117.5 L 200 117.5" fill="none" stroke="#f43f5e" stroke-width="3"
                             stroke-dasharray="10 5"
                             style="animation: dft-scan-path 2s infinite linear; animation-delay: 1s;" />
                     </svg>
 
                     <!-- Labels -->
                     <div
-                        style="position: absolute; left: -10px; top: 20px; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
+                        style="position: absolute; left: -100px; top: 45px; background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; border: 2px solid #22c55e; white-space: nowrap; z-index: 4;">
                         Control (SI)</div>
                     <div
-                        style="position: absolute; right: -10px; bottom: 20px; background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
+                        style="position: absolute; right: -100px; bottom: 45px; background: #fee2e2; color: #991b1b; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; border: 2px solid #f43f5e; white-space: nowrap; z-index: 4;">
                         Observe (SO)</div>
                 </div>
 

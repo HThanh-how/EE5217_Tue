@@ -63,10 +63,10 @@
                     style="position: relative; width: 350px; height: 200px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
 
                     <!-- Hardware Blocks -->
-                    <div class="block-hw" style="position: absolute; top: 20px; left: 40px; width: 80px; height: 50px;">
+                    <div class="block-hw" style="position: absolute; top: 20px; left: 80px; width: 80px; height: 50px;">
                         Reg A</div>
                     <div class="block-hw"
-                        style="position: absolute; top: 120px; left: 40px; width: 80px; height: 50px;">ALU File
+                        style="position: absolute; top: 120px; left: 80px; width: 80px; height: 50px;">ALU File
                     </div>
                     <div class="block-hw"
                         style="position: absolute; top: 20px; right: 40px; width: 80px; height: 50px;">MUX</div>
@@ -76,11 +76,11 @@
                     <!-- Single Chain Flow (Red) -->
                     <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0; z-index: 1;">
                         <!-- In to Reg A -->
-                        <path d="M 0 45 L 40 45" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="10 5"
+                        <path d="M 0 45 L 80 45" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="10 5"
                             style="animation: serial-scan-flow 1.5s infinite linear;" />
 
                         <!-- Reg A to MUX -->
-                        <path d="M 120 45 L 230 45" fill="none" stroke="#ef4444" stroke-width="3"
+                        <path d="M 160 45 L 230 45" fill="none" stroke="#ef4444" stroke-width="3"
                             stroke-dasharray="10 5"
                             style="animation: serial-scan-flow 1.5s infinite linear; animation-delay: 0.3s;" />
 
@@ -90,21 +90,21 @@
                             style="animation: serial-scan-flow 1.5s infinite linear; animation-delay: 0.6s;" />
 
                         <!-- Reg B left to ALU -->
-                        <path d="M 230 145 L 120 145" fill="none" stroke="#ef4444" stroke-width="3"
+                        <path d="M 230 145 L 160 145" fill="none" stroke="#ef4444" stroke-width="3"
                             stroke-dasharray="10 5"
                             style="animation: serial-scan-flow 1.5s infinite linear; animation-delay: 0.9s;" />
 
                         <!-- ALU to Out -->
-                        <path d="M 40 145 L 0 145" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="10 5"
+                        <path d="M 80 145 L 0 145" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="10 5"
                             style="animation: serial-scan-flow 1.5s infinite linear; animation-delay: 1.2s;" />
                     </svg>
 
                     <!-- Indicators -->
                     <div
-                        style="position: absolute; top: 25px; left: 10px; color: #ef4444; font-weight: bold; font-family: monospace; font-size: 0.75rem; width: 60px;">
+                        style="position: absolute; top: 25px; left: 5px; color: #ef4444; font-weight: bold; font-family: monospace; font-size: 0.75rem; width: auto; white-space: nowrap; z-index: 10;">
                         SCAN IN</div>
                     <div
-                        style="position: absolute; top: 125px; left: 10px; color: #ef4444; font-weight: bold; font-family: monospace; font-size: 0.75rem; width: 60px;">
+                        style="position: absolute; top: 125px; left: 5px; color: #ef4444; font-weight: bold; font-family: monospace; font-size: 0.75rem; width: auto; white-space: nowrap; z-index: 10;">
                         SCAN OUT</div>
                 </div>
 

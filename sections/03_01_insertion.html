@@ -26,20 +26,20 @@
 
                     0%,
                     45% {
-                        transform: translateY(-35px);
+                        transform: translateY(-38px) rotate(180deg);
                         color: #3b82f6;
                     }
 
                     /* Logic 1 */
                     50%,
                     95% {
-                        transform: translateY(35px);
+                        transform: translateY(32px) rotate(180deg);
                         color: #8b5cf6;
                     }
 
                     /* Logic 2 */
                     100% {
-                        transform: translateY(-35px);
+                        transform: translateY(-38px) rotate(180deg);
                         color: #3b82f6;
                     }
                 }
@@ -94,8 +94,8 @@
                         style="position: absolute; left: 140px; top: 10px; width: 60px; height: 140px; background: #e2e8f0; border: 2px solid #94a3b8; clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); display: flex; align-items: center; justify-content: center; z-index: 2;">
                         <div
                             style="color: #475569; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: space-around; height: 100%; width: 100%;">
-                            <span style="font-size: 0.8rem; margin-top: 20px;">0</span>
-                            <span style="font-size: 0.8rem; margin-bottom: 20px;">1</span>
+                            <span style="font-size: 0.8rem; margin-top: 25px; margin-right: 15px;">0</span>
+                            <span style="font-size: 0.8rem; margin-bottom: 25px; margin-right: 15px;">1</span>
                         </div>
                     </div>
 
@@ -107,14 +107,14 @@
 
                     <!-- Selector Control -->
                     <div
-                        style="position: absolute; left: 165px; top: -30px; display: flex; flex-direction: column; align-items: center;">
+                        style="position: absolute; left: 169px; top: -30px; display: flex; flex-direction: column; align-items: center; z-index: 3;">
                         <span
                             style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-family: monospace; font-size: 0.8rem; margin-bottom: 5px;">M
                             (Mode)</span>
                         <div style="width: 2px; height: 40px; background: #f59e0b;"></div>
                     </div>
                     <i class="fa-solid fa-arrow-left"
-                        style="position: absolute; left: 210px; top: 80px; transform: rotate(180deg); font-size: 1.5rem; z-index: 3; animation: mux-obs-select 4s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);"></i>
+                        style="position: absolute; left: 175px; top: 70px; transform: rotate(180deg); font-size: 1.2rem; z-index: 3; animation: mux-obs-select 4s infinite cubic-bezier(0.1, 0.7, 1.0, 0.1);"></i>
 
                     <!-- Output Line -->
                     <svg width="50" height="20" style="position: absolute; left: 200px; top: 70px; z-index: 1;">
