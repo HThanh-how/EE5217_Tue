@@ -66,7 +66,7 @@
                 style="color: #7c3aed; margin-bottom: 30px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
                 HIERARCHICAL MULTIPLE SCAN CHAINS</h2>
 
-            <svg width="850" height="320" viewBox="0 0 850 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="850" height="350" viewBox="0 0 850 350" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- Define Arrows -->
                 <defs>
                     <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -78,10 +78,10 @@
                 </defs>
 
                 <!-- CONTROLLER BLOCK -->
-                <rect x="100" y="50" width="220" height="150" rx="15" fill="#f5f3ff" stroke="#7c3aed"
+                <rect x="100" y="40" width="220" height="180" rx="15" fill="#f5f3ff" stroke="#7c3aed"
                     stroke-width="2" />
-                <text x="210" y="115" class="block-title" fill="#7c3aed" text-anchor="middle">CONTROLLER</text>
-                <g transform="translate(190, 65)">
+                <text x="210" y="105" class="block-title" fill="#7c3aed" text-anchor="middle">CONTROLLER</text>
+                <g transform="translate(190, 50)">
                     <path d="M2.5 5H37.5" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
                     <path d="M5 2.5V37.5" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
                     <path d="M35 2.5V37.5" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
@@ -91,10 +91,10 @@
                     <rect x="17" y="17" width="6" height="6" rx="0.5" fill="#7c3aed" />
                 </g>
 
-                <!-- Purple Chain SI1 -->
-                <path d="M40 90 H100" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 3"
+                <!-- Purple Chain SI1 (Moved down to align with FFs) -->
+                <path d="M40 160 H100" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 3"
                     marker-end="url(#arrow-purple)" class="scan-line" />
-                <text x="60" y="80" class="port-text" fill="#7c3aed">SI1</text>
+                <text x="60" y="150" class="port-text" fill="#7c3aed">SI1</text>
 
                 <!-- Controller FFs -->
                 <g transform="translate(130, 140)">
@@ -117,13 +117,16 @@
                     <path d="M105 20 H130" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)" />
                     <path d="M170 20 H190" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)" />
                 </g>
-                <text x="330" y="165" class="port-text" fill="#7c3aed">SO1</text>
+                <!-- SO1 with animated arrow out -->
+                <path d="M320 160 H360" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 3"
+                    marker-end="url(#arrow-purple)" class="scan-line" />
+                <text x="330" y="150" class="port-text" fill="#7c3aed">SO1</text>
 
                 <!-- DATAPATH BLOCK -->
-                <rect x="530" y="50" width="220" height="150" rx="15" fill="#f0fdf4" stroke="#16a34a"
+                <rect x="530" y="40" width="220" height="180" rx="15" fill="#f0fdf4" stroke="#16a34a"
                     stroke-width="2" />
-                <text x="640" y="115" class="block-title" fill="#16a34a" text-anchor="middle">DATAPATH</text>
-                <g transform="translate(620, 65)">
+                <text x="640" y="105" class="block-title" fill="#16a34a" text-anchor="middle">DATAPATH</text>
+                <g transform="translate(620, 50)">
                     <rect x="15" y="5" width="10" height="10" rx="1" fill="#16a34a" />
                     <rect x="5" y="25" width="10" height="10" rx="1" fill="#16a34a" />
                     <rect x="25" y="25" width="10" height="10" rx="1" fill="#16a34a" />
@@ -156,17 +159,25 @@
                     <path d="M105 20 H130" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)" />
                     <path d="M170 20 H190" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)" />
                 </g>
-                <text x="760" y="165" class="port-text" fill="#16a34a">SO2</text>
+                <!-- SO2 with animated arrow out -->
+                <path d="M750 160 H790" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="5 3"
+                    marker-end="url(#arrow-green)" class="scan-line" />
+                <text x="760" y="150" class="port-text" fill="#16a34a">SO2</text>
 
-                <!-- Shared Control Dashed Lines -->
-                <path d="M158 183 V220 H623 V183" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" fill="none"
-                    opacity="0.6" />
-                <path d="M223 183 V220" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
-                <path d="M288 183 V220" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
-                <path d="M688 183 V220" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
-                <path d="M753 183 V220" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
-                <path d="M623 220 H753" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" fill="none"
-                    opacity="0.6" />
+                <!-- Shared Control Dashed Lines (Aligned to FF circles) -->
+                <!-- Purple side connections -->
+                <path d="M158 180 V240" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M223 180 V240" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M288 180 V240" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+
+                <!-- Green side connections -->
+                <path d="M588 180 V240" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M653 180 V240" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M718 180 V240" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+
+                <!-- Main horizontal baseline -->
+                <path d="M158 240 H718" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 2" fill="none"
+                    opacity="0.4" />
             </svg>
 
             <p
