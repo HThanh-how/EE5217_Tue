@@ -37,7 +37,8 @@ const slidesList = [
     'sections/07_00_chapter.html',
     'sections/07_01_comparison.html',
     'sections/07_02_casestudy.html',
-    'sections/07_03_summary.html'
+    'sections/07_03_summary.html',
+    'sections/07_04_references.html'
 ];
 
 const wrapper = document.getElementById('slides_wrapper');
