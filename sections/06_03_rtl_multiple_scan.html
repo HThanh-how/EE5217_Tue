@@ -1,6 +1,6 @@
 <div class="slide slide-container">
     <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">6.
-        Thiết Kế Scan Góc Độ RTL</h1>
+        Thiết Kế Scan Mức RTL</h1>
     <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;"><i class="fa-solid fa-network-wired"></i>
         6.2. RTL Design Multiple Scan (1/2)</h2>
 
@@ -18,174 +18,162 @@
             </ul>
         </div>
 
-        <div
-            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
-            <style>
-                @keyframes multi-scan-1 {
-                    0% {
-                        stroke-dashoffset: -100;
-                        opacity: 0;
-                    }
-
-                    50% {
-                        opacity: 1;
-                    }
-
-                    100% {
-                        stroke-dashoffset: 0;
-                        opacity: 0;
-                    }
+        <style>
+            @keyframes scan-flow {
+                0% {
+                    stroke-dashoffset: 20;
                 }
 
-                @keyframes multi-scan-2 {
-                    0% {
-                        stroke-dashoffset: 100;
-                        opacity: 0;
-                    }
-
-                    50% {
-                        opacity: 1;
-                    }
-
-                    100% {
-                        stroke-dashoffset: 0;
-                        opacity: 0;
-                    }
+                100% {
+                    stroke-dashoffset: 0;
                 }
+            }
 
-                @keyframes glow-controller {
+            .scan-line {
+                stroke-dasharray: 5;
+                animation: scan-flow 1s infinite linear;
+            }
 
-                    0%,
-                    100% {
-                        box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
-                    }
+            .ff-box {
+                fill: white;
+                stroke-width: 1.5;
+            }
 
-                    50% {
-                        box-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
-                    }
-                }
+            .ff-text {
+                font-family: Arial, sans-serif;
+                font-weight: bold;
+                font-size: 14px;
+            }
 
-                @keyframes glow-datapath {
+            .port-text {
+                font-family: Arial, sans-serif;
+                font-weight: bold;
+                font-size: 12px;
+            }
 
-                    0%,
-                    100% {
-                        box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
-                    }
+            .block-title {
+                font-family: Arial, sans-serif;
+                font-weight: 800;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+        </style>
 
-                    50% {
-                        box-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
-                    }
-                }
-            </style>
+        <div class="text-block-shadow"
+            style="background: #ffffff; padding: 30px; border-radius: 16px; border: 2px dashed #8b5cf6; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
 
-            <div class="text-block-shadow"
-                style="background: #ffffff; padding: 25px; border-radius: 16px; border: 2px dashed #8b5cf6; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%;">
+            <h2
+                style="color: #7c3aed; margin-bottom: 30px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                HIERARCHICAL MULTIPLE SCAN CHAINS</h2>
 
-                <h3 style="color: #6d28d9; margin-bottom: 25px; text-transform: uppercase;">Hierarchical Multiple Chains
-                </h3>
+            <svg width="850" height="320" viewBox="0 0 850 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Define Arrows -->
+                <defs>
+                    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#7c3aed" />
+                    </marker>
+                    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a" />
+                    </marker>
+                </defs>
 
-                <div
-                    style="position: relative; width: 450px; height: 200px; display: flex; gap: 80px; align-items: center; justify-content: center;">
+                <!-- CONTROLLER BLOCK -->
+                <rect x="100" y="50" width="220" height="150" rx="15" fill="#f5f3ff" stroke="#7c3aed"
+                    stroke-width="2" />
+                <text x="210" y="115" class="block-title" fill="#7c3aed" text-anchor="middle">CONTROLLER</text>
+                <g transform="translate(190, 65)">
+                    <path d="M2.5 5H37.5" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
+                    <path d="M5 2.5V37.5" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
+                    <path d="M35 2.5V37.5" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
+                    <path d="M2.5 35H37.5" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
+                    <rect x="10" y="10" width="20" height="20" rx="2" fill="#7c3aed" />
+                    <rect x="14" y="14" width="12" height="12" rx="1" fill="white" />
+                    <rect x="17" y="17" width="6" height="6" rx="0.5" fill="#7c3aed" />
+                </g>
 
-                    <!-- Controller -->
-                    <div
-                        style="background: #f3e8ff; border: 3px solid #8b5cf6; border-radius: 12px; width: 140px; height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; animation: glow-controller 3s infinite;">
-                        <i class="fa-solid fa-microchip" style="color: #7c3aed; font-size: 2.5rem;"></i>
-                        <span
-                            style="font-weight: bold; font-family: monospace; color: #4c1d95; margin-top: 10px;">CONTROLLER</span>
-                        <!-- Chain 1 Internal -->
-                        <div
-                            style="margin-top: 10px; width: 80%; height: 4px; background: rgba(139, 92, 246, 0.3); position: relative; overflow: hidden; border-radius: 2px;">
-                            <div
-                                style="position: absolute; left: 0; top: 0; height: 100%; width: 50%; background: #c026d3; animation: multi-scan-1 1s infinite linear;">
-                            </div>
-                        </div>
-                    </div>
+                <!-- Purple Chain SI1 -->
+                <path d="M40 90 H100" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 3"
+                    marker-end="url(#arrow-purple)" class="scan-line" />
+                <text x="60" y="80" class="port-text" fill="#7c3aed">SI1</text>
 
-                    <!-- Datapath -->
-                    <div
-                        style="background: #dcfce7; border: 3px solid #22c55e; border-radius: 12px; width: 140px; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; animation: glow-datapath 3s infinite; animation-delay: 1.5s;">
-                        <i class="fa-solid fa-network-wired" style="color: #16a34a; font-size: 2.5rem;"></i>
-                        <span
-                            style="font-weight: bold; font-family: monospace; color: #14532d; margin-top: 10px;">DATAPATH</span>
-                        <!-- Chain 2 Internal -->
-                        <div
-                            style="margin-top: 10px; width: 80%; height: 4px; background: rgba(34, 197, 94, 0.3); position: relative; overflow: hidden; border-radius: 2px;">
-                            <div
-                                style="position: absolute; left: 0; top: 0; height: 100%; width: 50%; background: #15803d; animation: multi-scan-2 1.5s infinite linear;">
-                            </div>
-                        </div>
-                    </div>
+                <!-- Controller FFs -->
+                <g transform="translate(130, 140)">
+                    <!-- FF1 -->
+                    <rect x="0" y="0" width="40" height="40" rx="4" class="ff-box" stroke="#7c3aed" />
+                    <text x="20" y="25" class="ff-text" fill="#7c3aed" text-anchor="middle">D</text>
+                    <circle cx="28" cy="40" r="3" fill="none" stroke="#7c3aed" stroke-width="1.5" />
+                    <!-- FF2 -->
+                    <rect x="65" y="0" width="40" height="40" rx="4" class="ff-box" stroke="#7c3aed" />
+                    <text x="85" y="25" class="ff-text" fill="#7c3aed" text-anchor="middle">D</text>
+                    <circle cx="93" cy="40" r="3" fill="none" stroke="#7c3aed" stroke-width="1.5" />
+                    <!-- FF3 -->
+                    <rect x="130" y="0" width="40" height="40" rx="4" class="ff-box" stroke="#7c3aed" />
+                    <text x="150" y="25" class="ff-text" fill="#7c3aed" text-anchor="middle">D</text>
+                    <circle cx="158" cy="40" r="3" fill="none" stroke="#7c3aed" stroke-width="1.5" />
 
-                    <!-- External Wiring -->
-                    <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0; z-index: 1;">
-                        <!-- Define Arrowheads -->
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
-                            </marker>
-                            <marker id="control-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                                <polygon points="0 0, 8 3, 0 6" fill="#7c3aed" />
-                            </marker>
-                            <marker id="status-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                                <polygon points="0 0, 8 3, 0 6" fill="#16a34a" />
-                            </marker>
-                        </defs>
+                    <!-- Connections -->
+                    <path d="M-30 20 H0" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)" />
+                    <path d="M40 20 H65" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)" />
+                    <path d="M105 20 H130" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)" />
+                    <path d="M170 20 H190" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)" />
+                </g>
+                <text x="330" y="165" class="port-text" fill="#7c3aed">SO1</text>
 
-                        <!-- Functional Interaction: Control -->
-                        <path d="M 175 80 L 225 80" fill="none" stroke="#7c3aed" stroke-width="2"
-                            marker-end="url(#control-arrow)" />
-                        <text x="195" y="75" font-family="monospace" font-size="9" font-weight="bold"
-                            fill="#7c3aed">CONTROL</text>
+                <!-- DATAPATH BLOCK -->
+                <rect x="530" y="50" width="220" height="150" rx="15" fill="#f0fdf4" stroke="#16a34a"
+                    stroke-width="2" />
+                <text x="640" y="115" class="block-title" fill="#16a34a" text-anchor="middle">DATAPATH</text>
+                <g transform="translate(620, 65)">
+                    <rect x="15" y="5" width="10" height="10" rx="1" fill="#16a34a" />
+                    <rect x="5" y="25" width="10" height="10" rx="1" fill="#16a34a" />
+                    <rect x="25" y="25" width="10" height="10" rx="1" fill="#16a34a" />
+                    <path d="M20 15V25M20 20H10M20 20H30" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" />
+                </g>
 
-                        <!-- Functional Interaction: Status -->
-                        <path d="M 225 120 L 175 120" fill="none" stroke="#10b981" stroke-width="2"
-                            marker-end="url(#status-arrow)" />
-                        <text x="198" y="135" font-family="monospace" font-size="9" font-weight="bold"
-                            fill="#10b981">STATUS</text>
+                <!-- Green Chain SI2 -->
+                <path d="M470 160 H530" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="5 3"
+                    marker-end="url(#arrow-green)" class="scan-line" />
+                <text x="500" y="150" class="port-text" fill="#16a34a">SI2</text>
 
-                        <!-- External Functional I/O -->
-                        <path d="M 0 100 L 35 100" fill="none" stroke="#64748b" stroke-width="2"
-                            marker-end="url(#arrowhead)" />
-                        <text x="5" y="95" font-family="monospace" font-size="10" font-weight="bold"
-                            fill="#64748b">INSTR</text>
+                <!-- Datapath FFs -->
+                <g transform="translate(560, 140)">
+                    <!-- FF1 -->
+                    <rect x="0" y="0" width="40" height="40" rx="4" class="ff-box" stroke="#16a34a" />
+                    <text x="20" y="25" class="ff-text" fill="#16a34a" text-anchor="middle">D</text>
+                    <circle cx="28" cy="40" r="3" fill="none" stroke="#16a34a" stroke-width="1.5" />
+                    <!-- FF2 -->
+                    <rect x="65" y="0" width="40" height="40" rx="4" class="ff-box" stroke="#16a34a" />
+                    <text x="85" y="25" class="ff-text" fill="#16a34a" text-anchor="middle">D</text>
+                    <circle cx="93" cy="40" r="3" fill="none" stroke="#16a34a" stroke-width="1.5" />
+                    <!-- FF3 -->
+                    <rect x="130" y="0" width="40" height="40" rx="4" class="ff-box" stroke="#16a34a" />
+                    <text x="150" y="25" class="ff-text" fill="#16a34a" text-anchor="middle">D</text>
+                    <circle cx="158" cy="40" r="3" fill="none" stroke="#16a34a" stroke-width="1.5" />
 
-                        <path d="M 375 100 L 450 100" fill="none" stroke="#64748b" stroke-width="2"
-                            marker-end="url(#arrowhead)" />
-                        <text x="415" y="95" font-family="monospace" font-size="10" font-weight="bold"
-                            fill="#64748b">DATA OUT</text>
+                    <!-- Connections -->
+                    <path d="M-30 20 H0" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)" />
+                    <path d="M40 20 H65" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)" />
+                    <path d="M105 20 H130" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)" />
+                    <path d="M170 20 H190" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)" />
+                </g>
+                <text x="760" y="165" class="port-text" fill="#16a34a">SO2</text>
 
-                        <!-- Chain 1 I/O -->
-                        <path d="M 0 50 L 45 50" fill="none" stroke="#c026d3" stroke-width="3" stroke-dasharray="8 4"
-                            style="animation: multi-scan-1 1s infinite linear;" />
-                        <path d="M 185 50 L 240 50" fill="none" stroke="#c026d3" stroke-width="3" stroke-dasharray="8 4"
-                            style="animation: multi-scan-1 1s infinite linear;" />
+                <!-- Shared Control Dashed Lines -->
+                <path d="M158 183 V220 H623 V183" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" fill="none"
+                    opacity="0.6" />
+                <path d="M223 183 V220" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M288 183 V220" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M688 183 V220" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M753 183 V220" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6" />
+                <path d="M623 220 H753" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 2" fill="none"
+                    opacity="0.6" />
+            </svg>
 
-                        <!-- Chain 2 I/O -->
-                        <path d="M 0 150 L 265 150" fill="none" stroke="#15803d" stroke-width="3" stroke-dasharray="8 4"
-                            style="animation: multi-scan-2 1.5s infinite linear;" />
-                        <path d="M 405 150 L 450 150" fill="none" stroke="#15803d" stroke-width="3"
-                            stroke-dasharray="8 4" style="animation: multi-scan-2 1.5s infinite linear;" />
-
-                        <text x="10" y="45" font-family="monospace" font-size="10" font-weight="bold" fill="#c026d3">SI
-                            1</text>
-                        <text x="270" y="45" font-family="monospace" font-size="10" font-weight="bold" fill="#c026d3">SO
-                            1</text>
-
-                        <text x="10" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#15803d">SI
-                            2</text>
-                        <text x="425" y="145" font-family="monospace" font-size="10" font-weight="bold"
-                            fill="#15803d">SO 2</text>
-                    </svg>
-
-                </div>
-
-                <p
-                    style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem; margin-top: 15px;">
-                    Minh họa: Tách luồng <b>Scan</b> độc lập dựa trên kiến trúc phân cấp của RTL. Giải tải bottleneck
-                    cho
-                    Datapath.</p>
-            </div>
+            <p
+                style="text-align: center; color: #64748b; font-style: italic; font-size: 1.1rem; margin-top: 15px; font-family: 'Outfit', sans-serif;">
+                Minh họa: Tách luồng Scan độc lập dựa trên kiến trúc phân cấp của của RTL. Giải tỏa bottleneck cho
+                Datapath.</p>
         </div>
     </div>
+</div>
 </div>
