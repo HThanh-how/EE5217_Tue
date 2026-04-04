@@ -27,6 +27,7 @@ const slidesList = [
     'sections/06_02_rtl_full_scan_ex.html',
     'sections/06_03_rtl_multiple_scan.html',
     'sections/06_04_rtl_multiple_scan_ex.html',
+    'sections/06_99_demonstration.html',
     'sections/07_00_chapter.html',
     'sections/07_01_comparison.html',
     'sections/07_02_casestudy.html',
