@@ -12,9 +12,9 @@
 - **Hành động:** 
   Chỉ tay lướt qua bảng phân tích đánh đổi (Trade-off) từ trái qua phải.
 - **Lời thoại tham khảo:**
-  "Nhìn vào Bảng đánh giá Trade-off tổng thể, ta có thể thấy Không phương pháp nào là hoàn hảo tuyệt đối.
-  Điển hình như Full Scan dù ăn chắc mặc bền 100% Fault Coverage và dễ thiết kế, nhưng lại Rất chậm và tốn diện tích silicon (~20%).
-  Trong khi Multiple Scan giải bài toán thì nhanh, độ phủ cao, nhưng lại rất tốn chân IO và bắt Mạch trắc trở. Shadow Register thì đạt Zero Delay nhưng nhồi nhét diện tích lên mức giới hạn kỷ lục."
+  "Nhìn vào Bảng đánh giá Trade off tổng thể, ta có thể thấy Không phương pháp nào là hoàn hảo tuyệt đối.
+  Điển hình như Full Scan ăn chắc mặc bền 100% độ phủ. Nhưng nó lại cực kỳ chậm và tốn thêm 20% thẻ silicon.
+  Trong khi Multiple Scan giải bài toán rất nhanh. Tuy nhiên, nó tốn chân IO và khiến bo mạch trắc trở. Shadow Register đạt Zero Delay nhưng nhồi nhét diện tích lên mức giới hạn kỷ lục."
 
 ***
 
@@ -32,8 +32,8 @@
 - **Hành động:** 
   Chia hai bàn tay ra 2 bên, cân nhắc Ưu và Nhược điểm.
 - **Lời thoại tham khảo:**
-  "Tổng hợp lại, Thiết kế DFT bằng kỹ thuật Scan Chain hiện đã là tiêu chuẩn Công nghiệp bắt buộc không thể thiếu (De facto). Nó biến 1 cỗ máy FSM tù mù thành hàm Logic Combinational trong suốt, bắt bớ mọi lỗi sản xuất.
-  Nhưng Yếu điểm vĩnh viễn cần Đánh đổi (Trade-off) cho kiến trúc sư phần cứng: Bạn muốn Test tốt, bạn mất diện tích chip vật lý đi kèm với rủi ro suy giảm hiệu năng do dòng trễ Cổng Mux Delay."
+  "Tổng hợp lại, Thiết kế khả kiểm bằng Scan Chain hiện đã là tiêu chuẩn Công nghiệp bắt buộc. Nó biến hệ thống máy trạng thái mù mờ thành hàm logic có thể nhìn thấu. 
+  Nhưng có một Yếu điểm vĩnh viễn cần Đánh đổi cho kiến trúc sư. Nếu bạn muốn kiểm thử tốt, bạn mất đi diện tích phần cứng vật lý. Đi kèm theo đó là rủi ro suy giảm hiệu năng do dòng trễ của Cổng ghép kênh."
 
 ***
 
@@ -41,7 +41,7 @@
 - **Hành động:** 
   Không cần đọc từng dòng, chỉ giới thiệu nguồn tài liệu.
 - **Lời thoại tham khảo:**
-  "Trên đây là toàn bộ tài liệu nghiên cứu tham khảo từ các sách giáo khoa uy tín như cuốn Essentials of Electronic Testing của thầy Bushnell và VLSI Test Principles của thầy Wang, cùng các Whitepaper của hãng Synopsys mà nhóm đã đối chiếu."
+  "Trên đây là toàn bộ tài liệu nghiên cứu tham khảo từ các sách giáo khoa uy tín. Tiêu biểu như cuốn Essentials of Electronic Testing của giáo sư Bushnell. Hoặc tác phẩm VLSI Test Principles của thầy Wang. Cuối cùng không thể thiếu các Whitepaper của hãng Synopsys mà nhóm đã đối chiếu."
 
 ***
 
@@ -49,4 +49,4 @@
 - **Hành động:** 
   Gật đầu nhẹ/cúi chào để cảm ơn thầy và các bạn.
 - **Lời thoại tham khảo:**
-  "Bài thuyết trình dài của nhóm xin phép được khép lại tại đây. Xin thay mặt nhóm chân thành cảm ơn Thầy và các bạn đã chú ý lắng nghe! Sau đây nhóm rất mong nhận được câu hỏi phản biện từ lớp nhằm làm rõ hơn vấn đề."
+  "Bài thuyết trình dài của nhóm xin phép được khép lại tại đây. Xin thay mặt toàn bộ thành viên nhóm chân thành cảm ơn Thầy và các bạn đã chú ý lắng nghe! Sau đây nhóm rất mong nhận được câu hỏi phản biện từ lớp nhằm làm rõ hơn vấn đề."

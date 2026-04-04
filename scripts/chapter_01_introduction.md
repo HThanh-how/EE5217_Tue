@@ -29,7 +29,7 @@
 - **Hành động:** 
   Chỉ vào cái khiên rào chắn bảo vệ trên minh họa.
 - **Lời thoại tham khảo:**
-  "Để tháo gỡ bế tắc này, ý tưởng của kỹ thuật Scan rất đột phá. Nó bẻ gãy các mạch tuần tự phức tạp thành các khối tổ hợp rời rạc. Cách làm này đóng vai trò như một tấm khiên bảo vệ, giúp giảm tải dữ liệu cho thuật toán sinh Test Pattern."
+  "Để giải quyết bế tắc, ý tưởng vĩ đại của Scan Design là 'bẻ gãy' một phần của các mạch tuần tự đa trạng thái thành các khối tổ hợp rời rạc đơn giản hơn. Nó hoạt động như một tấm khiên bảo vệ, giúp giảm tải thuật toán sinh Test Pattern."
 
 ***
 
@@ -61,4 +61,4 @@
 - **Hành động:** 
   Chỉ tay vào 3 hình ảnh chụp hiển vi SEM trên màn hình.
 - **Lời thoại tham khảo:**
-  "Đây là một vài ví dụ trực quan về lỗi vật lý trên phiến silicon. Thứ nhất là chiếc Transistor bị hỏng màng oxit. Thứ hai là bụi kim loại làm ngắn mạch. Thứ ba là hiện tượng đứt liên kết mạch do dòng ê-léc-trôn tàn phá. Các cấu trúc DFT Scan sinh ra là để phát hiện chính xác những căn bệnh này!"
+  "Đây là một vài ví dụ trực quan về lỗi vật lý trên phiến silicon. Thứ nhất là chiếc Transistor bị hỏng màng oxide. Thứ hai là bụi kim loại làm ngắn mạch. Thứ ba là hiện tượng đứt liên kết mạch do ngập dòng electron tàn phá. Các cấu trúc DFT Scan sinh ra là để phát hiện chính xác những căn bệnh này!"

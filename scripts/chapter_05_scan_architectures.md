@@ -52,7 +52,7 @@
 - **Hành động:** 
   Chỉ vào chuỗi mạch dài vòng vèo.
 - **Lời thoại tham khảo:**
-  "Bên cạnh diện tích, Test Time lại gặp cảnh bế tắc. Nếu nhồi 1 triệu con Flip-flop vào đúng MỘT dây chuyền Scan duy nhất, thời gian bơm dữ liệu Shift In và Shift Out cực kỳ lê lết làm phình to chi phí thuê mướn Tester."
+  "Bên cạnh diện tích, Test Time lại gặp cảnh bế tắc. Hãy tưởng tượng nhồi 1 triệu con Flip-flop vào đúng MỘT dây chuyền Scan duy nhất. Thời gian bơm dữ liệu Shift In và Shift Out cực kỳ lê lết. Điều này làm phình to chi phí thuê mướn Tester."
 
 ***
 
@@ -60,7 +60,7 @@
 - **Hành động:** 
   Chỉ tay vào mô hình nhiều ống Pipeline song song độc lập.
 - **Lời thoại tham khảo:**
-  "Giải pháp thiết yếu là Scan Đa Chuỗi (Multiple Scan / Parallel Arrays). Bẻ gãy sợi cáp quá trướng thành hàng chục dây chuyền ngắn chạy đồng luật song phôi với nhau. Thời gian lập tức giảm thiểu tỷ lệ thuận theo số nhánh, nhưng chip lại tốn thêm nhiều Test Pins trên tấm Board."
+  "Giải pháp thiết yếu là Scan Đa Chuỗi (Multiple Scan). Kỹ thuật này bẻ gãy sợi dây cáp quá trướng thành hàng chục dây chuyền ngắn hơn. Chúng chạy đồng loạt song song với nhau. Thời gian lập tức giảm thiểu tỷ lệ thuận theo số nhánh. Tuy nhiên, kiến trúc này bắt buộc chip tốn thêm nhiều cực Test Pins."
 
 ***
 
@@ -68,4 +68,4 @@
 - **Hành động:** 
   Trỏ tay điểm qua sơ lược LSSD và RAS.
 - **Lời thoại tham khảo:**
-  "Cuối cùng, bên cạnh chuẩn MUX-DFF, thế giới DFT còn tồn tại LSSD của hãng IBM sở hữu hai chân Clock riêng biệt tránh kẹt Timing. Hay một kỹ thuật tối tân mang tên Random Access Scan (RAS) truy xuất lỗi ngẫu nhiên y như đọc RAM bộ nhớ nhúng."
+  "Cuối cùng, bên cạnh chuẩn MUX-DFF, thế giới DFT còn tồn tại LSSD của hãng IBM. Nó sở hữu hai chân Clock riêng biệt tránh kẹt Timing. Hay một kỹ thuật tối tân mang tên Random Access Scan (RAS). RAS truy xuất lỗi ngẫu nhiên y như đọc RAM bộ nhớ nhúng."

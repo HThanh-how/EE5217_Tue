@@ -135,7 +135,9 @@ async function loadSlides() {
             }
         });
 
-        document.getElementById('loading').style.display = 'none';
+        if (audioModeEnabled) {
+            document.getElementById('audio-hover-area').style.display = 'flex';
+        }
         updateCounter();
 
         // Gọi MathJax render lại toàn bộ trang sau khi đã nạp xong HTML
@@ -215,9 +217,9 @@ function togglePresentation() {
     document.body.classList.toggle('presentation-mode', isPresenting);
 
     if (isPresenting) {
-        // Show audio hover area
+        // Show audio hover area if enabled
         const audioArea = document.getElementById('audio-hover-area');
-        if (audioArea) audioArea.style.display = 'flex';
+        if (audioArea && audioModeEnabled) audioArea.style.display = 'flex';
 
         // Try fullscreen but don't depend on it for presentation mode
         wasFullscreenAchieved = false;
@@ -275,8 +277,19 @@ document.addEventListener('keydown', (e) => {
     if (document.querySelector('#slide-jump-overlay.visible') || document.querySelector('#chapter-nav-overlay.visible')) return;
     if (document.querySelector('#blackout-overlay.visible')) return;
 
-    if (e.key === 'ArrowRight' || e.key === ' ') {
+    if (e.key === 'ArrowRight') {
         if (!document.body.classList.contains('drawing-mode')) nextSlide();
+    }
+    if (e.key === ' ') {
+        e.preventDefault();
+        if (!document.body.classList.contains('drawing-mode')) {
+            if (isPresenting && audioModeEnabled && audioElement) {
+                if (audioElement.paused) audioElement.play();
+                else audioElement.pause();
+            } else {
+                nextSlide();
+            }
+        }
     }
     if (e.key === 'ArrowLeft') {
         if (!document.body.classList.contains('drawing-mode')) prevSlide();
@@ -328,27 +341,35 @@ const observer = new IntersectionObserver((entries) => {
 // AUDIO PLAYER LOGIC
 // ====================
 const audioElement = document.getElementById('slide-audio');
-const autoNextToggle = document.getElementById('auto-next-toggle');
-const autoAdvanceCheckbox = document.getElementById('auto-advance-checkbox');
-let autoAdvanceEnabled = true;
+let audioModeEnabled = false;
 
-if (autoNextToggle) {
-    autoNextToggle.addEventListener('click', (e) => {
-        if (e.target !== autoAdvanceCheckbox) {
-            autoAdvanceCheckbox.checked = !autoAdvanceCheckbox.checked;
+function toggleAudioMode() {
+    audioModeEnabled = !audioModeEnabled;
+    const btnIcon = document.querySelector('#btn-toggle-audio i');
+    const audioArea = document.getElementById('audio-hover-area');
+
+    if (audioModeEnabled) {
+        btnIcon.classList.remove('fa-volume-xmark');
+        btnIcon.classList.add('fa-volume-high');
+        btnIcon.parentElement.style.color = '#3b82f6';
+        if (isPresenting) {
+            audioArea.style.display = 'flex';
+            playCurrentSlideAudio();
         }
-        autoAdvanceEnabled = autoAdvanceCheckbox.checked;
-    });
+    } else {
+        btnIcon.classList.remove('fa-volume-high');
+        btnIcon.classList.add('fa-volume-xmark');
+        btnIcon.parentElement.style.color = '';
+        audioArea.style.display = 'none';
+        pauseSlideAudio();
+    }
 }
 
 if (audioElement) {
-    // Khi audio chạy xong, nhảy slide tiếp theo nếu chế độ Auto được nhúng
     audioElement.addEventListener('ended', () => {
-        if (autoAdvanceEnabled && isPresenting) {
+        if (audioModeEnabled && isPresenting) {
             const total = document.querySelectorAll('.slide-container').length;
             if (currentSlide < total - 1) {
-                // Tạo nhịp nghỉ (breather gap) 2 giây trước khi nhảy sang slide mới
-                // giúp tạo cảm giác MC người thật tự nhiên, khan giả kịp nhìn hình
                 setTimeout(() => {
                     nextSlide();
                 }, 2000);
@@ -358,11 +379,9 @@ if (audioElement) {
 }
 
 function playCurrentSlideAudio() {
-    if (!isPresenting || !audioElement) return;
-    const slideNumber = currentSlide + 1; // 1-indexed mapping
+    if (!isPresenting || !audioElement || !audioModeEnabled) return;
+    const slideNumber = currentSlide + 1;
     audioElement.src = `audio/slide_${slideNumber}.mp3`;
-
-    // Attempt autoplay, it might fail if user has not interacted yet
     audioElement.play().catch(e => {
         console.log("Autoplay bị chặn bởi Browser cho slide này. Chờ user tương tác tay...");
     });
@@ -371,13 +390,6 @@ function playCurrentSlideAudio() {
 function pauseSlideAudio() {
     if (audioElement) audioElement.pause();
 }
-
-// Bắt một sự kiện click bất kì để kích hoạt quyền Autoplay của Browser
-document.body.addEventListener('click', () => {
-    if (isPresenting && audioElement && audioElement.paused && audioElement.readyState > 0 && autoAdvanceEnabled) {
-        audioElement.play().catch(e => console.log(e));
-    }
-}, { once: true });
 
 // Init
 loadSlides().then(() => {

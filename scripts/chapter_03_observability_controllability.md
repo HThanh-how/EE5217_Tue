@@ -22,9 +22,9 @@
 - **Hành động:** 
   Chỉ tay vào hình cổng AND/OR, chuyển sang hình DeMUX.
 - **Lời thoại tham khảo:**
-  "Tương tự như Quan sát, ta thực hiện Chèn Điểm Điều khiển (Controllability Insertion).
-  (1) Thay vì chỉ móc vào để nhìn, ta sẽ chèn thêm cổng AND/NAND để ép node đó về mức 0 khi cần. Hoặc chèn cổng OR/NOR để ép nó lên mức 1. Vô cùng quyền lực.
-  (2) Tương tự tình huống về thiếu chân, ta xài bộ Phân kênh (DeMUX) để phân rẽ luồng tín hiệu kích đến vô số các Test Point thông qua chân Địa chỉ."
+  "Tương tự như Quan sát, ta có khái niệm Chèn Điểm Điều khiển.
+  Thay vì chỉ dòm ngó, ta chèn thêm cổng logic để ép cục dây dẫn về mức 0 hoặc mức 1 khi cần. Sức mạnh này vô cùng quyền lực.
+  Tuy nhiên, vẫn làm sao thiếu hụt chân trên vỏ. Ta xài bộ phân nhánh demux để chia luồng kích đến vô số các điểm test thông qua cài đặt chân địa chỉ."
 
 ***
 
@@ -32,8 +32,8 @@
 - **Hành động:** 
   Nhìn sơ đồ cấu trúc Shift Register đẩy bit từng phần tử.
 - **Lời thoại tham khảo:**
-  "Tuy nhiên, nếu mạch quá lớn, bộ MUX/DeMUX kia sẽ vô cùng vĩ đại. Tốn kém quá! Từ đó, ý tưởng Isolated Serial Scan ra đời. Ta thay thế mạng lưới song song loằng ngoằng kia bằng một Dây chuyền dịch bit (Shift Register). 
-  Thay vì cấp test vector ồ ạt, một chiếc Virtual Tester sẽ thong thả đẩy từng bit một vào cổng Serial In. Cách này đổi thời gian để lấy lại không gian thiết kế."
+  "Tuy nhiên, nếu mạch quá lớn thì 2 bộ chia kênh kia sẽ khổng lồ vô tận. Rất tốn kém diện tích. Từ đó, ý tưởng Mạng quét nối tiếp ra đời. Ta quăng bỏ mạng lưới song song cồng kềnh kia, đi sài dây chuyền dịch bit. 
+  Thay vì cấp vector ồ ạt, Virtual Tester sẽ thong thả đẩy dần dần từng bit một vào cổng đi Serial. Đây là nghệ thuật hi sinh tốc độ thời gian để lấy lại khoảng không gian vàng ngọc thiết kế."
 
 ***
 
@@ -41,8 +41,8 @@
 - **Hành động:** 
   Để hoạt ảnh chạy lúc minh họa dòng Token và lúc Push Down / Pull up dữ liệu.
 - **Lời thoại tham khảo:**
-  "Với bài toán lớn, để giảm chân điều khiển, ta dùng kỹ thuật Truyền Cờ (Token Passing) qua thanh ghi, mượn chu kỳ xung nhịp để tiết kiệm chân Rìa.
-  Hơn nữa, nhờ kiến trúc thông minh, thanh ghi dịch này có thể vừa nhận dữ liệu đẩy vào song song để nạp mức logic (Parallel Load), vừa lấy mẫu trạng thái (Capture) và đẩy ra ngoài đường Serial Out để kiểm tra."
+  "Đối với bài toán khổng lồ, ta dùng luôn kỹ thuật Truyền Cờ qua các thanh ghi dịch. Máy sẽ cướp nhịp của đồng hồ để cứu cánh số lượng chân trên bo mạch.
+  Hơn nữa thiết kế thanh ghi rất siêu việt đa nhiệm. Nó vừa có thể lấy tín hiệu nạp vào để kích song song. Lại vừa rất nhạy bén chụp ảnh trạng thái, đẩy dần dần ra đường hầm chui để kiểm tra."
 
 ***
 

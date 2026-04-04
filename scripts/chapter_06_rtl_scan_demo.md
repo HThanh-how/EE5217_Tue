@@ -44,7 +44,7 @@
 - **Hành động:** 
   Kết hợp mời giáo viên và sinh viên hướng mắt lên công cụ demo.
 - **Lời thoại tham khảo:**
-  "Trăm nghe không bằng một xem trực tiếp. Sau đây tiếp nối chương trình, xin kính mời cố vấn và các bạn theo dõi phần Demo hoạt động tổng hợp vi mạch bằng bộ phần mềm độc quyền Design Compiler và trình xuất Test-Pattern từ ATPG TetraMAX của hệ sinh thái Synopsys!"
+  "Trăm nghe không bằng một xem trực tiếp. Xin mời cố vấn và các bạn theo dõi phần Demo hoạt động tổng hợp vi mạch. Bộ phần mềm dùng để tổng hợp là Design Compiler độc quyền. Còn Test Pattern được trình xuất từ ATPG TetraMAX của hệ sinh thái Synopsys."
 
 ***
 
@@ -52,7 +52,7 @@
 - **Hành động:** 
   Chỉ tay qua lại 2 bức ảnh bên trái và bên phải.
 - **Lời thoại tham khảo:**
-  "Đầu tiên là quan sát trích xuất đồ họa mạch ở 2 chế độ. Bên trái là Normal Mode khi mạch chạy bình thường. Bên phải là Test Mode khi ta cấp tín hiệu Scan, có thể thấy rõ các đường tín hiệu đỏ cho thấy dữ liệu đang chuyển luồng đi xuyên qua chân vòng vèo của các khối Scan Flip-Flop thay vì mạch gốc."
+  "Đầu tiên là quan sát trích xuất đồ họa mạch ở hai chế độ. Bên trái là chế độ Normal khi mạch chạy bình thường. Bên phải là Test Mode khi ta cấp tín hiệu Scan. Có thể thấy rõ mảng tín hiệu đỏ uốn lượn. Dữ liệu đang chuyển luồng đi xuyên qua các khối Scan Flip-Flop thay vì mạch gốc."
 
 ***
 
@@ -68,4 +68,4 @@
 - **Hành động:** 
   Chỉ tay nhận mạnh vào điểm khác biệt trên dãy sóng cảnh báo đỏ.
 - **Lời thoại tham khảo:**
-  "Khi tool TetraMAX giả lập tiêm một lỗi Kẹt Stuck-at vào đường kết nối mạch, ta quan sát được trên sóng mô phỏng xuất hiện các vệt cảnh báo, dữ liệu đầu ra bị sai lệch ngay lập tức. Nhờ tính năng này, Tool tự động tính toán để sinh ra mẫu Test phát hiện được chính lỗi đó trên dây chuyền sản xuất ngoài đời!"
+  "Khi TetraMAX giả lập tiêm một lỗi Stuck-at vào đường kết nối mạch, ta quan sát được các vệt cảnh báo trên sóng. Dữ liệu đầu ra bị sai lệch ngay lập tức. Nhờ đó, Tool tự động tính toán sinh ra Test Pattern. Pattern này chắc chắn sẽ tóm được bệnh đó trên xưởng sản xuất thực!"

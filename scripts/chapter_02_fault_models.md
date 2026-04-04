@@ -44,7 +44,7 @@
 - **Hành động:** 
   Chỉ tay vào chuỗi Shift Register.
 - **Lời thoại tham khảo:**
-  "Nhưng thực tế làm sao có sợi dây vật lý nào nối vào các chân Pseudo-PO này? Đó là lý do ta phải chèn cấu trúc SCAN. Tool sẽ đính kết liên tục tất cả các cái hộp đen dời dạc lại thành một 'Đường Ống Chuyền' (Shift Register) khổng lồ, đem trạng thái vi mạch ra phơi sáng."
+  "Nhưng làm sao có sợi dây dẫn nào nối vào các ngõ ảo này? Đó là lý do ta phải chèn cấu trúc SCAN. Tool sẽ đính kết tất cả các hộp đen lại thành một đường ống chuyền khổng lồ. Từ đó, toàn bộ trạng thái vi mạch được mang ra phơi sáng."
 
 ***
 
