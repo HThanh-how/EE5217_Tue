@@ -38,19 +38,28 @@
         <div style="text-align: center;">
             <i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; margin-bottom: 20px;"></i>
             <h2>Đang tải bài thuyết trình...</h2>
-            <p id="loading-text" style="color: #888;">Nếu chầm, hãy đảm bảo bạn đang chạy file này bằng
-                <b>start_presentation.bat</b>
-            </p>
+            <p id="loading-text" style="color: #888;">Vui lòng chờ trong giây lát...</p>
         </div>
     </div>
 
     <!-- Slides will be injected here -->
     <main id="slides_wrapper"></main>
 
+    <!-- Audio Player (Toggled via button) -->
+    <div id="audio-hover-area"
+        style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10000; display: none;">
+        <div id="audio-container"
+            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <audio id="slide-audio" controls style="height: 35px; outline: none;"></audio>
+        </div>
+    </div>
+
     <!-- Controls -->
     <div id="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="togglePresentation()"><i class="fa-solid fa-play"></i></button>
+        <button class="btn" onclick="toggleAudioMode()" id="btn-toggle-audio" title="Bật/Tắt Thuyết Minh"><i
+                class="fa-solid fa-volume-xmark"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 

@@ -36,7 +36,14 @@ const slidesList = [
     'sections/07_02_casestudy.html',
     'sections/07_03_summary.html',
     'sections/07_04_references.html',
-    'sections/07_99_thanks.html'
+    'sections/07_99_thanks.html',
+    'sections/08_00_chapter.html',
+    'sections/08_01_latex.html',
+    'sections/08_02_cicd.html',
+    'sections/08_03_github_pages.html',
+    'sections/08_04_pdf.html',
+    'sections/08_05_benefits.html',
+    'sections/08_99_thanks.html'
 ];
 
 const wrapper = document.getElementById('slides_wrapper');
@@ -135,6 +142,9 @@ async function loadSlides() {
             }
         });
 
+        if (audioModeEnabled) {
+            document.getElementById('audio-hover-area').style.display = 'flex';
+        }
         document.getElementById('loading').style.display = 'none';
         updateCounter();
 
@@ -182,6 +192,11 @@ function updateView() {
         });
         // Gắn móc theo dõi thẻ active MỚI nhất (Rootfix)
         observeActiveSlide();
+
+        // Gọi âm thanh slide
+        if (typeof playCurrentSlideAudio === 'function') {
+            playCurrentSlideAudio();
+        }
     } else {
         slides[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -210,6 +225,10 @@ function togglePresentation() {
     document.body.classList.toggle('presentation-mode', isPresenting);
 
     if (isPresenting) {
+        // Show audio hover area if enabled
+        const audioArea = document.getElementById('audio-hover-area');
+        if (audioArea && audioModeEnabled) audioArea.style.display = 'flex';
+
         // Try fullscreen but don't depend on it for presentation mode
         wasFullscreenAchieved = false;
         document.documentElement.requestFullscreen().then(() => {
@@ -231,6 +250,12 @@ function togglePresentation() {
             document.exitFullscreen().catch(e => { });
         }
         document.body.style.setProperty('--scale', 1);
+
+        // Hide audio area and pause
+        const audioArea = document.getElementById('audio-hover-area');
+        if (audioArea) audioArea.style.display = 'none';
+        if (typeof pauseSlideAudio === 'function') pauseSlideAudio();
+
         slides.forEach(s => s.classList.remove('active'));
         // Change icon back to Play
         const btnIcon = document.querySelector('#controls button:nth-child(2) i');
@@ -260,8 +285,19 @@ document.addEventListener('keydown', (e) => {
     if (document.querySelector('#slide-jump-overlay.visible') || document.querySelector('#chapter-nav-overlay.visible')) return;
     if (document.querySelector('#blackout-overlay.visible')) return;
 
-    if (e.key === 'ArrowRight' || e.key === ' ') {
+    if (e.key === 'ArrowRight') {
         if (!document.body.classList.contains('drawing-mode')) nextSlide();
+    }
+    if (e.key === ' ') {
+        e.preventDefault();
+        if (!document.body.classList.contains('drawing-mode')) {
+            if (isPresenting && audioModeEnabled && audioElement) {
+                if (audioElement.paused) audioElement.play();
+                else audioElement.pause();
+            } else {
+                nextSlide();
+            }
+        }
     }
     if (e.key === 'ArrowLeft') {
         if (!document.body.classList.contains('drawing-mode')) prevSlide();
@@ -308,6 +344,60 @@ const observer = new IntersectionObserver((entries) => {
 }, {
     threshold: 0.6 // Slide must be 60% visible to be considered "current"
 });
+
+// ====================
+// AUDIO PLAYER LOGIC
+// ====================
+const audioElement = document.getElementById('slide-audio');
+let audioModeEnabled = false;
+
+function toggleAudioMode() {
+    audioModeEnabled = !audioModeEnabled;
+    const btnIcon = document.querySelector('#btn-toggle-audio i');
+    const audioArea = document.getElementById('audio-hover-area');
+
+    if (audioModeEnabled) {
+        btnIcon.classList.remove('fa-volume-xmark');
+        btnIcon.classList.add('fa-volume-high');
+        btnIcon.parentElement.style.color = '#3b82f6';
+        if (isPresenting) {
+            audioArea.style.display = 'flex';
+            playCurrentSlideAudio();
+        }
+    } else {
+        btnIcon.classList.remove('fa-volume-high');
+        btnIcon.classList.add('fa-volume-xmark');
+        btnIcon.parentElement.style.color = '';
+        audioArea.style.display = 'none';
+        pauseSlideAudio();
+    }
+}
+
+if (audioElement) {
+    audioElement.addEventListener('ended', () => {
+        if (audioModeEnabled && isPresenting) {
+            const total = document.querySelectorAll('.slide-container').length;
+            if (currentSlide < total - 1) {
+                setTimeout(() => {
+                    nextSlide();
+                }, 2000);
+            }
+        }
+    });
+}
+
+function playCurrentSlideAudio() {
+    if (!isPresenting || !audioElement || !audioModeEnabled) return;
+    const slideNumber = currentSlide + 1;
+    audioElement.src = `audio/slide_${slideNumber}.mp3`;
+    audioElement.play().catch(e => {
+        console.log("Autoplay bị chặn bởi Browser cho slide này. Chờ user tương tác tay...");
+    });
+}
+
+function pauseSlideAudio() {
+    if (audioElement) audioElement.pause();
+}
 
 // Init
 loadSlides().then(() => {
