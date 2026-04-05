@@ -2,18 +2,116 @@
     <h1 style="border-bottom: 3px solid #10b981; padding-bottom: 10px; display: inline-block; margin-bottom: 10px;"
         class="gradient-text">
         8.3. Triển khai Trình chiếu lên GitHub Pages</h1>
-    <div style="display: flex; gap: 30px; margin-top: 15px; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; background: #ffffff; padding: 25px; border-radius: 16px; border-top: 5px solid #059669;">
-            <h2 style="color: #047857; margin-bottom: 15px;"><i class="fa-solid fa-globe"></i> Web Server Serverless
-            </h2>
-            <ul style="font-size: 1.3rem; line-height: 1.6; margin-left: 20px;">
-                <li>Biến Repository thành một trang Web mã nguồn mở tĩnh thông qua GitHub Pages an toàn, bảo mật.</li>
-                <li>Báo cáo dạng thẻ HTML thuần túy (Reveal.js) dễ dàng tích hợp Script Python chạy Audio ẩn tàng hình,
-                    hoán chuyển mạch lạc như PowerPoint.</li>
-                <li>Khán giả hoặc giáo viên quét mã QR là có thể theo dõi trực tiếp Slide trên điện thoại Real-time!
-                </li>
-            </ul>
+
+    <div style="display: flex; gap: 25px; margin-top: 10px; width: 100%;">
+        <!-- Cột trái: Architecture + Features -->
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 15px;">
+            <!-- Architecture Diagram -->
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 20px 25px; border-radius: 16px; border-top: 5px solid #059669;">
+                <h2 style="color: #047857; margin-bottom: 15px; font-size: 1.3rem;">
+                    <i class="fa-solid fa-sitemap" style="margin-right: 8px;"></i>Kiến trúc Web Presentation
+                </h2>
+
+                <!-- Architecture Flow -->
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 0; flex-wrap: nowrap;">
+                    <!-- Source -->
+                    <div
+                        style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 12px; padding: 10px 14px; text-align: center; min-width: 100px;">
+                        <i class="fa-solid fa-code"
+                            style="font-size: 1.5rem; color: #059669; display: block; margin-bottom: 4px;"></i>
+                        <span style="font-size: 0.8rem; font-weight: 600; color: #065f46;">HTML/CSS/JS</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right" style="color: #94a3b8; font-size: 1.2rem;"></i>
+                    <!-- GitHub -->
+                    <div
+                        style="background: #f0fdf4; border: 2px solid #22c55e; border-radius: 12px; padding: 10px 14px; text-align: center; min-width: 100px;">
+                        <i class="fa-brands fa-github"
+                            style="font-size: 1.5rem; color: #16a34a; display: block; margin-bottom: 4px;"></i>
+                        <span style="font-size: 0.8rem; font-weight: 600; color: #166534;">GitHub Pages</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right" style="color: #94a3b8; font-size: 1.2rem;"></i>
+                    <!-- CDN -->
+                    <div
+                        style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 10px 14px; text-align: center; min-width: 100px;">
+                        <i class="fa-solid fa-network-wired"
+                            style="font-size: 1.5rem; color: #2563eb; display: block; margin-bottom: 4px;"></i>
+                        <span style="font-size: 0.8rem; font-weight: 600; color: #1e40af;">CDN Global</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right" style="color: #94a3b8; font-size: 1.2rem;"></i>
+                    <!-- Users -->
+                    <div
+                        style="background: #fdf4ff; border: 2px solid #d946ef; border-radius: 12px; padding: 10px 14px; text-align: center; min-width: 100px;">
+                        <i class="fa-solid fa-users"
+                            style="font-size: 1.5rem; color: #c026d3; display: block; margin-bottom: 4px;"></i>
+                        <span style="font-size: 0.8rem; font-weight: 600; color: #86198f;">Khán giả<br><span
+                                style="font-size: 0.7rem; font-weight: 400;">(PC / Mobile)</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature bullets -->
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 18px 25px; border-radius: 16px; border-left: 4px solid #10b981;">
+                <ul
+                    style="font-size: 1.15rem; color: var(--text-color); margin-left: 15px; line-height: 1.7; margin-bottom: 0; margin-top: 0;">
+                    <li>Web tĩnh <b>Serverless</b> — không tốn phí hosting, bảo mật mặc định HTTPS.</li>
+                    <li>Slide HTML thuần túy, hoán chuyển mượt mà <b>như PowerPoint</b> nhưng mạnh hơn.</li>
+                    <li>Quét <b>mã QR</b> trên điện thoại → theo dõi trực tiếp Slide real-time.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cột phải: Feature Cards -->
+        <div style="flex: 0.8; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <!-- Card 1: MathJax -->
+            <div class="text-block-shadow"
+                style="background: #fffbeb; padding: 18px; border-radius: 14px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+                <div
+                    style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #f59e0b, #d97706); display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-square-root-variable" style="color: white; font-size: 1.3rem;"></i>
+                </div>
+                <h4 style="margin: 0; color: #92400e; font-size: 1rem;">MathJax</h4>
+                <p style="margin: 0; font-size: 0.85rem; color: #78716c; line-height: 1.4;">Render công thức LaTeX trực
+                    tiếp trên Web</p>
+            </div>
+
+            <!-- Card 2: Audio TTS -->
+            <div class="text-block-shadow"
+                style="background: #f0f9ff; padding: 18px; border-radius: 14px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+                <div
+                    style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #0ea5e9, #0284c7); display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-microphone-lines" style="color: white; font-size: 1.3rem;"></i>
+                </div>
+                <h4 style="margin: 0; color: #0c4a6e; font-size: 1rem;">Audio TTS</h4>
+                <p style="margin: 0; font-size: 0.85rem; color: #78716c; line-height: 1.4;">73 file thuyết minh tự sinh
+                    bằng FPT AI</p>
+            </div>
+
+            <!-- Card 3: Responsive -->
+            <div class="text-block-shadow"
+                style="background: #fdf4ff; padding: 18px; border-radius: 14px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+                <div
+                    style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #d946ef, #a21caf); display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-mobile-screen-button" style="color: white; font-size: 1.3rem;"></i>
+                </div>
+                <h4 style="margin: 0; color: #86198f; font-size: 1rem;">Responsive</h4>
+                <p style="margin: 0; font-size: 0.85rem; color: #78716c; line-height: 1.4;">Auto-scale trên mọi kích
+                    thước màn hình</p>
+            </div>
+
+            <!-- Card 4: Keyboard & Drawing -->
+            <div class="text-block-shadow"
+                style="background: #ecfdf5; padding: 18px; border-radius: 14px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+                <div
+                    style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-pen-fancy" style="color: white; font-size: 1.3rem;"></i>
+                </div>
+                <h4 style="margin: 0; color: #065f46; font-size: 1rem;">Drawing Tools</h4>
+                <p style="margin: 0; font-size: 0.85rem; color: #78716c; line-height: 1.4;">Vẽ, laser pointer, blackout
+                    ngay trên slide</p>
+            </div>
         </div>
     </div>
 </div>

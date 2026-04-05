@@ -2,15 +2,133 @@
     <h1 style="border-bottom: 3px solid #ef4444; padding-bottom: 10px; display: inline-block; margin-bottom: 10px;"
         class="gradient-text">
         8.4. Đóng gói Artifact PDF Report</h1>
-    <div style="display: flex; gap: 30px; margin-top: 15px; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; background: #ffffff; padding: 25px; border-radius: 16px; border-top: 5px solid #dc2626;">
-            <ul style="font-size: 1.4rem; line-height: 1.8; margin-left: 20px;">
-                <li>Đường ống CI/CD còn gánh thêm nhiềm vụ tự động Compile file <code>report.pdf</code> cuối cùng.</li>
-                <li>File PDF được gắn thẻ và đính kèm trực tiếp vào mục <b>GitHub Artifacts</b> để tải về.</li>
-                <li>Cơ chế <b>GitHub Releases</b> tự động được tạo ra giúp lưu trữ các phiên bản báo cáo theo mốc thời
-                    gian vĩnh viễn và chuyên nghiệp như những phiên bản phần mềm thương mại.</li>
-            </ul>
+
+    <div style="display: flex; gap: 25px; margin-top: 10px; width: 100%;">
+        <!-- Cột trái: Release Flow Diagram -->
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 15px;">
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 20px 25px; border-radius: 16px; border-top: 5px solid #dc2626;">
+                <h2 style="color: #b91c1c; margin-bottom: 15px; font-size: 1.3rem;">
+                    <i class="fa-solid fa-box-archive" style="margin-right: 8px;"></i>Quy trình Release tự động
+                </h2>
+
+                <!-- Vertical Release Flow -->
+                <div style="display: flex; flex-direction: column; gap: 0; padding: 0 20px;">
+                    <!-- Step 1 -->
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div
+                            style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #ef4444, #dc2626); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(239,68,68,0.3);">
+                            <span style="color: white; font-weight: 800; font-size: 1.1rem;">1</span>
+                        </div>
+                        <div>
+                            <b style="color: #1e293b; font-size: 1.1rem;">Compile XeLaTeX</b>
+                            <p style="margin: 2px 0 0 0; font-size: 0.95rem; color: #64748b;">Biên dịch <code
+                                    style="background: #fee2e2; padding: 1px 6px; border-radius: 4px; color: #991b1b;">main.tex</code>
+                                → <code
+                                    style="background: #fee2e2; padding: 1px 6px; border-radius: 4px; color: #991b1b;">EE5217_BaoCao.pdf</code>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="width: 2px; height: 12px; background: #fca5a5; margin-left: 21px;"></div>
+
+                    <!-- Step 2 -->
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div
+                            style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #ea580c); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(249,115,22,0.3);">
+                            <span style="color: white; font-weight: 800; font-size: 1.1rem;">2</span>
+                        </div>
+                        <div>
+                            <b style="color: #1e293b; font-size: 1.1rem;">Upload Artifact</b>
+                            <p style="margin: 2px 0 0 0; font-size: 0.95rem; color: #64748b;">Lưu PDF vào kho GitHub
+                                Artifacts để truy xuất sau</p>
+                        </div>
+                    </div>
+                    <div style="width: 2px; height: 12px; background: #fdba74; margin-left: 21px;"></div>
+
+                    <!-- Step 3 -->
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div
+                            style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #eab308, #ca8a04); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(234,179,8,0.3);">
+                            <span style="color: white; font-weight: 800; font-size: 1.1rem;">3</span>
+                        </div>
+                        <div>
+                            <b style="color: #1e293b; font-size: 1.1rem;">Generate Changelog</b>
+                            <p style="margin: 2px 0 0 0; font-size: 0.95rem; color: #64748b;">Tự động tổng hợp lịch sử
+                                commit thành Release Notes</p>
+                        </div>
+                    </div>
+                    <div style="width: 2px; height: 12px; background: #fde68a; margin-left: 21px;"></div>
+
+                    <!-- Step 4 -->
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div
+                            style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #16a34a); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(34,197,94,0.3);">
+                            <span style="color: white; font-weight: 800; font-size: 1.1rem;">4</span>
+                        </div>
+                        <div>
+                            <b style="color: #1e293b; font-size: 1.1rem;">Create GitHub Release</b>
+                            <p style="margin: 2px 0 0 0; font-size: 0.95rem; color: #64748b;">Đóng gói phiên bản chính
+                                thức kèm file PDF tải về</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cột phải: YAML snippet + Mock Release -->
+        <div style="flex: 0.85; display: flex; flex-direction: column; gap: 15px;">
+            <!-- YAML Code -->
+            <div class="text-block-shadow"
+                style="background: #1e1e2e; padding: 18px; border-radius: 16px; overflow: hidden;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                    <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></span>
+                    <span style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></span>
+                    <span style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></span>
+                    <span
+                        style="color: #6c7086; font-size: 0.8rem; margin-left: 8px; font-family: 'Azeret Mono', monospace;">build.yml
+                        → release job</span>
+                </div>
+                <pre
+                    style="margin: 0; font-size: 0.78rem; line-height: 1.5; color: #cdd6f4; font-family: 'Azeret Mono', monospace; white-space: pre; overflow-x: auto;"><span style="color: #89b4fa;">release:</span>
+  <span style="color: #89b4fa;">if:</span> <span style="color: #a6e3a1;">github.event_name == 'push'</span>
+  <span style="color: #89b4fa;">needs:</span> build-pdf
+  <span style="color: #89b4fa;">steps:</span>
+    - <span style="color: #89b4fa;">name:</span> <span style="color: #a6e3a1;">Generate changelog</span>
+      <span style="color: #89b4fa;">run:</span> |
+        git log --pretty=format:"* %s (%h)"
+        > release_notes.md
+
+    - <span style="color: #89b4fa;">name:</span> <span style="color: #a6e3a1;">Create Release</span>
+      <span style="color: #89b4fa;">uses:</span> <span style="color: #f9e2af;">softprops/action-gh-release@v2</span>
+      <span style="color: #89b4fa;">with:</span>
+        <span style="color: #89b4fa;">tag_name:</span> build-${{ run_number }}
+        <span style="color: #89b4fa;">name:</span> <span style="color: #a6e3a1;">Báo Cáo EE5217</span>
+        <span style="color: #89b4fa;">body_path:</span> release_notes.md
+        <span style="color: #89b4fa;">files:</span> EE5217_BaoCao.pdf</pre>
+            </div>
+
+            <!-- Mock Release UI -->
+            <div class="text-block-shadow"
+                style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 18px; overflow: hidden;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                    <i class="fa-solid fa-tag" style="color: #3fb950; font-size: 0.9rem;"></i>
+                    <span style="color: #58a6ff; font-weight: 600; font-size: 1rem;">Báo Cáo EE5217 (Build #42)</span>
+                    <span
+                        style="background: #238636; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 600;">Latest</span>
+                </div>
+                <div style="border-top: 1px solid #21262d; padding-top: 10px; margin-top: 5px;">
+                    <div style="display: flex; align-items: center; gap: 8px; padding: 6px 0;">
+                        <i class="fa-solid fa-file-pdf" style="color: #f85149; font-size: 0.9rem;"></i>
+                        <span style="color: #c9d1d9; font-size: 0.9rem;">EE5217_BaoCao.pdf</span>
+                        <span style="color: #8b949e; font-size: 0.75rem; margin-left: auto;">2.1 MB</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; padding: 6px 0;">
+                        <i class="fa-solid fa-file-zipper" style="color: #8b949e; font-size: 0.9rem;"></i>
+                        <span style="color: #c9d1d9; font-size: 0.9rem;">Source code (zip)</span>
+                        <span style="color: #8b949e; font-size: 0.75rem; margin-left: auto;">auto</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
