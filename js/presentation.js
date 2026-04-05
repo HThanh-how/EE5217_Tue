@@ -15,21 +15,24 @@ const slidesList = [
     'sections/03_01_insertion.html',
     'sections/03_02_muxdemux.html',
     'sections/04_00_chapter.html',
+    'sections/04_01_fullscan_intro.html',
+    'sections/04_02_ff_structures.html',
+    'sections/04_03_residue5.html',
     'sections/04_04_virtual_tester.html',
     'sections/05_00_chapter.html',
     'sections/05_01_full_scan_architecture.html',
-    'sections/05_02_shadow_register.html',
+    // 'sections/05_02_shadow_register.html',
     'sections/05_03_partial_scan.html',
     'sections/05_04_multiple_scan_intro.html',
-    'sections/05_05_other_scan.html',
-    'sections/06_00_chapter.html',
-    'sections/06_01_rtl_full_scan.html',
-    'sections/06_02_rtl_full_scan_ex.html',
-    'sections/06_03_rtl_multiple_scan.html',
-    'sections/06_04_rtl_multiple_scan_ex.html',
-    'sections/06_99_demonstration.html',
-    'sections/06_99a_demo_modes.html',
-    'sections/06_99b_demo_non_stuck.html',
+    // 'sections/05_05_other_scan.html',
+    // 'sections/06_00_chapter.html',
+    // 'sections/06_01_rtl_full_scan.html',
+    // 'sections/06_02_rtl_full_scan_ex.html',
+    // 'sections/06_03_rtl_multiple_scan.html',
+    // 'sections/06_04_rtl_multiple_scan_ex.html',
+    // 'sections/06_99_demonstration.html',
+    // 'sections/06_99a_demo_modes.html',
+    // 'sections/06_99b_demo_non_stuck.html',
     'sections/06_99c_demo_stuck_at.html',
     'sections/07_00_chapter.html',
     'sections/07_01_comparison.html',
@@ -120,24 +123,27 @@ async function loadSlides() {
     try {
         const promises = slidesList.map(url => fetch(url).then(res => {
             if (!res.ok) throw new Error(`Could not load ${url}`);
-            return res.text();
+            return res.text().then(html => ({ url, html }));
         }));
 
         const contents = await Promise.all(promises);
 
         let globalIndex = 0;
-        contents.forEach((html) => {
+        contents.forEach((item) => {
             const div = document.createElement('div');
-            div.innerHTML = html;
+            div.innerHTML = item.html;
+            const sourceName = item.url.split('/').pop();
             // Cho phép 1 file HTML có chứa NHIỀU thẻ .slide-container (phục vụ tách hình)
             const subSlides = div.querySelectorAll('.slide-container');
             if (subSlides.length > 0) {
                 subSlides.forEach(slide => {
                     slide.id = `slide-${globalIndex++}`;
+                    slide.setAttribute('data-source', sourceName);
                     wrapper.appendChild(slide);
                 });
             } else if (div.firstElementChild) {
                 div.firstElementChild.id = `slide-${globalIndex++}`;
+                div.firstElementChild.setAttribute('data-source', sourceName);
                 wrapper.appendChild(div.firstElementChild);
             }
         });
@@ -350,6 +356,7 @@ const observer = new IntersectionObserver((entries) => {
 // ====================
 const audioElement = document.getElementById('slide-audio');
 let audioModeEnabled = false;
+let autoAdvanceTimer = null;
 
 function toggleAudioMode() {
     audioModeEnabled = !audioModeEnabled;
@@ -378,7 +385,7 @@ if (audioElement) {
         if (audioModeEnabled && isPresenting) {
             const total = document.querySelectorAll('.slide-container').length;
             if (currentSlide < total - 1) {
-                setTimeout(() => {
+                autoAdvanceTimer = setTimeout(() => {
                     nextSlide();
                 }, 2000);
             }
@@ -387,6 +394,7 @@ if (audioElement) {
 }
 
 function playCurrentSlideAudio() {
+    if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
     if (!isPresenting || !audioElement || !audioModeEnabled) return;
     const slideNumber = currentSlide + 1;
     audioElement.src = `audio/slide_${slideNumber}.mp3`;

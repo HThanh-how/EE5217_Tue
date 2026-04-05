@@ -2,19 +2,142 @@
     <h1 style="border-bottom: 3px solid #8b5cf6; padding-bottom: 10px; display: inline-block; margin-bottom: 10px;"
         class="gradient-text">
         8.2. Đường ống CI/CD với GitHub Actions</h1>
-    <div style="display: flex; gap: 30px; margin-top: 15px; width: 100%;">
-        <div class="text-block-shadow"
-            style="flex: 1; background: #ffffff; padding: 25px; border-radius: 16px; border-top: 5px solid #6d28d9;">
-            <h2 style="color: #5b21b6; margin-bottom: 15px;"><i class="fa-solid fa-microchip"></i> Cơ chế Kích hoạt tự
-                động</h2>
-            <ul style="font-size: 1.3rem; line-height: 1.6; margin-left: 20px;">
-                <li>Ngay khi có sự kiện <code>git push</code> lên nhánh Main, nền tảng GitHub sẽ cấp phát một máy chủ
-                    (Runner) độc lập trên Cloud.</li>
-                <li>Máy ảo này tự động clone mã nguồn, chạy Container chứa môi trường biên dịch TeX hoặc Nodejs để
-                    render Web.</li>
-                <li>Từ đó không cần bất cứ thành viên nào thao tác bằng tay trên máy tính cá nhân. Quá trình mất chưa
-                    tới 40 giây.</li>
-            </ul>
+
+    <div style="display: flex; gap: 25px; margin-top: 10px; width: 100%;">
+        <!-- Cột trái: Pipeline Diagram -->
+        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 15px;">
+            <div class="text-block-shadow"
+                style="background: #ffffff; padding: 20px 25px; border-radius: 16px; border-top: 5px solid #6d28d9;">
+                <h2 style="color: #5b21b6; margin-bottom: 15px; font-size: 1.4rem;">
+                    <i class="fa-solid fa-diagram-project" style="margin-right: 8px;"></i>Pipeline Flow
+                </h2>
+
+                <!-- Visual Pipeline -->
+                <div
+                    style="display: flex; align-items: center; gap: 0; flex-wrap: nowrap; justify-content: center; padding: 10px 0;">
+                    <!-- Step 1 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(99,102,241,0.3);">
+                            <i class="fa-solid fa-code-commit" style="color: white; font-size: 1.3rem;"></i>
+                        </div>
+                        <span style="font-size: 0.8rem; color: #475569; font-weight: 600; text-align: center;">git
+                            push</span>
+                    </div>
+                    <div
+                        style="width: 30px; height: 3px; background: linear-gradient(90deg, #8b5cf6, #a78bfa); flex-shrink: 0;">
+                    </div>
+                    <!-- Step 2 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #7c3aed, #a78bfa); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(124,58,237,0.3);">
+                            <i class="fa-brands fa-github" style="color: white; font-size: 1.3rem;"></i>
+                        </div>
+                        <span
+                            style="font-size: 0.8rem; color: #475569; font-weight: 600; text-align: center;">Trigger<br>Actions</span>
+                    </div>
+                    <div
+                        style="width: 30px; height: 3px; background: linear-gradient(90deg, #a78bfa, #c4b5fd); flex-shrink: 0;">
+                    </div>
+                    <!-- Step 3 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2563eb, #3b82f6); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">
+                            <i class="fa-solid fa-server" style="color: white; font-size: 1.3rem;"></i>
+                        </div>
+                        <span
+                            style="font-size: 0.8rem; color: #475569; font-weight: 600; text-align: center;">Cloud<br>Runner</span>
+                    </div>
+                    <div
+                        style="width: 30px; height: 3px; background: linear-gradient(90deg, #3b82f6, #60a5fa); flex-shrink: 0;">
+                    </div>
+                    <!-- Step 4 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #0891b2, #06b6d4); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(8,145,178,0.3);">
+                            <i class="fa-solid fa-gears" style="color: white; font-size: 1.3rem;"></i>
+                        </div>
+                        <span
+                            style="font-size: 0.8rem; color: #475569; font-weight: 600; text-align: center;">Compile<br>XeLaTeX</span>
+                    </div>
+                    <div
+                        style="width: 30px; height: 3px; background: linear-gradient(90deg, #06b6d4, #22d3ee); flex-shrink: 0;">
+                    </div>
+                    <!-- Step 5 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #059669, #10b981); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(5,150,105,0.3);">
+                            <i class="fa-solid fa-file-pdf" style="color: white; font-size: 1.3rem;"></i>
+                        </div>
+                        <span style="font-size: 0.8rem; color: #475569; font-weight: 600; text-align: center;">PDF
+                            +<br>Release</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats badges -->
+            <div style="display: flex; gap: 10px;">
+                <div class="text-block-shadow"
+                    style="flex: 1; background: linear-gradient(135deg, #7c3aed, #6d28d9); padding: 15px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 800; color: white;">~40s</div>
+                    <div style="font-size: 0.85rem; color: #ddd6fe;">Build Time</div>
+                </div>
+                <div class="text-block-shadow"
+                    style="flex: 1; background: linear-gradient(135deg, #2563eb, #1d4ed8); padding: 15px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 800; color: white;">2</div>
+                    <div style="font-size: 0.85rem; color: #bfdbfe;">Workflows</div>
+                </div>
+                <div class="text-block-shadow"
+                    style="flex: 1; background: linear-gradient(135deg, #059669, #047857); padding: 15px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 800; color: white;">0</div>
+                    <div style="font-size: 0.85rem; color: #a7f3d0;">Thao tác tay</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cột phải: YAML snippet -->
+        <div style="flex: 0.8; display: flex; flex-direction: column; gap: 15px;">
+            <div class="text-block-shadow"
+                style="background: #1e1e2e; padding: 18px; border-radius: 16px; flex: 1; overflow: hidden;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                    <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></span>
+                    <span style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></span>
+                    <span style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></span>
+                    <span
+                        style="color: #6c7086; font-size: 0.8rem; margin-left: 8px; font-family: 'Azeret Mono', monospace;">build.yml</span>
+                </div>
+                <pre
+                    style="margin: 0; font-size: 0.78rem; line-height: 1.5; color: #cdd6f4; font-family: 'Azeret Mono', monospace; white-space: pre; overflow-x: auto;"><span style="color: #89b4fa;">name:</span> Build LaTeX PDF
+<span style="color: #89b4fa;">on:</span> [<span style="color: #a6e3a1;">push</span>, <span style="color: #a6e3a1;">pull_request</span>]
+
+<span style="color: #89b4fa;">jobs:</span>
+  <span style="color: #89b4fa;">build-pdf:</span>
+    <span style="color: #89b4fa;">runs-on:</span> <span style="color: #a6e3a1;">ubuntu-latest</span>
+    <span style="color: #89b4fa;">steps:</span>
+      - <span style="color: #89b4fa;">uses:</span> <span style="color: #f9e2af;">actions/checkout@v4</span>
+
+      - <span style="color: #89b4fa;">name:</span> <span style="color: #a6e3a1;">Compile LaTeX</span>
+        <span style="color: #89b4fa;">uses:</span> <span style="color: #f9e2af;">xu-cheng/latex-action@v3</span>
+        <span style="color: #89b4fa;">with:</span>
+          <span style="color: #89b4fa;">root_file:</span> main.tex
+          <span style="color: #89b4fa;">latexmk_use_xelatex:</span> <span style="color: #fab387;">true</span>
+
+  <span style="color: #89b4fa;">release:</span>
+    <span style="color: #89b4fa;">needs:</span> build-pdf
+    <span style="color: #89b4fa;">steps:</span>
+      - <span style="color: #89b4fa;">uses:</span> <span style="color: #f9e2af;">softprops/action-gh-release@v2</span>
+        <span style="color: #89b4fa;">with:</span>
+          <span style="color: #89b4fa;">tag_name:</span> build-${{ run_number }}
+          <span style="color: #89b4fa;">files:</span> EE5217_BaoCao.pdf</pre>
+            </div>
+
+            <div class="text-block-shadow"
+                style="background: #faf5ff; padding: 12px 18px; border-radius: 12px; border-left: 4px solid #8b5cf6;">
+                <p style="font-size: 1.05rem; color: #5b21b6; margin: 0; line-height: 1.5;">
+                    <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i>
+                    <b>Hoàn toàn tự động</b> — Không cần bất kỳ thành viên nào cài đặt LaTeX trên máy cá nhân.
+                </p>
+            </div>
         </div>
     </div>
 </div>
